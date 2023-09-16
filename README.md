@@ -10,7 +10,7 @@
 [![Open in Spaces](https://huggingface.co/datasets/huggingface/badges/raw/main/open-in-hf-spaces-md-dark.svg)](https://huggingface.co/spaces/winstxnhdw/CapGen)
 [![Open a Pull Request](https://huggingface.co/datasets/huggingface/badges/raw/main/open-a-pr-md-dark.svg)](https://github.com/winstxnhdw/CapGen/compare)
 
-A video/audio transcriber for generating caption files with Whisper and CTranslate2.
+A video/audio transcriber for generating caption files with Whisper and CTranslate2, hosted on HuggingFace Spaces. Includes a local CLI tool with CUDA support.
 
 ## Usage (API)
 
