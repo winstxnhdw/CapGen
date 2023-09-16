@@ -1,4 +1,4 @@
-FROM ghcr.io/winstxnhdw/CapGen:main
+FROM ghcr.io/winstxnhdw/capgen:main
 
 ENV SERVER_PORT 7860
 
