@@ -6,18 +6,12 @@ permissions:
   contents: write
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  test:
+    uses: winstxnhdw/CapGen/.github/workflows/main.yml@main
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Run the Docker containers
-        run: docker build -t capgen .
 
   auto-merge:
-    needs: build
+    needs: test
     if: ${{ github.actor == 'dependabot[bot]' }}
     runs-on: ubuntu-latest
 

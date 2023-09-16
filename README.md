@@ -2,6 +2,7 @@
 
 [![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/PyCQA/pylint)
 [![main.yml](https://github.com/winstxnhdw/CapGen/actions/workflows/main.yml/badge.svg)](https://github.com/winstxnhdw/CapGen/actions/workflows/main.yml)
+[![deploy.yml](https://github.com/winstxnhdw/CapGen/actions/workflows/deploy.yml/badge.svg)](https://github.com/winstxnhdw/CapGen/actions/workflows/deploy.yml)
 [![build.yml](https://github.com/winstxnhdw/CapGen/actions/workflows/build.yml/badge.svg)](https://github.com/winstxnhdw/CapGen/actions/workflows/build.yml)
 [![formatter.yml](https://github.com/winstxnhdw/CapGen/actions/workflows/formatter.yml/badge.svg)](https://github.com/winstxnhdw/CapGen/actions/workflows/formatter.yml)
 [![warmer.yml](https://github.com/winstxnhdw/CapGen/actions/workflows/warmer.yml/badge.svg)](https://github.com/winstxnhdw/CapGen/actions/workflows/warmer.yml)
