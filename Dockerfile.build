@@ -11,7 +11,7 @@ COPY pyproject.toml .
 RUN apt update && \
     apt install -y curl && \
     curl -sSL https://install.python-poetry.org | python - && \
-    poetry install --no-dev
+    poetry install --without=dev
 
 
 FROM python:slim
