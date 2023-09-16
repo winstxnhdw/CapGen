@@ -45,14 +45,16 @@ python transcribe.py -f ~/Downloads/audio.mp3 -t srt -o ./result.srt --cuda
 ```
 
 ```yaml
-usage: transcribe.py [-h] [-c]  -f  -t  -o
+usage: transcribe.py [-h] [-c] -f  -t  -o
 
 Transcribe a compatible audio/video file into a chosen caption file
 
 options:
-  -h, --help     show this help message and exit
+  -h, --help      show this help message and exit
+  -c, --cuda      whether to use CUDA for inference
+
+required:
   -f, --file     the file path to a compatible audio/video
   -t, --type     the chosen caption file format
   -o, --output   the output file path
-  -c, --cuda     whether to use CUDA for inference
 ```
