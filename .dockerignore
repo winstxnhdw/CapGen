@@ -1,0 +1,10 @@
+.gitignore
+.dockerignore
+*.md
+*.pyc
+*.toml
+Dockerfile*
+transcribe.py
+
+.github/
+tests/
