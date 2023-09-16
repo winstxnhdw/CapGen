@@ -18,17 +18,17 @@ A video/audio transcriber for generating caption files with Whisper and CTransla
 Simply cURL the endpoint like in the following. Currently, the only available transcription type is `srt`.
 
 ```bash
-curl 'https://winstxnhdw-CapGen.hf.space/v1/transcribe?transcription_type=$TRANSCRIPTION_TYPE' \
-  -H 'Content-Type: multipart/form-data' \
-  -F 'request=@$AUDIO_FILE_PATH;type=audio/mpeg'
+curl "https://winstxnhdw-CapGen.hf.space/v1/transcribe?transcription_type=$TRANSCRIPTION_TYPE" \
+  -H "Content-Type: multipart/form-data" \
+  -F "request=@$AUDIO_FILE_PATH;type=audio/mpeg"
 ```
 
 You can also redirect the output to a file.
 
 ```bash
-curl 'https://winstxnhdw-CapGen.hf.space/v1/transcribe?transcription_type=srt' \
-  -H 'Content-Type: multipart/form-data' \
-  -F 'request=@$AUDIO_FILE_PATH;type=audio/mpeg' | jq '.result' > $OUTPUT_DIRECTORY/result.srt
+curl "https://winstxnhdw-CapGen.hf.space/v1/transcribe" \
+  -H "Content-Type: multipart/form-data" \
+  -F "request=@$AUDIO_FILE_PATH;type=audio/mpeg" | jq -r ".result" > $OUTPUT_DIRECTORY/result.srt
 ```
 
 ## Usage (CLI)
@@ -36,7 +36,7 @@ curl 'https://winstxnhdw-CapGen.hf.space/v1/transcribe?transcription_type=srt' \
 Install the necessary dependencies with `poetry`.
 
 ```bash
-poetry install --without=server
+poetry install --no-dev
 ```
 
 You can run the transcriber as a CLI tool.
