@@ -1,7 +1,8 @@
-from typing import BinaryIO, Iterable, Literal
+from typing import BinaryIO, Literal
 
 from faster_whisper import WhisperModel
-from faster_whisper.transcribe import Segment
+
+from server.features.transcriber.utils import Converter
 
 
 class Transcriber:
@@ -32,51 +33,6 @@ class Transcriber:
 
 
     @classmethod
-    def convert_seconds_to_hhmmssmmm(cls, seconds: float) -> str:
-        """
-        Summary
-        -------
-        converts seconds to hh:mm:ss,mmm format
-
-        Parameters
-        ----------
-        seconds (float) : the number of seconds to convert
-
-        Returns
-        -------
-        converted_time (str) : the converted time in hh:mm:ss,mmm format
-        """
-        hours, remainder = divmod(seconds, 3600)
-        minutes, seconds = divmod(remainder, 60)
-        milliseconds = int((seconds % 1) * 1000)
-
-        return f'{int(hours):02}:{int(minutes):02}:{int(seconds):02},{milliseconds:03}'
-
-
-    @classmethod
-    def as_srt(cls, segments: Iterable[Segment]) -> str:
-        """
-        Summary
-        -------
-        converts transcription segments into a SRT file
-
-        Parameters
-        ----------
-        segments (Iterable[Segment]) : the segments to convert
-
-        Returns
-        -------
-        subrip_subtitle (str) : the SRT file
-        """
-        return '\n\n'.join(
-            f'{segment.id}\n'
-            f'{cls.convert_seconds_to_hhmmssmmm(segment.start)} --> '
-            f'{cls.convert_seconds_to_hhmmssmmm(segment.end)}\n{segment.text.strip()}'
-            for segment in segments
-        )
-
-
-    @classmethod
     def transcribe(cls, file: str | BinaryIO, transcription_type: Literal['srt']) -> str:
         """
         Summary
@@ -98,7 +54,9 @@ class Transcriber:
             vad_parameters={ 'min_silence_duration_ms': 500 }
         )
 
+        converter = Converter(segments)
+
         if transcription_type == 'srt':
-            return cls.as_srt(segments)
+            return converter.to_srt(segments)
 
         raise KeyError(f'Invalid transcription type: {transcription_type}!')
