@@ -1,5 +1,4 @@
 from argparse import ArgumentParser
-from sys import exit as sys_exit
 from sys import stdin
 from typing import BinaryIO, Literal, NamedTuple
 
@@ -14,7 +13,7 @@ class Arguments(NamedTuple):
 
     Attributes
     ----------
-    file (str) : the file path to a compatible audio/video
+    file (str | BinaryIO) : the file path to a compatible audio/video
     caption (Literal['srt']) : the chosen caption file format
     output (str) : the output file path
     cuda (bool) : whether to use CUDA for inference
@@ -25,7 +24,7 @@ class Arguments(NamedTuple):
     cuda: bool
 
 
-def parse_args() -> Arguments:
+def parse_args() -> Arguments | None:
     """
     Summary
     -------
@@ -34,7 +33,6 @@ def parse_args() -> Arguments:
     Returns
     -------
     args (Arguments) : the parsed arguments
-    unknown (list[str]) : the unknown arguments
     """
     parser = ArgumentParser(description='Transcribe a compatible audio/video file into a chosen caption file')
     parser.add_argument('file', nargs='?', type=str, help='the file path to a compatible audio/video')
@@ -47,8 +45,7 @@ def parse_args() -> Arguments:
     args, unknown = parser.parse_known_args()
 
     if unknown or not args.file and stdin.isatty():
-        parser.print_help()
-        sys_exit(1)
+        return parser.print_help()
 
     return Arguments(
         args.file or stdin.buffer,
@@ -64,7 +61,8 @@ def main():
     -------
     the entrypoint for the CapGen CLI
     """
-    args = parse_args()
+    if not (args := parse_args()):
+        return
 
     if args.cuda:
         Transcriber.toggle_device()
