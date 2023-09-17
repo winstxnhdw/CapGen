@@ -92,7 +92,11 @@ class Transcriber:
         -------
         transcription (str) : the transcribed text in the chosen caption format
         """
-        segments, _ = cls.model.transcribe(file, vad_filter=True)
+        segments, _ = cls.model.transcribe(
+            file,
+            vad_filter=True,
+            vad_parameters={ 'min_silence_duration_ms': 500 }
+        )
 
         if transcription_type == 'srt':
             return cls.as_srt(segments)
