@@ -2,6 +2,8 @@ from typing import Iterable
 
 from faster_whisper.transcribe import Segment
 
+from server.features.transcriber.utils import convert_seconds_to_hhmmssmmm
+
 
 class Converter:
     """
@@ -25,27 +27,6 @@ class Converter:
         self.segments = segments
 
 
-    def convert_seconds_to_hhmmssmmm(self, seconds: float) -> str:
-        """
-        Summary
-        -------
-        converts seconds to hh:mm:ss,mmm format
-
-        Parameters
-        ----------
-        seconds (float) : the number of seconds to convert
-
-        Returns
-        -------
-        converted_time (str) : the converted time in hh:mm:ss,mmm format
-        """
-        hours, remainder = divmod(seconds, 3600)
-        minutes, seconds = divmod(remainder, 60)
-        milliseconds = int((seconds % 1) * 1000)
-
-        return f'{int(hours):02}:{int(minutes):02}:{int(seconds):02},{milliseconds:03}'
-
-
     def to_srt(self, segments: Iterable[Segment]) -> str:
         """
         Summary
@@ -62,7 +43,7 @@ class Converter:
         """
         return '\n\n'.join(
             f'{segment.id}\n'
-            f'{self.convert_seconds_to_hhmmssmmm(segment.start)} --> '
-            f'{self.convert_seconds_to_hhmmssmmm(segment.end)}\n{segment.text.strip()}'
+            f'{convert_seconds_to_hhmmssmmm(segment.start)} --> '
+            f'{convert_seconds_to_hhmmssmmm(segment.end)}\n{segment.text.strip()}'
             for segment in segments
         )
