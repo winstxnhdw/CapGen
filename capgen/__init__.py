@@ -23,7 +23,7 @@ class Arguments(NamedTuple):
     cuda: bool
 
 
-def parse_args() -> tuple[Arguments, list[str]]:
+def parse_args() -> Arguments:
     """
     Summary
     -------
@@ -42,7 +42,7 @@ def parse_args() -> tuple[Arguments, list[str]]:
     required_group.add_argument('-c', '--caption', type=str, required=True, metavar='', help='the chosen caption file format')
     required_group.add_argument('-o', '--output',  type=str, required=True, metavar='', help='the output file path')
 
-    return parser.parse_known_args()  # type: ignore
+    return parser.parse_known_args()[0]  # type: ignore
 
 
 def main():
@@ -51,7 +51,7 @@ def main():
     -------
     the entrypoint for the CapGen CLI
     """
-    args, _ = parse_args()
+    args = parse_args()
 
     if args.cuda:
         Transcriber.toggle_device()
