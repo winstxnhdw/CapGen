@@ -12,7 +12,6 @@ disable = [
 ]
 
 [tool.pyright]
-include = ['server', 'capgen']
 stubPath = 'server/typings'
 reportUnknownVariableType = false
 reportUnknownMemberType = false
