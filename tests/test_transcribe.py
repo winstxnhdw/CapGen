@@ -16,7 +16,7 @@ def test_transcribe(client: TestClient):
         response = client.post(
             '/v1/transcribe',
             files={ 'request': file },
-            params={ 'transcription_type': 'srt' }
+            params={ 'caption_format': 'srt' }
         ).json()
 
     assert response['result'] == '1\n00:00:00,000 --> 00:00:02,000\nHello there, my name is Bella.'

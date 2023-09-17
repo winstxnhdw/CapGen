@@ -24,10 +24,10 @@ A fast CPU-first video/audio transcriber for generating caption files with [Whis
 
 ## Usage (API)
 
-Simply cURL the endpoint like in the following. Currently, the only available transcription type is `srt`.
+Simply cURL the endpoint like in the following. Currently, the only available caption format is `srt`.
 
 ```bash
-curl "https://winstxnhdw-CapGen.hf.space/v1/transcribe?transcription_type=$TRANSCRIPTION_TYPE" \
+curl "https://winstxnhdw-CapGen.hf.space/v1/transcribe?caption_format=$CAPTION_FORMAT" \
   -H "Content-Type: multipart/form-data" \
   -F "request=@$AUDIO_FILE_PATH;type=audio/mpeg"
 ```
@@ -55,16 +55,16 @@ python transcribe.py -f ~/Downloads/audio.mp3 -t srt -o ./result.srt --cuda
 ```
 
 ```yaml
-usage: transcribe.py [-h] [-c] -f  -t  -o
+usage: transcribe.py [-h] [-g] -f  -c  -o
 
 Transcribe a compatible audio/video file into a chosen caption file
 
 options:
   -h, --help      show this help message and exit
-  -c, --cuda      whether to use CUDA for inference
+  -g, --cuda      whether to use CUDA for inference
 
 required:
-  -f, --file     the file path to a compatible audio/video
-  -t, --type     the chosen caption file format
-  -o, --output   the output file path
+  -f, --file      the file path to a compatible audio/video
+  -c, --caption   the chosen caption file format
+  -o, --output    the output file path
 ```

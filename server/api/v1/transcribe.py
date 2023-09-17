@@ -10,17 +10,17 @@ from server.schemas.v1 import Transcribed
 
 
 @v1.post('/transcribe', response_model=Transcribed)
-async def transcribe(request: UploadFile, transcription_type: Literal['srt'] = 'srt'):
+async def transcribe(request: UploadFile, caption_format: Literal['srt'] = 'srt'):
     """
     Summary
     -------
-    the `/transcribe` route transcribes the audio file into a chosen caption file
+    the `/transcribe` route transcribes the audio file into a chosen caption format
     """
     try:
         request.file.fileno()
-        result = Transcriber.transcribe(request.file, transcription_type)
+        result = Transcriber.transcribe(request.file, caption_format)
 
     except KeyError as exception:
-        raise HTTPException(HTTP_400_BAD_REQUEST, f'Invalid transcription type: {transcription_type}!') from exception
+        raise HTTPException(HTTP_400_BAD_REQUEST, f'Invalid format: {caption_format}!') from exception
 
     return Transcribed(result=result)

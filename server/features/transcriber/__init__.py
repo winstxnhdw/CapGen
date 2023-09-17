@@ -13,7 +13,7 @@ class Transcriber:
 
     Methods
     -------
-    transcribe(file: str | BinaryIO, transcription_type: Literal['srt']) -> str:
+    transcribe(file: str | BinaryIO, caption_format: Literal['srt']) -> str:
         converts transcription segments into a SRT file
     """
     model = WhisperModel('large-v2', device="cpu", compute_type='auto')
@@ -33,7 +33,7 @@ class Transcriber:
 
 
     @classmethod
-    def transcribe(cls, file: str | BinaryIO, transcription_type: Literal['srt']) -> str:
+    def transcribe(cls, file: str | BinaryIO, caption_format: Literal['srt']) -> str:
         """
         Summary
         -------
@@ -42,7 +42,7 @@ class Transcriber:
         Parameters
         ----------
         file (str | BinaryIO) : the file to transcribe
-        transcription_type (Literal['srt']) : the chosen caption format
+        caption_format (Literal['srt']) : the chosen caption format
 
         Returns
         -------
@@ -56,7 +56,7 @@ class Transcriber:
 
         converter = Converter(segments)
 
-        if transcription_type == 'srt':
+        if caption_format == 'srt':
             return converter.to_srt(segments)
 
-        raise KeyError(f'Invalid transcription type: {transcription_type}!')
+        raise KeyError(f'Invalid format: {caption_format}!')
