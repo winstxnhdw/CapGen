@@ -8,6 +8,14 @@ class Arguments(NamedTuple):
     """
     Summary
     -------
+    the arguments for the command line interface
+
+    Attributes
+    ----------
+    file (str) : the file path to a compatible audio/video
+    caption (Literal['srt']) : the chosen caption file format
+    output (str) : the output file path
+    cuda (bool) : whether to use CUDA for inference
     """
     file: str
     caption: Literal['srt']
@@ -41,6 +49,7 @@ def main():
     """
     Summary
     -------
+    the entrypoint for the CapGen CLI
     """
     args, _ = parse_args()
 
