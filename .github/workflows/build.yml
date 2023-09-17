@@ -11,6 +11,7 @@ on:
       - .dockerignore
       - server/**
       - tests/**
+      - capgen/**
 
 jobs:
   test:
