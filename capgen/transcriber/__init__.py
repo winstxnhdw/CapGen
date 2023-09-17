@@ -1,4 +1,4 @@
-from typing import BinaryIO, Literal, TypedDict
+from typing import BinaryIO, Literal
 
 from faster_whisper import WhisperModel
 

@@ -16,4 +16,3 @@ class TranscriberOptions(TypedDict):
     model_size_or_path: str
     compute_type: str
     num_workers: int
-
