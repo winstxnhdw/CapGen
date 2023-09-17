@@ -1,4 +1,6 @@
-from server import Server
+from hypercorn.run import run
+
+from server.config import Config
 
 
 def main():
@@ -7,8 +9,7 @@ def main():
     -------
     exhaust the initialise generator and run the server
     """
-    for _ in Server.initialise():
-        pass
+    run(Config())
 
 
 if __name__ == '__main__':

@@ -1,10 +1,11 @@
 .gitignore
 .dockerignore
+capgen/__init__.py
+
 *.md
 *.pyc
 *.toml
 Dockerfile*
-capgen/__init__.py
 
 .github/
 tests/

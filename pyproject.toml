@@ -33,8 +33,9 @@ faster-whisper = "^0.8.0"
 
 [tool.poetry.group.server.dependencies]
 fastapi = "^0.103.1"
-hypercorn = "^0.14.4"
 python-multipart = "^0.0.6"
+hypercorn = "^0.14.4"
+uvloop = "^0.17.0"
 
 [tool.poetry.group.dev.dependencies]
 pyright = "^1.1.327"
