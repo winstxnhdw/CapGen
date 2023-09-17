@@ -46,7 +46,7 @@ def parse_args() -> Arguments:
 
     args, unknown = parser.parse_known_args()
 
-    if unknown:
+    if unknown or not args.file and stdin.isatty():
         parser.print_help()
         sys_exit(1)
 
