@@ -1,8 +1,9 @@
-from typing import BinaryIO, Literal
+from typing import BinaryIO, Literal, TypedDict
 
 from faster_whisper import WhisperModel
 
 from capgen.transcriber.converter import Converter
+from capgen.types import TranscriberOptions
 
 
 class Transcriber:
@@ -16,7 +17,13 @@ class Transcriber:
     transcribe(file: str | BinaryIO, caption_format: Literal['srt']) -> str:
         converts transcription segments into a SRT file
     """
-    model = WhisperModel('large-v2', device="cpu", compute_type='auto', num_workers=4)
+    base_options = TranscriberOptions(
+        model_size_or_path='guillaumekln/faster-whisper-large-v2',
+        compute_type='auto',
+        num_workers=4,
+    )
+
+    model = WhisperModel(**base_options, device='cpu')
 
     @classmethod
     def toggle_device(cls):
@@ -26,9 +33,8 @@ class Transcriber:
         toggles the device between CPU and GPU
         """
         cls.model = WhisperModel(
-            'guillaumekln/faster-whisper-large-v2',
-            device="cpu" if cls.model.model.device == "cuda" else "cuda",
-            compute_type='auto'
+            **cls.base_options,
+            device='cpu' if cls.model.model.device == 'cuda' else 'cuda',
         )
 
 
