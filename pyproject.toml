@@ -12,7 +12,7 @@ disable = [
 ]
 
 [tool.pyright]
-include = ['server']
+include = ['server', 'capgen']
 stubPath = 'server/typings'
 reportUnknownVariableType = false
 reportUnknownMemberType = false
@@ -45,7 +45,7 @@ isort = "^5.12.0"
 httpx = "^0.25.0"
 
 [tool.poetry.scripts]
-capgen = "capgen.transcribe:main"
+capgen = "capgen:main"
 
 [build-system]
 requires = ["poetry-core"]

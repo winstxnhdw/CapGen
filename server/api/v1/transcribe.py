@@ -4,8 +4,8 @@ from fastapi import UploadFile
 from starlette.exceptions import HTTPException
 from starlette.status import HTTP_400_BAD_REQUEST
 
+from capgen.transcriber import Transcriber
 from server.api.v1 import v1
-from server.features import Transcriber
 from server.schemas.v1 import Transcribed
 
 

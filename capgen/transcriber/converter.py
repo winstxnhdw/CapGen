@@ -2,7 +2,7 @@ from typing import Iterable
 
 from faster_whisper.transcribe import Segment
 
-from server.features.transcriber.utils import convert_seconds_to_hhmmssmmm
+from capgen.utils import convert_seconds_to_hhmmssmmm
 
 
 class Converter:

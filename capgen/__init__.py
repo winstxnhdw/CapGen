@@ -1,7 +1,7 @@
 from argparse import ArgumentParser
 from typing import Literal, NamedTuple
 
-from server.features import Transcriber
+from capgen.transcriber import Transcriber
 
 
 class Arguments(NamedTuple):

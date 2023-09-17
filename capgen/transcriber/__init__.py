@@ -2,7 +2,7 @@ from typing import BinaryIO, Literal
 
 from faster_whisper import WhisperModel
 
-from server.features.transcriber.converter import Converter
+from capgen.transcriber.converter import Converter
 
 
 class Transcriber:
