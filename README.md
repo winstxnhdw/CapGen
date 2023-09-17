@@ -11,7 +11,16 @@
 [![Open in Spaces](https://huggingface.co/datasets/huggingface/badges/raw/main/open-in-hf-spaces-md-dark.svg)](https://huggingface.co/spaces/winstxnhdw/CapGen)
 [![Open a Pull Request](https://huggingface.co/datasets/huggingface/badges/raw/main/open-a-pr-md-dark.svg)](https://github.com/winstxnhdw/CapGen/compare)
 
-A video/audio transcriber for generating caption files with Whisper and CTranslate2, hosted on HuggingFace Spaces. Includes a local CLI tool with CUDA support.
+A fast CPU-first video/audio transcriber for generating caption files with [Whisper](https://openai.com/research/whisper) and [CTranslate2](https://github.com/OpenNMT/CTranslate2), hosted on Hugging Face Spaces. Includes a local CLI tool with CUDA support.
+
+## Requirements
+
+- Python 3.11
+- Poetry 1.5.0
+- cuBLAS*
+- cuDNN*
+
+> *Only required if you are planning to run with `--cuda`
 
 ## Usage (API)
 
@@ -33,13 +42,13 @@ curl "https://winstxnhdw-CapGen.hf.space/v1/transcribe" \
 
 ## Usage (CLI)
 
-Install the necessary dependencies with `poetry`.
+`CapGen` is available as a CLI tool with CUDA support. Install the necessary dependencies with `poetry`.
 
 ```bash
 poetry install --no-dev
 ```
 
-You can run the transcriber as a CLI tool.
+Now, you can run the CLI tool with the following command.
 
 ```bash
 python transcribe.py -f ~/Downloads/audio.mp3 -t srt -o ./result.srt --cuda
