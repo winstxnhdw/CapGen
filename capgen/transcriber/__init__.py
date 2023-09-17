@@ -16,7 +16,7 @@ class Transcriber:
     transcribe(file: str | BinaryIO, caption_format: Literal['srt']) -> str:
         converts transcription segments into a SRT file
     """
-    model = WhisperModel('large-v2', device="cpu", compute_type='auto')
+    model = WhisperModel('large-v2', device="cpu", compute_type='auto', num_workers=4)
 
     @classmethod
     def toggle_device(cls):
@@ -26,7 +26,7 @@ class Transcriber:
         toggles the device between CPU and GPU
         """
         cls.model = WhisperModel(
-            'large-v2',
+            'guillaumekln/faster-whisper-large-v2',
             device="cpu" if cls.model.model.device == "cuda" else "cuda",
             compute_type='auto'
         )
