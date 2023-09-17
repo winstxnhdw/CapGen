@@ -1,5 +1,7 @@
 from argparse import ArgumentParser
-from typing import Literal, NamedTuple
+from sys import exit as sys_exit
+from sys import stdin
+from typing import BinaryIO, Literal, NamedTuple
 
 from capgen.transcriber import Transcriber
 
@@ -17,7 +19,7 @@ class Arguments(NamedTuple):
     output (str) : the output file path
     cuda (bool) : whether to use CUDA for inference
     """
-    file: str
+    file: str | BinaryIO
     caption: Literal['srt']
     output: str
     cuda: bool
@@ -35,14 +37,25 @@ def parse_args() -> Arguments:
     unknown (list[str]) : the unknown arguments
     """
     parser = ArgumentParser(description='Transcribe a compatible audio/video file into a chosen caption file')
+    parser.add_argument('file', nargs='?', type=str, help='the file path to a compatible audio/video')
     parser.add_argument('-g', '--cuda',   action='store_true', help='whether to use CUDA for inference')
 
     required_group = parser.add_argument_group('required')
-    required_group.add_argument('-f', '--file',    type=str, required=True, metavar='', help='the file path to a compatible audio/video')
     required_group.add_argument('-c', '--caption', type=str, required=True, metavar='', help='the chosen caption file format')
     required_group.add_argument('-o', '--output',  type=str, required=True, metavar='', help='the output file path')
 
-    return parser.parse_known_args()[0]  # type: ignore
+    args, unknown = parser.parse_known_args()
+
+    if unknown:
+        parser.print_help()
+        sys_exit(1)
+
+    return Arguments(
+        args.file or stdin.buffer,
+        args.caption,
+        args.output,
+        args.cuda
+    )
 
 
 def main():

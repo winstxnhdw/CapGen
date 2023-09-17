@@ -48,13 +48,16 @@ pip install git+https://github.com/winstxnhdw/CapGen
 Now, you can run the CLI tool with the following command.
 
 ```bash
-capgen -f ~/Downloads/audio.mp3 -c srt -o ./result.srt --cuda
+capgen -c srt -o ./result.srt --cuda < ~/Downloads/audio.mp3
 ```
 
 ```yaml
-usage: capgen [-h] [-g] -f  -c  -o
+usage: capgen [-h] [-g]  -c  -o  [file]
 
 Transcribe a compatible audio/video file into a chosen caption file
+
+positional arguments:
+  file            the file path to a compatible audio/video
 
 options:
   -h, --help      show this help message and exit
