@@ -42,20 +42,20 @@ curl "https://winstxnhdw-CapGen.hf.space/v1/transcribe" \
 
 ## Usage (CLI)
 
-`CapGen` is available as a CLI tool with CUDA support. Install the necessary dependencies with `poetry`.
+`CapGen` is available as a CLI tool with CUDA support. First, install the `CapGen` package.
 
 ```bash
-poetry install --no-dev
+pip install git+https://github.com/winstxnhdw/CapGen
 ```
 
 Now, you can run the CLI tool with the following command.
 
 ```bash
-python transcribe.py -f ~/Downloads/audio.mp3 -t srt -o ./result.srt --cuda
+capgen -f ~/Downloads/audio.mp3 -c srt -o ./result.srt --cuda
 ```
 
 ```yaml
-usage: transcribe.py [-h] [-g] -f  -c  -o
+usage: capgen [-h] [-g] -f  -c  -o
 
 Transcribe a compatible audio/video file into a chosen caption file
 
