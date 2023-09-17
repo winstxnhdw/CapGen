@@ -28,16 +28,14 @@ Simply cURL the endpoint like in the following. Currently, the only available ca
 
 ```bash
 curl "https://winstxnhdw-CapGen.hf.space/v1/transcribe?caption_format=$CAPTION_FORMAT" \
-  -H "Content-Type: multipart/form-data" \
-  -F "request=@$AUDIO_FILE_PATH;type=audio/mpeg"
+  -F "request=@$AUDIO_FILE_PATH"
 ```
 
 You can also redirect the output to a file.
 
 ```bash
-curl "https://winstxnhdw-CapGen.hf.space/v1/transcribe" \
-  -H "Content-Type: multipart/form-data" \
-  -F "request=@$AUDIO_FILE_PATH;type=audio/mpeg" | jq -r ".result" > $OUTPUT_DIRECTORY/result.srt
+  curl "https://winstxnhdw-CapGen.hf.space/v1/transcribe" \
+    -F "request=@$AUDIO_FILE_PATH" | jq -r ".result" > result.srt
 ```
 
 ## Usage (CLI)
