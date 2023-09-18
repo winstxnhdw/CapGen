@@ -64,7 +64,6 @@ options:
   -g, --cuda      whether to use CUDA for inference
 
 required:
-  -f, --file      the file path to a compatible audio/video
   -c, --caption   the chosen caption file format
   -o, --output    the output file path
 ```
