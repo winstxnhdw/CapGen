@@ -9,7 +9,6 @@ jobs:
   test:
     uses: winstxnhdw/CapGen/.github/workflows/main.yml@main
 
-
   auto-merge:
     needs: test
     if: ${{ github.actor == 'dependabot[bot]' }}
