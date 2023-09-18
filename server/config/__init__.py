@@ -11,9 +11,7 @@ class Config(HypercornConfig):
     -------
     the config class for the server
     """
-    def __init__(self):
-
-        default_port = 49494
+    def __init__(self, default_port: int = 49494):
 
         if not (port := env.get('SERVER_PORT', default_port)):
             if not isinstance(port, int):
