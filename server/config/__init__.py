@@ -21,7 +21,7 @@ class Config(HypercornConfig):
             print(f'WARNING: using default port {default_port}')
 
         self.application_path = 'server:initialise()'
-        self._bind = [f"0.0.0.0:{port}"]
+        self.bind = [f"0.0.0.0:{port}"]
         self.access_log_format = '%(s)s "%(R)s" %(h)s "%(a)s"'
         self.accesslog = '-'
         self.use_reloader = True
