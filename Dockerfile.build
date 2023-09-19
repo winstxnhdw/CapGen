@@ -16,7 +16,10 @@ RUN apt update && \
 
 FROM python:slim
 
-RUN useradd -m -u 1000 user
+RUN apt update && \
+    apt install -y supervisor caddy && \
+    rm -rf /var/lib/apt/lists/* && \
+    useradd -m -u 1000 user
 
 ENV HOME=/home/user
 ENV PYTHONUNBUFFERED=1
@@ -29,4 +32,4 @@ WORKDIR $HOME/app
 COPY --from=builder --chown=user /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
 COPY . $HOME/app
 
-CMD ["python", "main.py"]
+CMD ["supervisord", "-c", "supervisord.conf"]

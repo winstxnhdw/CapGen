@@ -26,14 +26,14 @@ A fast CPU-first video/audio transcriber for generating caption files with [Whis
 Simply cURL the endpoint like in the following. Currently, the only available caption format is `srt`.
 
 ```bash
-curl "https://winstxnhdw-CapGen.hf.space/v1/transcribe?caption_format=$CAPTION_FORMAT" \
+curl "https://winstxnhdw-CapGen.hf.space/api/v1/transcribe?caption_format=$CAPTION_FORMAT" \
   -F "request=@$AUDIO_FILE_PATH"
 ```
 
 You can also redirect the output to a file.
 
 ```bash
-  curl "https://winstxnhdw-CapGen.hf.space/v1/transcribe" \
+  curl "https://winstxnhdw-CapGen.hf.space/api/v1/transcribe" \
     -F "request=@$AUDIO_FILE_PATH" | jq -r ".result" > result.srt
 ```
 
@@ -66,4 +66,19 @@ options:
 required:
   -c, --caption   the chosen caption file format
   -o, --output    the output file path
+```
+
+## Development
+
+You can install the required dependencies for your editor with the following.
+
+```bash
+poetry install
+```
+
+You can spin the server up locally with the following. You can access the Swagger UI at [localhost:7860/api/docs](http://localhost:7860/api/docs).
+
+```bash
+docker build -f Dockerfile.build -t capgen .
+docker run --rm -e SERVER_PORT=5000 -e APP_PORT=7860 -p 7860:7860 capgen
 ```

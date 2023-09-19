@@ -20,7 +20,7 @@ class Transcriber:
     base_options = TranscriberOptions(
         model_size_or_path='guillaumekln/faster-whisper-large-v2',
         compute_type='auto',
-        num_workers=4,
+        num_workers=2,
     )
 
     model = WhisperModel(**base_options, device='cpu')

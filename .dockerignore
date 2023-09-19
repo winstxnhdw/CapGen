@@ -4,8 +4,10 @@ capgen/__init__.py
 
 *.md
 *.pyc
-*.toml
 Dockerfile*
 
 .github/
 tests/
+.vscode/
+.venv/
+.pytest_cache/
