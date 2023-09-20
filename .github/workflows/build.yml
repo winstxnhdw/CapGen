@@ -5,12 +5,12 @@ on:
     branches: [main]
     paths:
       - .github/workflows/build.yml
-      - Caddyfile
-      - supervisord.conf
+      - .dockerignore
       - Dockerfile.build
+      - supervisord.conf
+      - Caddyfile
       - pyproject.toml
       - poetry.lock
-      - .dockerignore
       - server/**
       - tests/**
       - capgen/**
