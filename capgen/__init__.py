@@ -1,4 +1,7 @@
 from argparse import ArgumentParser
+from ctypes import CDLL
+from os.path import join
+from site import getsitepackages
 from sys import stdin
 from typing import BinaryIO, Literal, NamedTuple
 
@@ -54,6 +57,21 @@ def parse_args() -> Arguments | None:
         args.cuda
     )
 
+def resolve_cuda_libraries():
+    """
+    Summary
+    -------
+    resolves the CUDA libraries
+    """
+    site_package_path = join(getsitepackages()[0], 'nvidia')
+
+    try:
+        CDLL(join(site_package_path, 'cublas', 'lib', 'libcublas.so.11'))
+        CDLL(join(site_package_path, 'cudnn', 'lib', 'libcudnn_cnn_infer.so.8'))
+
+    except OSError:
+        print('Python CUDA binaries not found, falling back to system CUDA binaries.')
+
 
 def main():
     """
@@ -65,6 +83,7 @@ def main():
         return
 
     if args.cuda:
+        resolve_cuda_libraries()
         Transcriber.toggle_device()
 
     transcription = Transcriber.transcribe(args.file, args.caption)

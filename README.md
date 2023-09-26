@@ -15,11 +15,6 @@ A fast CPU-first video/audio transcriber for generating caption files with [Whis
 ## Requirements
 
 - Python 3.11
-- Poetry 1.5.0
-- cuBLAS*
-- cuDNN*
-
-> *Only required if you are planning to run with `--cuda`
 
 ## Usage (API)
 
@@ -39,10 +34,16 @@ You can also redirect the output to a file.
 
 ## Usage (CLI)
 
-`CapGen` is available as a CLI tool with CUDA support. First, install the `CapGen` package.
+`CapGen` is available as a CLI tool with CUDA support. You can install it with `pip`.
 
 ```bash
 pip install git+https://github.com/winstxnhdw/CapGen
+```
+
+You may also install `CapGen` with the necessary CUDA binaries.
+
+```bash
+pip install 'capgen[cuda] @ git+https://github.com/winstxnhdw/CapGen'
 ```
 
 Now, you can run the CLI tool with the following command.
