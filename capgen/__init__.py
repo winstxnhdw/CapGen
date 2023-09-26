@@ -66,11 +66,16 @@ def resolve_cuda_libraries():
     site_package_path = join(getsitepackages()[0], 'nvidia')
 
     try:
-        CDLL(join(site_package_path, 'cublas', 'lib', 'libcublas.so.11'))
         CDLL(join(site_package_path, 'cudnn', 'lib', 'libcudnn_cnn_infer.so.8'))
 
     except OSError:
-        print('Python CUDA binaries not found, falling back to system CUDA binaries.')
+        print('Unable to find Python cuDNN binaries, falling back to system binaries..')
+
+    try:
+        CDLL(join(site_package_path, 'cublas', 'lib', 'libcublas.so.11'))
+
+    except OSError:
+        print('Unable to find Python cuBLAS binaries, falling back to system binaries..')
 
 
 def main():
