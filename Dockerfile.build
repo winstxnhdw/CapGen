@@ -25,14 +25,14 @@ ENV HOME /home/user
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
 
-WORKDIR $HOME/app
-
 RUN useradd -m -u 1000 user
 
 USER user
 
-COPY --from=caddy-builder --chown=user /usr/bin/caddy /usr/bin/caddy
-COPY --from=python-builder --chown=user /usr/local/ /usr/local/
-COPY . $HOME/app
+WORKDIR $HOME/app
+
+COPY --chown=user --from=caddy-builder  /usr/bin/caddy /usr/bin/caddy
+COPY --chown=user --from=python-builder /usr/local/    /usr/local/
+COPY --chown=user . $HOME/app
 
 CMD ["supervisord"]
