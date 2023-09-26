@@ -32,4 +32,4 @@ WORKDIR $HOME/app
 COPY --from=builder --chown=user /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
 COPY . $HOME/app
 
-CMD ["supervisord", "-c", "supervisord.conf"]
+CMD ["supervisord"]
