@@ -9,6 +9,7 @@ jobs:
   auto-merge:
     needs: test
     uses: winstxnhdw/actions/.github/workflows/dependabot-public.yml@main
-    secrets: inherit
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
     permissions:
       contents: write

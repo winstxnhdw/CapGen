@@ -10,4 +10,5 @@ on:
 jobs:
   deploy:
     uses: winstxnhdw/actions/.github/workflows/spaces-deploy.yml@main
-    secrets: inherit
+    secrets:
+      token: ${{ secrets.HF_TOKEN }}
