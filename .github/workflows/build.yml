@@ -21,11 +21,15 @@ jobs:
 
   build:
     uses: winstxnhdw/actions/.github/workflows/docker-push.yml@main
-    secrets: inherit
+    with:
+      file: Dockerfile.build
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
     permissions:
       packages: write
 
   restart:
     needs: [test, build]
     uses: winstxnhdw/actions/.github/workflows/spaces-restart.yml@main
-    secrets: inherit
+    secrets:
+      token: ${{ secrets.HF_TOKEN }}

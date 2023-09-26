@@ -3,10 +3,9 @@ name: Format
 on:
   push:
     paths:
-      - .github/workflows/formatter.yml
-      - '**.py'
       - tsconfig.json
       - pyproject.toml
+      - '**.py'
 
 permissions:
   contents: write
