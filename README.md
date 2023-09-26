@@ -54,7 +54,7 @@ capgen -c srt -o ./result.srt --cuda < ~/Downloads/audio.mp3
 ```yaml
 usage: capgen [-h] [-g]  -c  -o  [file]
 
-Transcribe a compatible audio/video file into a chosen caption file
+transcribe a compatible audio/video file into a chosen caption file format
 
 positional arguments:
   file            the file path to a compatible audio/video

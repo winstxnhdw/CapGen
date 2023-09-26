@@ -34,7 +34,7 @@ def parse_args() -> Arguments | None:
     -------
     args (Arguments) : the parsed arguments
     """
-    parser = ArgumentParser(description='Transcribe a compatible audio/video file into a chosen caption file')
+    parser = ArgumentParser(description='transcribe a compatible audio/video file into a chosen caption file format')
     parser.add_argument('file', nargs='?', type=str, help='the file path to a compatible audio/video')
     parser.add_argument('-g', '--cuda',   action='store_true', help='whether to use CUDA for inference')
 
