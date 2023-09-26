@@ -1,10 +1,10 @@
-FROM python:slim as builder
+FROM python:slim as python-builder
+
+ENV POETRY_VIRTUALENVS_CREATE false
+ENV POETRY_HOME /opt/poetry
+ENV PATH $POETRY_HOME/bin:$PATH
 
 WORKDIR /
-
-ENV POETRY_VIRTUALENVS_CREATE=false
-ENV POETRY_HOME=/opt/poetry
-ENV PATH=$POETRY_HOME/bin:$PATH
 
 COPY pyproject.toml .
 
@@ -14,22 +14,25 @@ RUN apt update && \
     poetry install --without=dev
 
 
+FROM caddy:builder-alpine as caddy-builder
+
+RUN xcaddy build
+
+
 FROM python:slim
 
-RUN apt update && \
-    apt install -y supervisor caddy && \
-    rm -rf /var/lib/apt/lists/* && \
-    useradd -m -u 1000 user
-
-ENV HOME=/home/user
-ENV PYTHONUNBUFFERED=1
-ENV PYTHONDONTWRITEBYTECODE=1
-
-USER user
+ENV HOME /home/user
+ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE 1
 
 WORKDIR $HOME/app
 
-COPY --from=builder --chown=user /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
+RUN useradd -m -u 1000 user
+
+USER user
+
+COPY --from=caddy-builder --chown=user /usr/bin/caddy /usr/bin/caddy
+COPY --from=python-builder --chown=user /usr/local/ /usr/local/
 COPY . $HOME/app
 
 CMD ["supervisord"]

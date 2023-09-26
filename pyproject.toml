@@ -34,6 +34,7 @@ nvidia-cudnn-cu11 = { version = "^8.9.4.25", optional = true }
 nvidia-cublas-cu11 = { version = "^11.11.3.6", optional = true }
 
 [tool.poetry.group.server.dependencies]
+supervisor = "^4.2.5"
 fastapi = "^0.103.1"
 python-multipart = "^0.0.6"
 hypercorn = "^0.14.4"

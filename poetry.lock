@@ -1190,6 +1190,23 @@ anyio = ">=3.4.0,<5"
 full = ["httpx (>=0.22.0)", "itsdangerous", "jinja2", "python-multipart", "pyyaml"]
 
 [[package]]
+name = "supervisor"
+version = "4.2.5"
+description = "A system for controlling process state under UNIX"
+optional = false
+python-versions = "*"
+files = [
+    {file = "supervisor-4.2.5-py2.py3-none-any.whl", hash = "sha256:2ecaede32fc25af814696374b79e42644ecaba5c09494c51016ffda9602d0f08"},
+    {file = "supervisor-4.2.5.tar.gz", hash = "sha256:34761bae1a23c58192281a5115fb07fbf22c9b0133c08166beffc70fed3ebc12"},
+]
+
+[package.dependencies]
+setuptools = "*"
+
+[package.extras]
+testing = ["pytest", "pytest-cov"]
+
+[[package]]
 name = "sympy"
 version = "1.12"
 description = "Computer algebra system (CAS) in Python"
@@ -1525,4 +1542,4 @@ cuda = ["nvidia-cublas-cu11", "nvidia-cudnn-cu11"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "096db010a6102fdce30f6869ef870c996bffa37c85bb51879b355109c6db1cc9"
+content-hash = "cd447ecab513715bafe5c09e3c99053b85f0b3c9d0f886a3747ce7ba37d16dc0"
