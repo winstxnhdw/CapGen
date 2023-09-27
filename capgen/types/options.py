@@ -1,7 +1,7 @@
 from typing import Literal, TypedDict
 
 
-class TranscriberOptions(TypedDict):
+class TranscriberOptions(TypedDict, total=False):
     """
     Summary
     -------
@@ -9,21 +9,10 @@ class TranscriberOptions(TypedDict):
 
     Attributes
     ----------
-    model_size_or_path (str) : the model size or path
-    compute_type (str) : the compute type
-    num_workers (int) : the number of workers
+    device (Literal['auto', 'cpu', 'cuda']) : the device to use for inference
+    number_of_threads (int) : the number of CPU threads
+    number_of_workers (int) : the number of workers
     """
-    model_size_or_path: str
-    num_workers: int
-    compute_type: Literal[
-        'default',
-        'auto',
-        'int8',
-        'int8_float32',
-        'int8_float16',
-        'int8_bfloat16',
-        'int16'
-        'float16',
-        'bfloat16',
-        'float32',
-    ]
+    device: Literal['auto', 'cpu', 'cuda']
+    number_of_threads: int
+    number_of_workers: int

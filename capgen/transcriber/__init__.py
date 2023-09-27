@@ -3,43 +3,38 @@ from typing import BinaryIO, Literal
 from faster_whisper import WhisperModel
 
 from capgen.transcriber.converter import Converter
-from capgen.types import TranscriberOptions
 
 
 class Transcriber:
     """
     Summary
     -------
-    a static class for faster-whisper transcriber
+    a wrapper class for faster-whisper
 
     Methods
     -------
-    transcribe(file: str | BinaryIO, caption_format: Literal['srt']) -> str:
+    transcribe(file: str | BinaryIO, caption_format: Literal['srt']) -> str | None:
         converts transcription segments into a SRT file
     """
-    base_options = TranscriberOptions(
-        model_size_or_path='guillaumekln/faster-whisper-large-v2',
-        compute_type='auto',
-        num_workers=2,
-    )
+    __slots__ = ('model',)
 
-    model = WhisperModel(**base_options, device='cpu')
+    def __init__(
+        self,
+        device: Literal['auto', 'cpu', 'cuda'],
+        number_of_threads: int = 0,
+        number_of_workers: int = 1
+    ):
 
-    @classmethod
-    def toggle_device(cls):
-        """
-        Summary
-        -------
-        toggles the device between CPU and GPU
-        """
-        cls.model = WhisperModel(
-            **cls.base_options,
-            device='cpu' if cls.model.model.device == 'cuda' else 'cuda',
+        self.model = WhisperModel(
+            'guillaumekln/faster-whisper-large-v2',
+            device,
+            compute_type='auto',
+            cpu_threads=number_of_threads,
+            num_workers=number_of_workers
         )
 
 
-    @classmethod
-    def transcribe(cls, file: str | BinaryIO, caption_format: Literal['srt']) -> str:
+    def transcribe(self, file: str | BinaryIO, caption_format: Literal['srt']) -> str | None:
         """
         Summary
         -------
@@ -52,9 +47,9 @@ class Transcriber:
 
         Returns
         -------
-        transcription (str) : the transcribed text in the chosen caption format
+        transcription (str | None) : the transcribed text in the chosen caption format
         """
-        segments, _ = cls.model.transcribe(
+        segments, _ = self.model.transcribe(
             file,
             vad_filter=True,
             vad_parameters={ 'min_silence_duration_ms': 500 }
@@ -65,4 +60,4 @@ class Transcriber:
         if caption_format == 'srt':
             return converter.to_srt(segments)
 
-        raise KeyError(f'Invalid format: {caption_format}!')
+        return None

@@ -4,8 +4,8 @@ from fastapi import UploadFile
 from starlette.exceptions import HTTPException
 from starlette.status import HTTP_400_BAD_REQUEST
 
-from capgen.transcriber import Transcriber
 from server.api.v1 import v1
+from server.features import Transcriber
 from server.schemas.v1 import Transcribed
 
 
@@ -16,11 +16,9 @@ async def transcribe(request: UploadFile, caption_format: Literal['srt'] = 'srt'
     -------
     the `/transcribe` route transcribes the audio file into a chosen caption format
     """
-    try:
-        request.file.fileno()
-        result = Transcriber.transcribe(request.file, caption_format)
+    request.file.fileno()
 
-    except KeyError as exception:
-        raise HTTPException(HTTP_400_BAD_REQUEST, f'Invalid format: {caption_format}!') from exception
+    if not (result := Transcriber.transcribe(request.file, caption_format)):
+        raise HTTPException(HTTP_400_BAD_REQUEST, f'Invalid format: {caption_format}!')
 
     return Transcribed(result=result)

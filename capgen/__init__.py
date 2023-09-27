@@ -3,28 +3,17 @@ from ctypes import CDLL
 from os.path import join
 from site import getsitepackages
 from sys import stdin
-from typing import BinaryIO, Literal, NamedTuple
 
 from capgen.transcriber import Transcriber
+from capgen.types import Arguments, TranscriberOptions
 
 
-class Arguments(NamedTuple):
+class InvalidFormatError(Exception):
     """
     Summary
     -------
-    the arguments for the command line interface
-
-    Attributes
-    ----------
-    file (str | BinaryIO) : the file path to a compatible audio/video
-    caption (Literal['srt']) : the chosen caption file format
-    output (str) : the output file path
-    cuda (bool) : whether to use CUDA for inference
+    an exception for invalid caption formats
     """
-    file: str | BinaryIO
-    caption: Literal['srt']
-    output: str
-    cuda: bool
 
 
 def parse_args() -> Arguments | None:
@@ -41,6 +30,10 @@ def parse_args() -> Arguments | None:
     parser.add_argument('file', nargs='?', type=str, help='the file path to a compatible audio/video')
     parser.add_argument('-g', '--cuda',   action='store_true', help='whether to use CUDA for inference')
 
+    cpu_group = parser.add_argument_group('cpu')
+    cpu_group.add_argument('-t', '--threads', metavar='', type=int, help='the number of CPU threads')
+    cpu_group.add_argument('-w', '--workers', metavar='', type=int, help='the number of CPU workers')
+
     required_group = parser.add_argument_group('required')
     required_group.add_argument('-c', '--caption', type=str, required=True, metavar='', help='the chosen caption file format')
     required_group.add_argument('-o', '--output',  type=str, required=True, metavar='', help='the output file path')
@@ -54,8 +47,11 @@ def parse_args() -> Arguments | None:
         args.file or stdin.buffer,
         args.caption,
         args.output,
-        args.cuda
+        args.cuda,
+        args.threads,
+        args.workers
     )
+
 
 def resolve_cuda_libraries():
     """
@@ -87,11 +83,20 @@ def main():
     if not (args := parse_args()):
         return
 
-    if args.cuda:
-        resolve_cuda_libraries()
-        Transcriber.toggle_device()
+    options = TranscriberOptions(device='cpu')
 
-    transcription = Transcriber.transcribe(args.file, args.caption)
+    if args.threads:
+        options['number_of_threads'] = args.threads
+
+    if args.workers:
+        options['number_of_workers'] = args.workers
+
+    if args.cuda:
+        options['device'] = 'cuda'
+        resolve_cuda_libraries()
+
+    if not (transcription := Transcriber(**options).transcribe(args.file, args.caption)):
+        raise InvalidFormatError(f'Invalid format: {args.caption}!')
 
     with open(args.output, 'w', encoding='utf-8') as file:
         file.write(transcription)
