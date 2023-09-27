@@ -3,9 +3,7 @@ name: Deploy
 on:
   push:
     branches: [main]
-    paths:
-      - .github/workflows/main.yml
-      - Dockerfile
+    paths: [Dockerfile]
 
 jobs:
   deploy:
