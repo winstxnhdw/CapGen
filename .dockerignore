@@ -1,6 +1,8 @@
 .gitignore
 .dockerignore
+
 capgen/__init__.py
+capgen/types/*
 
 *.md
 *.pyc
