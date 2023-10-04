@@ -3,7 +3,6 @@ name: Format
 on:
   push:
     paths:
-      - tsconfig.json
       - pyproject.toml
       - '**.py'
 
