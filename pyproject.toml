@@ -41,7 +41,7 @@ hypercorn = "^0.14.4"
 uvloop = "^0.17.0"
 
 [tool.poetry.group.dev.dependencies]
-pyright = "^1.1.329"
+pyright = "^1.1.330"
 pylint = "^3.0.0"
 pytest = "^7.4.2"
 isort = "^5.12.0"
