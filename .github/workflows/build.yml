@@ -2,7 +2,7 @@ name: Build
 
 on:
   push:
-    branches: [main]
+    branches: main
     paths:
       - .github/workflows/build.yml
       - .dockerignore
@@ -11,9 +11,7 @@ on:
       - Caddyfile
       - pyproject.toml
       - poetry.lock
-      - server/**
-      - capgen/**
-      - tests/**
+      - '**.py'
 
 jobs:
   test:
