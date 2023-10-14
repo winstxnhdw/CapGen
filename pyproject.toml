@@ -44,7 +44,7 @@ uvloop = "^0.17.0"
 pyright = "^1.1.331"
 pylint = "^3.0.1"
 pytest = "^7.4.2"
-isort = "^5.12.0"
+ruff = "^0.0.292"
 httpx = "^0.25.0"
 
 [tool.poetry.extras]
