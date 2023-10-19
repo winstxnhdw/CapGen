@@ -35,13 +35,13 @@ nvidia-cublas-cu11 = { version = "^11.11.3.6", optional = true }
 
 [tool.poetry.group.server.dependencies]
 supervisor = "^4.2.5"
-fastapi = "^0.103.2"
+fastapi = "^0.104.0"
 python-multipart = "^0.0.6"
 hypercorn = "^0.14.4"
 uvloop = "^0.18.0"
 
 [tool.poetry.group.dev.dependencies]
-pyright = "^1.1.331"
+pyright = "^1.1.332"
 pylint = "^3.0.1"
 pytest = "^7.4.2"
 ruff = "^0.1.0"
