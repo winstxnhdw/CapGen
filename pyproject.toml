@@ -37,7 +37,7 @@ nvidia-cublas-cu11 = { version = "^11.11.3.6", optional = true }
 supervisor = "^4.2.5"
 fastapi = "^0.104.0"
 python-multipart = "^0.0.6"
-hypercorn = "^0.14.4"
+hypercorn = "^0.15.0"
 uvloop = "^0.19.0"
 
 [tool.poetry.group.dev.dependencies]
