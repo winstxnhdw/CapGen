@@ -41,11 +41,11 @@ hypercorn = "^0.15.0"
 uvloop = "^0.19.0"
 
 [tool.poetry.group.dev.dependencies]
-pyright = "^1.1.341"
+pyright = "^1.1.342"
 pylint = "^3.0.3"
 pytest = "^7.4.3"
 ruff = "^0.1.8"
-httpx = "^0.25.2"
+httpx = "^0.26.0"
 
 [tool.poetry.extras]
 cuda = ["nvidia-cudnn-cu11", "nvidia-cublas-cu11"]
