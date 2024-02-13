@@ -15,7 +15,6 @@ A fast CPU-first video/audio transcriber for generating caption files with [Whis
 ## Requirements
 
 - Python 3.11
-- [NVIDIA cuDNN](https://developer.download.nvidia.com/compute/cudnn/redist/cudnn/windows-x86_64/cudnn-windows-x86_64-9.0.0.312_cuda11-archive.zip) (for Windows only)
 
 ## Usage (API)
 
@@ -42,6 +41,9 @@ pip install git+https://github.com/winstxnhdw/CapGen
 ```
 
 You may also install `CapGen` with the necessary CUDA binaries.
+
+> [!WARNING]\
+> If you are on Windows, the NVIDIA cuDNN binary is not available on PyPI. You will have to install it manually from their official source [here](https://developer.download.nvidia.com/compute/cudnn/redist/cudnn/windows-x86_64/cudnn-windows-x86_64-9.0.0.312_cuda11-archive.zip).
 
 ```bash
 pip install 'capgen[cuda] @ git+https://github.com/winstxnhdw/CapGen'
