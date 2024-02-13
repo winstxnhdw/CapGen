@@ -1,7 +1,7 @@
 from argparse import ArgumentParser
 from ctypes import CDLL
-from os.path import join
 from os import name
+from os.path import join
 from site import getsitepackages
 from sys import stdin
 
