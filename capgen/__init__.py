@@ -1,6 +1,7 @@
 from argparse import ArgumentParser
 from ctypes import CDLL
 from os.path import join
+from os import name
 from site import getsitepackages
 from sys import stdin
 
@@ -59,7 +60,7 @@ def resolve_cuda_libraries():
     -------
     resolves the CUDA libraries
     """
-    site_package_path = join(getsitepackages()[0], 'nvidia')
+    site_package_path = join(getsitepackages()[-1], 'nvidia')
 
     try:
         CDLL(join(site_package_path, 'cudnn', 'lib', 'libcudnn_cnn_infer.so.8'))
@@ -68,7 +69,11 @@ def resolve_cuda_libraries():
         print('Unable to find Python cuDNN binaries, falling back to system binaries..')
 
     try:
-        CDLL(join(site_package_path, 'cublas', 'lib', 'libcublas.so.11'))
+        if name == 'nt':
+            CDLL(join(site_package_path, 'cublas', 'bin', 'cublas64_11.dll'))
+
+        else:
+            CDLL(join(site_package_path, 'cublas', 'lib', 'libcublas.so.11'))
 
     except OSError:
         print('Unable to find Python cuBLAS binaries, falling back to system binaries..')

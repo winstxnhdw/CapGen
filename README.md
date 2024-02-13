@@ -15,6 +15,7 @@ A fast CPU-first video/audio transcriber for generating caption files with [Whis
 ## Requirements
 
 - Python 3.11
+- [NVIDIA cuDNN](https://developer.download.nvidia.com/compute/cudnn/redist/cudnn/windows-x86_64/cudnn-windows-x86_64-9.0.0.312_cuda11-archive.zip) (for Windows only)
 
 ## Usage (API)
 
