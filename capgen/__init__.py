@@ -63,7 +63,11 @@ def resolve_cuda_libraries():
     site_package_path = join(getsitepackages()[-1], 'nvidia')
 
     try:
-        CDLL(join(site_package_path, 'cudnn', 'lib', 'libcudnn_cnn_infer.so.8'))
+        if name == 'nt':
+            CDLL(join(site_package_path, 'cudnn', 'bin', 'cudnn_cnn_infer64_8.dll'))
+
+        else:
+            CDLL(join(site_package_path, 'cudnn', 'lib', 'libcudnn_cnn_infer.so.8'))
 
     except OSError:
         print('Unable to find Python cuDNN binaries, falling back to system binaries..')
