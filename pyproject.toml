@@ -30,8 +30,8 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 faster-whisper = "^1.0.0"
-nvidia-cudnn-cu11 = { version = "^8.9.6.50", optional = true }
-nvidia-cublas-cu11 = { version = "^11.11.3.6", optional = true }
+nvidia-cudnn-cu12 = { version = "^8.9.7.29", optional = true }
+nvidia-cublas-cu12 = { version = "^12.3.4.1", optional = true }
 
 [tool.poetry.group.server.dependencies]
 supervisor = "^4.2.5"
@@ -48,7 +48,7 @@ ruff = "^0.2.2"
 httpx = "^0.27.0"
 
 [tool.poetry.extras]
-cuda = ["nvidia-cudnn-cu11", "nvidia-cublas-cu11"]
+cuda = ["nvidia-cudnn-cu12", "nvidia-cublas-cu12"]
 
 [tool.poetry.scripts]
 capgen = "capgen:main"

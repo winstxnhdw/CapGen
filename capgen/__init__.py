@@ -70,10 +70,10 @@ def resolve_cuda_libraries():
 
     try:
         if name == 'nt':
-            CDLL(join(site_package_path, 'cublas', 'bin', 'cublas64_11.dll'))
+            CDLL(join(site_package_path, 'cublas', 'bin', 'cublas64_12.dll'))
 
         else:
-            CDLL(join(site_package_path, 'cublas', 'lib', 'libcublas.so.11'))
+            CDLL(join(site_package_path, 'cublas', 'lib', 'libcublas.so.12'))
 
     except OSError:
         print('Unable to find Python cuBLAS binaries, falling back to system binaries..')
