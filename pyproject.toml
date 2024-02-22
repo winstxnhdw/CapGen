@@ -29,7 +29,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-faster-whisper = "^0.10.0"
+faster-whisper = "^1.0.0"
 nvidia-cudnn-cu11 = { version = "^8.9.6.50", optional = true }
 nvidia-cublas-cu11 = { version = "^11.11.3.6", optional = true }
 
@@ -45,7 +45,7 @@ pyright = "^1.1.351"
 pylint = "^3.0.3"
 pytest = "^8.0.1"
 ruff = "^0.2.2"
-httpx = "^0.26.0"
+httpx = "^0.27.0"
 
 [tool.poetry.extras]
 cuda = ["nvidia-cudnn-cu11", "nvidia-cublas-cu11"]
