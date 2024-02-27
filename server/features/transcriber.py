@@ -1,6 +1,7 @@
 from typing import BinaryIO, Literal
 
 from capgen.transcriber import Transcriber as WhisperTranscriber
+from server.config import Config
 
 
 class Transcriber:
@@ -14,7 +15,17 @@ class Transcriber:
     transcribe(file: str | BinaryIO, transcription_type: Literal['srt']) -> str:
         converts transcription segments into a SRT file
     """
-    transcriber = WhisperTranscriber('cpu', number_of_workers=2)
+    transcriber: WhisperTranscriber
+
+    @classmethod
+    def load(cls):
+        """
+        Summary
+        -------
+        download and load the model
+        """
+        cls.transcriber = WhisperTranscriber('cpu', number_of_workers=Config.worker_count)
+
 
     @classmethod
     def transcribe(cls, file: str | BinaryIO, transcription_type: Literal['srt']) -> str | None:
