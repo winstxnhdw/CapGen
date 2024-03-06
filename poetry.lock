@@ -700,13 +700,13 @@ files = [
 
 [[package]]
 name = "nvidia-cublas-cu12"
-version = "12.3.4.1"
+version = "12.4.2.65"
 description = "CUBLAS native runtime libraries"
 optional = true
 python-versions = ">=3"
 files = [
-    {file = "nvidia_cublas_cu12-12.3.4.1-py3-none-manylinux1_x86_64.whl", hash = "sha256:9b25b27bd5a5be1cc7e83a7b8004258daa338800798e22986e5b67ee06f0859d"},
-    {file = "nvidia_cublas_cu12-12.3.4.1-py3-none-win_amd64.whl", hash = "sha256:90e0344a0d96c72b6ee0ebec2b1447e552217131914aa678fff1603701005f3a"},
+    {file = "nvidia_cublas_cu12-12.4.2.65-py3-none-manylinux2014_x86_64.whl", hash = "sha256:14c9ae3f7711225a4f9f8f46481947a30329f92b7533ae90f8ff22c61ae54a87"},
+    {file = "nvidia_cublas_cu12-12.4.2.65-py3-none-win_amd64.whl", hash = "sha256:b61df23689c4d883a543f0b199e5f09260e5384cbd9bb1de6dbdbccc49c7daf1"},
 ]
 
 [[package]]
@@ -1504,4 +1504,4 @@ cuda = ["nvidia-cublas-cu12", "nvidia-cudnn-cu12"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "2219a10e55e3dc5a102176779530cfeadbdcc49c96be689603b7d6004528977a"
+content-hash = "a81cbe3d884ea9567e167f1980bab3d243a76e8cb2bb36e108a9d0d4a36b1180"
