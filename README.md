@@ -43,7 +43,7 @@ pip install git+https://github.com/winstxnhdw/CapGen
 You may also install `CapGen` with the necessary CUDA binaries.
 
 ```bash
-pip install 'capgen[cuda] @ git+https://github.com/winstxnhdw/CapGen'
+pip install "capgen[cuda] @ git+https://github.com/winstxnhdw/CapGen"
 ```
 
 Now, you can run the CLI tool with the following command.
