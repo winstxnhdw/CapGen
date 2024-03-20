@@ -15,6 +15,7 @@ A fast cross-platform CPU-first video/audio transcriber for generating caption f
 ## Requirements
 
 - Python 3.11
+- 4 GB RAM
 
 ## Usage (API)
 
