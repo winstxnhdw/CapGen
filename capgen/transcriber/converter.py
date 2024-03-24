@@ -39,11 +39,34 @@ class Converter:
 
         Returns
         -------
-        subrip_subtitle (str) : the SRT file
+        subrip_subtitle (str) : the SRT subtitles
         """
         return '\n\n'.join(
             f'{segment.id}\n'
-            f'{convert_seconds_to_hhmmssmmm(segment.start)} --> '
-            f'{convert_seconds_to_hhmmssmmm(segment.end)}\n{segment.text.strip()}'
+            f'{convert_seconds_to_hhmmssmmm(segment.start, ",")} --> '
+            f'{convert_seconds_to_hhmmssmmm(segment.end, ",")}\n{segment.text}'
             for segment in segments
         )
+
+
+    def to_vtt(self, segments: Iterable[Segment]) -> str:
+        """
+        Summary
+        -------
+        converts transcription segments into a VTT file
+
+        Parameters
+        ----------
+        segments (Iterable[Segment]) : the segments to convert
+
+        Returns
+        -------
+        video_text_tracks_subtitle (str) : the VTT subtitles
+        """
+        captions = '\n\n'.join(
+            f'{convert_seconds_to_hhmmssmmm(segment.start, ".")} --> '
+            f'{convert_seconds_to_hhmmssmmm(segment.end, ".")}\n{segment.text}'
+            for segment in segments
+        )
+
+        return f'WEBVTT\n\n{captions}'

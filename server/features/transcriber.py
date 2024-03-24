@@ -12,7 +12,7 @@ class Transcriber:
 
     Methods
     -------
-    transcribe(file: str | BinaryIO, transcription_type: Literal['srt']) -> str:
+    transcribe(file: str | BinaryIO, transcription_type: Literal['srt', 'vtt']) -> str:
         converts transcription segments into a SRT file
     """
     transcriber: WhisperTranscriber
@@ -28,7 +28,7 @@ class Transcriber:
 
 
     @classmethod
-    def transcribe(cls, file: str | BinaryIO, transcription_type: Literal['srt']) -> str | None:
+    def transcribe(cls, file: str | BinaryIO, transcription_type: Literal['srt', 'vtt']) -> str | None:
         """
         Summary
         -------
@@ -37,7 +37,7 @@ class Transcriber:
         Parameters
         ----------
         file (str | BinaryIO) : the file to transcribe
-        transcription_type (Literal['srt']) : the chosen caption format
+        transcription_type (Literal['srt', 'vtt']) : the chosen caption format
 
         Returns
         -------

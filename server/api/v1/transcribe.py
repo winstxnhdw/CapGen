@@ -10,7 +10,7 @@ from server.schemas.v1 import Transcribed
 
 
 @v1.post('/transcribe', response_model=Transcribed)
-async def transcribe(request: UploadFile, caption_format: Literal['srt'] = 'srt'):
+async def transcribe(request: UploadFile, caption_format: Literal['srt', 'vtt'] = 'srt'):
     """
     Summary
     -------

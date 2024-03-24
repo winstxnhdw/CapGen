@@ -19,7 +19,7 @@ A fast cross-platform CPU-first video/audio transcriber for generating caption f
 
 ## Usage (API)
 
-Simply cURL the endpoint like in the following. Currently, the only available caption format is `srt`.
+Simply cURL the endpoint like in the following. Currently, the only available caption format is `srt` and `vtt`.
 
 ```bash
 curl "https://winstxnhdw-CapGen.hf.space/api/v1/transcribe?caption_format=$CAPTION_FORMAT" \

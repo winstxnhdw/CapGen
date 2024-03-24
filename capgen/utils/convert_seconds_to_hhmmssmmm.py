@@ -1,4 +1,4 @@
-def convert_seconds_to_hhmmssmmm(seconds: float) -> str:
+def convert_seconds_to_hhmmssmmm(seconds: float, millisecond_separator: str) -> str:
     """
     Summary
     -------
@@ -16,4 +16,4 @@ def convert_seconds_to_hhmmssmmm(seconds: float) -> str:
     minutes, seconds = divmod(remainder, 60)
     milliseconds = int((seconds % 1) * 1000)
 
-    return f'{int(hours):02}:{int(minutes):02}:{int(seconds):02},{milliseconds:03}'
+    return f'{int(hours):02}:{int(minutes):02}:{int(seconds):02}{millisecond_separator}{milliseconds:03}'

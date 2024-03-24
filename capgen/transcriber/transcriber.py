@@ -13,7 +13,7 @@ class Transcriber:
 
     Methods
     -------
-    transcribe(file: str | BinaryIO, caption_format: Literal['srt']) -> str | None:
+    transcribe(file: str | BinaryIO, caption_format: str) -> str | None:
         converts transcription segments into a SRT file
     """
     __slots__ = ('model',)
@@ -61,6 +61,6 @@ class Transcriber:
             return converter.to_srt(segments)
 
         if caption_format == 'vtt':
-            raise NotImplementedError('VTT format is not yet supported!')
+            return converter.to_vtt(segments)
 
         return None
