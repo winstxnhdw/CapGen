@@ -22,4 +22,4 @@ def test_transcribe(client: TestClient):
             params={ 'caption_format': 'srt' }
         ).json()
 
-    assert response['result'] == '1\n00:00:00,000 --> 00:00:02,000\nHello there, my name is Bella.'
+    assert response['result'] == '1\n00:00:00,000 --> 00:00:02,000\nHello there. My name is Bella.'

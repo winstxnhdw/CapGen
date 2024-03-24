@@ -26,7 +26,7 @@ class Transcriber:
     ):
 
         self.model = WhisperModel(
-            'Systran/faster-distil-whisper-large-v2',
+            'distil-whisper/distil-large-v3-ct2',
             device,
             compute_type='auto',
             cpu_threads=number_of_threads,
@@ -34,7 +34,7 @@ class Transcriber:
         )
 
 
-    def transcribe(self, file: str | BinaryIO, caption_format: Literal['srt']) -> str | None:
+    def transcribe(self, file: str | BinaryIO, caption_format: str) -> str | None:
         """
         Summary
         -------
@@ -43,7 +43,7 @@ class Transcriber:
         Parameters
         ----------
         file (str | BinaryIO) : the file to transcribe
-        caption_format (Literal['srt']) : the chosen caption format
+        caption_format (str) : the chosen caption format
 
         Returns
         -------
@@ -59,5 +59,8 @@ class Transcriber:
 
         if caption_format == 'srt':
             return converter.to_srt(segments)
+
+        if caption_format == 'vtt':
+            raise NotImplementedError('VTT format is not yet supported!')
 
         return None
