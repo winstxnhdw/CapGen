@@ -44,7 +44,7 @@ class Converter:
         return '\n\n'.join(
             f'{segment.id}\n'
             f'{convert_seconds_to_hhmmssmmm(segment.start, ",")} --> '
-            f'{convert_seconds_to_hhmmssmmm(segment.end, ",")}\n{segment.text}'
+            f'{convert_seconds_to_hhmmssmmm(segment.end, ",")}\n{segment.text[1:]}'
             for segment in segments
         )
 
@@ -65,7 +65,7 @@ class Converter:
         """
         captions = '\n\n'.join(
             f'{convert_seconds_to_hhmmssmmm(segment.start, ".")} --> '
-            f'{convert_seconds_to_hhmmssmmm(segment.end, ".")}\n{segment.text}'
+            f'{convert_seconds_to_hhmmssmmm(segment.end, ".")}\n{segment.text[1:]}'
             for segment in segments
         )
 
