@@ -712,31 +712,19 @@ files = [
 ]
 
 [[package]]
-name = "nvidia-cuda-nvrtc-cu12"
-version = "12.4.99"
-description = "NVRTC native runtime libraries"
-optional = true
-python-versions = ">=3"
-files = [
-    {file = "nvidia_cuda_nvrtc_cu12-12.4.99-py3-none-manylinux2014_aarch64.whl", hash = "sha256:1ba1f0bcb0de66cf441766c1099726f6ebeaab3afe5b180d186a37a4692e6381"},
-    {file = "nvidia_cuda_nvrtc_cu12-12.4.99-py3-none-manylinux2014_x86_64.whl", hash = "sha256:0f488eb03e10bd1551bae75bdc1ca8771218889a0b9746a00c97e5a2ec8bbd3e"},
-    {file = "nvidia_cuda_nvrtc_cu12-12.4.99-py3-none-win_amd64.whl", hash = "sha256:0d4f0b6bd29176d11f3dcd68075e64082e5bb8af56314c5021a4ec57daf22cf4"},
-]
-
-[[package]]
 name = "nvidia-cudnn-cu12"
-version = "9.0.0.312"
+version = "9.1.0.70"
 description = "cuDNN runtime libraries"
 optional = true
 python-versions = ">=3"
 files = [
-    {file = "nvidia_cudnn_cu12-9.0.0.312-py3-none-manylinux2014_aarch64.whl", hash = "sha256:fd24bdef34387868d0395d64a2bca529ea93239864520068aff5910122ee426a"},
-    {file = "nvidia_cudnn_cu12-9.0.0.312.tar.gz", hash = "sha256:2f1c59dae1d8937c060398cb3d6ceeac6fe2e9a42a80ed067b79f0a635b12a4d"},
+    {file = "nvidia_cudnn_cu12-9.1.0.70-py3-none-manylinux2014_aarch64.whl", hash = "sha256:cb71684f485727e3a7d462143d68bb74fec71a1f3bbd230e67cc5ec9784f4b0a"},
+    {file = "nvidia_cudnn_cu12-9.1.0.70-py3-none-manylinux2014_x86_64.whl", hash = "sha256:165764f44ef8c61fcdfdfdbe769d687e06374059fbb388b6c89ecb0e28793a6f"},
+    {file = "nvidia_cudnn_cu12-9.1.0.70-py3-none-win_amd64.whl", hash = "sha256:6278562929433d68365a07a4a1546c237ba2849852c0d4b2262a486e805b977a"},
 ]
 
 [package.dependencies]
 nvidia-cublas-cu12 = "*"
-nvidia-cuda-nvrtc-cu12 = "*"
 
 [[package]]
 name = "onnxruntime"
@@ -1507,4 +1495,4 @@ cuda = ["nvidia-cublas-cu12", "nvidia-cudnn-cu12"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "eebcdfa7bb460c79fc386067c24b32e911fd0954a2a7580986f828a33fc34e9c"
+content-hash = "4fab9ecd658f4315793aaba36bf31311295a10ecfeef11165b622ca914f6481c"

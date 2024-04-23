@@ -30,7 +30,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.12"
 faster-whisper = "^1.0.1"
-nvidia-cudnn-cu12 = { version = "^9.0.0.312", optional = true }
+nvidia-cudnn-cu12 = { version = "^9.1.0.70", optional = true }
 nvidia-cublas-cu12 = { version = "^12.4.5.8", optional = true }
 
 [tool.poetry.group.server.dependencies]
