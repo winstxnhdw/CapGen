@@ -35,7 +35,7 @@ nvidia-cublas-cu12 = { version = "^12.4.5.8", optional = true }
 
 [tool.poetry.group.server.dependencies]
 supervisor = "^4.2.5"
-fastapi = "^0.110.3"
+fastapi = "^0.111.0"
 pydantic-settings = "^2.2.1"
 python-multipart = "^0.0.9"
 gunicorn = "^22.0.0"
