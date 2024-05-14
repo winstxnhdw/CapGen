@@ -45,7 +45,7 @@ uvloop = "^0.19.0"
 
 [tool.poetry.group.dev.dependencies]
 pyright = "^1.1.362"
-pylint = "^3.1.0"
+pylint = "^3.2.0"
 pytest = "^8.2.0"
 ruff = "^0.4.4"
 httpx = "^0.27.0"
