@@ -882,13 +882,13 @@ files = [
 
 [[package]]
 name = "nvidia-cublas-cu12"
-version = "12.4.5.8"
+version = "12.5.2.13"
 description = "CUBLAS native runtime libraries"
 optional = true
 python-versions = ">=3"
 files = [
-    {file = "nvidia_cublas_cu12-12.4.5.8-py3-none-manylinux2014_x86_64.whl", hash = "sha256:2fc8da60df463fdefa81e323eef2e36489e1c94335b5358bcb38360adf75ac9b"},
-    {file = "nvidia_cublas_cu12-12.4.5.8-py3-none-win_amd64.whl", hash = "sha256:5a796786da89203a0657eda402bcdcec6180254a8ac22d72213abc42069522dc"},
+    {file = "nvidia_cublas_cu12-12.5.2.13-py3-none-manylinux2014_x86_64.whl", hash = "sha256:c0eaa31c7b62e730e3bdc8ace77f786e6cc142599d2429017b8dfb4bfb3bfcaf"},
+    {file = "nvidia_cublas_cu12-12.5.2.13-py3-none-win_amd64.whl", hash = "sha256:f15ce4887aab1841c7ff13783ff779ab67b8dbcd78920a65973ad2dcb396ecd9"},
 ]
 
 [[package]]
@@ -1245,13 +1245,13 @@ files = [
 
 [[package]]
 name = "pyright"
-version = "1.1.363"
+version = "1.1.364"
 description = "Command line wrapper for pyright"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "pyright-1.1.363-py3-none-any.whl", hash = "sha256:d3b8d73c8d230e26cc3523862f3398032a0c39a00d7bb69dc0f595f8e888fd01"},
-    {file = "pyright-1.1.363.tar.gz", hash = "sha256:00a8f0ae0e339473bb0488f8a2a2dcdf574e94a16cd7b4390d49d144714d8db2"},
+    {file = "pyright-1.1.364-py3-none-any.whl", hash = "sha256:865f1e02873c5dc7427c95acf53659a118574010e6fb364e27e47ec5c46a9f26"},
+    {file = "pyright-1.1.364.tar.gz", hash = "sha256:612a2106a4078ec57efc22b5620729e9bdf4a3c17caba013b534bd33f7d08e5a"},
 ]
 
 [package.dependencies]
@@ -2040,4 +2040,4 @@ cuda = ["nvidia-cublas-cu12", "nvidia-cudnn-cu12"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "d7759544521df6197c222bb7f428d1e405bbedf4777e9b8aafca3faf729ab9c6"
+content-hash = "570858dd90accfcff711e8e1d17a7ce77123a40f15589d861b26894f8d068c9d"
