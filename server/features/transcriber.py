@@ -15,6 +15,7 @@ class Transcriber:
     transcribe(file: str | BinaryIO, transcription_type: Literal['srt', 'vtt']) -> str:
         converts transcription segments into a SRT file
     """
+
     transcriber: WhisperTranscriber
 
     @classmethod
@@ -26,9 +27,8 @@ class Transcriber:
         """
         cls.transcriber = WhisperTranscriber('cpu', number_of_workers=Config.worker_count)
 
-
     @classmethod
-    def transcribe(cls, file: str | BinaryIO, transcription_type: Literal['srt', 'vtt']) -> str | None:
+    async def transcribe(cls, file: str | BinaryIO, transcription_type: Literal['srt', 'vtt']) -> str | None:
         """
         Summary
         -------
@@ -43,4 +43,4 @@ class Transcriber:
         -------
         transcription (str | None) : the transcribed text in the chosen caption format
         """
-        return cls.transcriber.transcribe(file, transcription_type)
+        return await cls.transcriber.transcribe(file, transcription_type)

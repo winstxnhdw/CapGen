@@ -18,7 +18,7 @@ async def transcribe(request: UploadFile, caption_format: Literal['srt', 'vtt'] 
     """
     request.file.fileno()
 
-    if not (result := Transcriber.transcribe(request.file, caption_format)):
+    if not (result := await Transcriber.transcribe(request.file, caption_format)):
         raise HTTPException(HTTP_400_BAD_REQUEST, f'Invalid format: {caption_format}!')
 
     return Transcribed(result=result)

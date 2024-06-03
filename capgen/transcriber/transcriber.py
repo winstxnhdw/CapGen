@@ -1,8 +1,22 @@
-from typing import BinaryIO, Literal
+from typing import BinaryIO, Literal, TypedDict
 
 from faster_whisper import WhisperModel
 
 from capgen.transcriber.converter import Converter
+
+
+class WhisperParameters(TypedDict):
+    """
+    Summary
+    -------
+    a type hint for the parameters of the WhisperModel class
+    """
+
+    model_size_or_path: str
+    device: str
+    compute_type: str
+    cpu_threads: int
+    num_workers: int
 
 
 class Transcriber:
@@ -16,25 +30,30 @@ class Transcriber:
     transcribe(file: str | BinaryIO, caption_format: str) -> str | None:
         converts transcription segments into a SRT file
     """
+
     __slots__ = ('model',)
 
     def __init__(
         self,
         device: Literal['auto', 'cpu', 'cuda'],
         number_of_threads: int = 0,
-        number_of_workers: int = 1
+        number_of_workers: int = 1,
     ):
+        model_parameters: WhisperParameters = {
+            'model_size_or_path': 'whisper-medium-en-til-ct2',
+            'device': device,
+            'compute_type': 'auto',
+            'cpu_threads': number_of_threads,
+            'num_workers': number_of_workers,
+        }
 
-        self.model = WhisperModel(
-            'distil-whisper/distil-large-v3-ct2',
-            device,
-            compute_type='auto',
-            cpu_threads=number_of_threads,
-            num_workers=number_of_workers
-        )
+        try:
+            self.model = WhisperModel(**model_parameters, flash_attention=True)
 
+        except ValueError:
+            self.model = WhisperModel(**model_parameters)
 
-    def transcribe(self, file: str | BinaryIO, caption_format: str) -> str | None:
+    async def transcribe(self, file: str | BinaryIO, caption_format: str) -> str | None:
         """
         Summary
         -------
@@ -51,8 +70,9 @@ class Transcriber:
         """
         segments, _ = self.model.transcribe(
             file,
+            beam_size=1,
             vad_filter=True,
-            vad_parameters={ 'min_silence_duration_ms': 500 }
+            vad_parameters={'min_silence_duration_ms': 500},
         )
 
         converter = Converter(segments)
