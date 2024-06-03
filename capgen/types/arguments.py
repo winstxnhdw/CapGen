@@ -14,6 +14,7 @@ class Arguments(NamedTuple):
     output (str) : the output file path
     cuda (bool) : whether to use CUDA for inference
     """
+
     file: str | BinaryIO
     caption: Literal['srt', 'vtt']
     output: str

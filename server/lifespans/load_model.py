@@ -9,7 +9,4 @@ async def load_model():
     -------
     download and load the model
     """
-    await get_running_loop().run_in_executor(
-        None,
-        Transcriber.load
-    )
+    await get_running_loop().run_in_executor(None, Transcriber.load)

@@ -13,6 +13,7 @@ class TranscriberOptions(TypedDict, total=False):
     number_of_threads (int) : the number of CPU threads
     number_of_workers (int) : the number of workers
     """
+
     device: Literal['auto', 'cpu', 'cuda']
     number_of_threads: int
     number_of_workers: int

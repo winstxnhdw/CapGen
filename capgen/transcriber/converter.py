@@ -23,9 +23,9 @@ class Converter:
     as_srt(segments: Iterable[Segment]) -> str:
         converts transcription segments into a SRT file
     """
+
     def __init__(self, segments: Iterable[Segment]):
         self.segments = segments
-
 
     def to_srt(self, segments: Iterable[Segment]) -> str:
         """
@@ -47,7 +47,6 @@ class Converter:
             f'{convert_seconds_to_hhmmssmmm(segment.end, ",")}\n{segment.text[1:]}'
             for segment in segments
         )
-
 
     def to_vtt(self, segments: Iterable[Segment]) -> str:
         """
