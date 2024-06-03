@@ -40,7 +40,7 @@ class Transcriber:
         number_of_workers: int = 1,
     ):
         model_parameters: WhisperParameters = {
-            'model_size_or_path': 'whisper-medium-en-til-ct2',
+            'model_size_or_path': 'Systran/faster-distil-whisper-large-v3',
             'device': device,
             'compute_type': 'auto',
             'cpu_threads': number_of_threads,
