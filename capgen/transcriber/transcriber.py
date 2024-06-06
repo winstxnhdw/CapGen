@@ -50,7 +50,7 @@ class Transcriber:
         try:
             self.model = WhisperModel(**model_parameters, flash_attention=True)
 
-        except ValueError:
+        except (ValueError, IndexError):
             self.model = WhisperModel(**model_parameters)
 
     async def transcribe(self, file: str | BinaryIO, caption_format: str) -> str | None:
