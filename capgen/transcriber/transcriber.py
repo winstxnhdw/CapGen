@@ -47,11 +47,7 @@ class Transcriber:
             'num_workers': number_of_workers,
         }
 
-        try:
-            self.model = WhisperModel(**model_parameters, flash_attention=True)
-
-        except Exception:  # pylint: disable=broad-except
-            self.model = WhisperModel(**model_parameters)
+        self.model = WhisperModel(**model_parameters)
 
     async def transcribe(self, file: str | BinaryIO, caption_format: str) -> str | None:
         """
