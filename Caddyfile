@@ -1,16 +1,4 @@
-{
-	order rate_limit before basicauth
-}
-
 :{$APP_PORT} {
-	rate_limit {
-		zone dynamic_example {
-			key {remote_host}
-			events {$EVENTS_PER_WINDOW}
-			window 60s
-		}
-	}
-
 	handle_path /api/* {
 		reverse_proxy http://localhost:{$SERVER_PORT}
 	}
