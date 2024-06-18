@@ -28,7 +28,7 @@ class Transcriber:
     Methods
     -------
     transcribe(file: str | BinaryIO, caption_format: str) -> str | None:
-        converts transcription segments into a SRT file
+        converts transcription segments into a specific caption format
     """
 
     __slots__ = ('model',)
@@ -47,7 +47,11 @@ class Transcriber:
             'num_workers': number_of_workers,
         }
 
-        self.model = WhisperModel(**model_parameters)
+        try:
+            self.model = WhisperModel(**model_parameters, flash_attention=True)
+
+        except ValueError:
+            self.model = WhisperModel(**model_parameters)
 
     async def transcribe(self, file: str | BinaryIO, caption_format: str) -> str | None:
         """

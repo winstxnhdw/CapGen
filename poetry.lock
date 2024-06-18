@@ -2060,4 +2060,4 @@ cuda = ["nvidia-cublas-cu12", "nvidia-cudnn-cu12"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "75a7771148444093cb48a35ecc8e12afd455d41b886dd9332b89857309edb8ed"
+content-hash = "8675fc6fd2372f4984ebe670539db6533718824d42628b6a1fd02f001e59983d"

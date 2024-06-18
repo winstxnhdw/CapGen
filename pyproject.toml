@@ -36,7 +36,6 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.12"
 faster-whisper = "^1.0.2"
-numpy = "<2.0.0"
 nvidia-cudnn-cu12 = { version = "8.9.7.29", optional = true }
 nvidia-cublas-cu12 = { version = "^12.5.2.13", optional = true }
 
@@ -49,6 +48,7 @@ gunicorn = "^22.0.0"
 uvicorn = "^0.30.0"
 httptools = "^0.6.1"
 uvloop = "^0.19.0"
+numpy = "<2.0.0"
 
 [tool.poetry.group.dev.dependencies]
 pyright = "^1.1.367"
