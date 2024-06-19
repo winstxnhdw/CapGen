@@ -48,10 +48,10 @@ gunicorn = "^22.0.0"
 uvicorn = "^0.30.0"
 httptools = "^0.6.1"
 uvloop = "^0.19.0"
-numpy = "<2.0.0"
+numpy = "<3.0.0"
 
 [tool.poetry.group.dev.dependencies]
-pyright = "^1.1.367"
+pyright = "^1.1.368"
 pylint = "^3.2.3"
 pytest = "^8.2.2"
 ruff = "^0.4.9"
