@@ -51,7 +51,7 @@ uvloop = "^0.19.0"
 numpy = "<2.0.0"
 
 [tool.poetry.group.dev.dependencies]
-pyright = "^1.1.367"
+pyright = "^1.1.368"
 pylint = "^3.2.3"
 pytest = "^8.2.2"
 ruff = "^0.4.9"
