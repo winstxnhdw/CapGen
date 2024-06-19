@@ -4,18 +4,21 @@ updates:
     directory: /
     schedule:
       interval: weekly
-      time: '18:00'
+      time: "18:00"
       timezone: Asia/Singapore
     groups:
-       dependencies:
-          patterns: ['*']
+      dependencies:
+        patterns: ["*"]
 
   - package-ecosystem: pip
     directory: /
+    ignore:
+      - dependency-name: numpy
+        update-types: ["version-update:semver-major"]
     schedule:
       interval: daily
-      time: '18:00'
+      time: "18:00"
       timezone: Asia/Singapore
     groups:
-       dependencies:
-          patterns: ['*']
+      dependencies:
+        patterns: ["*"]
