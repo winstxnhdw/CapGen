@@ -387,13 +387,13 @@ standard = ["fastapi", "uvicorn[standard] (>=0.15.0)"]
 
 [[package]]
 name = "faster-whisper"
-version = "1.0.2"
+version = "1.0.3"
 description = "Faster Whisper transcription with CTranslate2"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "faster-whisper-1.0.2.tar.gz", hash = "sha256:54d9fc698f7c665e00a0d5ed65d6e975b72a8862b8214f20a22e79b115c41511"},
-    {file = "faster_whisper-1.0.2-py3-none-any.whl", hash = "sha256:d968c289222e766a49ed97eecec24e934bdef405183f57d6d434a364bb3569c1"},
+    {file = "faster-whisper-1.0.3.tar.gz", hash = "sha256:1a145db86450b56aaa623c8df7d4ef86e8a1159900f60533e2890e98e8453a17"},
+    {file = "faster_whisper-1.0.3-py3-none-any.whl", hash = "sha256:364d0e378ab232ed26f39656e5c98548b38045224e206b20f7d8c90e2745b9d3"},
 ]
 
 [package.dependencies]
@@ -1230,13 +1230,13 @@ windows-terminal = ["colorama (>=0.4.6)"]
 
 [[package]]
 name = "pylint"
-version = "3.2.4"
+version = "3.2.5"
 description = "python code static checker"
 optional = false
 python-versions = ">=3.8.0"
 files = [
-    {file = "pylint-3.2.4-py3-none-any.whl", hash = "sha256:43b8ffdf1578e4e4439fa1f6ace402281f5dd61999192280fa12fe411bef2999"},
-    {file = "pylint-3.2.4.tar.gz", hash = "sha256:5753d27e49a658b12a48c2883452751a2ecfc7f38594e0980beb03a6e77e6f86"},
+    {file = "pylint-3.2.5-py3-none-any.whl", hash = "sha256:32cd6c042b5004b8e857d727708720c54a676d1e22917cf1a2df9b4d4868abd6"},
+    {file = "pylint-3.2.5.tar.gz", hash = "sha256:e9b7171e242dcc6ebd0aaa7540481d1a72860748a0a7816b8fe6cf6c80a6fe7e"},
 ]
 
 [package.dependencies]
@@ -2063,4 +2063,4 @@ cuda = ["nvidia-cublas-cu12", "nvidia-cudnn-cu12"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "a0f9a3d101387ddfc4c240a7f11b9b967a7b5553f367b859dc439f1b658ca89f"
+content-hash = "41865469e873204d64cfcbd8fcbb7236d02bc7c37bf56c9e8604bd29d7dd12df"
