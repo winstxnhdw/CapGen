@@ -43,4 +43,4 @@ class Transcriber:
         -------
         transcription (str | None) : the transcribed text in the chosen caption format
         """
-        return await cls.transcriber.transcribe(file, transcription_type)
+        return cls.transcriber.transcribe(file, transcription_type)

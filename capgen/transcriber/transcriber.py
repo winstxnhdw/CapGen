@@ -53,7 +53,7 @@ class Transcriber:
         except ValueError:
             self.model = WhisperModel(**model_parameters)
 
-    async def transcribe(self, file: str | BinaryIO, caption_format: str) -> str | None:
+    def transcribe(self, file: str | BinaryIO, caption_format: str) -> str | None:
         """
         Summary
         -------

@@ -1,5 +1,4 @@
 from argparse import ArgumentParser
-from asyncio import run
 from ctypes import CDLL
 from os import name
 from os.path import join
@@ -79,7 +78,7 @@ def resolve_cuda_libraries():
         print('Unable to find Python cuBLAS binaries, falling back to system binaries..')
 
 
-async def main():
+def main():
     """
     Summary
     -------
@@ -100,7 +99,7 @@ async def main():
         options['device'] = 'cuda'
         resolve_cuda_libraries()
 
-    if not (transcription := await Transcriber(**options).transcribe(args.file, args.caption)):
+    if not (transcription := Transcriber(**options).transcribe(args.file, args.caption)):
         raise InvalidFormatError(f'Invalid format: {args.caption}!')
 
     with open(args.output, 'w', encoding='utf-8') as file:
@@ -108,4 +107,4 @@ async def main():
 
 
 if __name__ == '__main__':
-    run(main())
+    main()
