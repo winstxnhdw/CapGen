@@ -70,6 +70,7 @@ class Transcriber:
         """
         segments, _ = self.model.transcribe(
             file,
+            language='en',
             beam_size=1,
             vad_filter=True,
             vad_parameters={'min_silence_duration_ms': 500},
