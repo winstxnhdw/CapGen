@@ -25,4 +25,4 @@ def test_transcribe_vtt(client: TestClient):
     with open('tests/test.mp3', 'rb') as file:
         response = client.post('/v1/transcribe', files={'request': file}, params={'caption_format': 'vtt'}).json()
 
-    assert response['result'] == 'WEBVTT\n\n00:00:00.000 --> 00:00:01.720\nHello there, ,y name is Bella.'
+    assert response['result'] == 'WEBVTT\n\n00:00:00.000 --> 00:00:01.720\nHello there, my name is Bella.'
