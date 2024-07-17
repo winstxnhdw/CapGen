@@ -1221,13 +1221,13 @@ files = [
 
 [[package]]
 name = "pyright"
-version = "1.1.371"
+version = "1.1.372"
 description = "Command line wrapper for pyright"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "pyright-1.1.371-py3-none-any.whl", hash = "sha256:cce52e42ff73943243e7e5e24f2a59dee81b97d99f4e3cf97370b27e8a1858cd"},
-    {file = "pyright-1.1.371.tar.gz", hash = "sha256:777b508b92dda2db476214c400ce043aad8d8f3dd0e10d284c96e79f298308b5"},
+    {file = "pyright-1.1.372-py3-none-any.whl", hash = "sha256:25b15fb8967740f0949fd35b963777187f0a0404c0bd753cc966ec139f3eaa0b"},
+    {file = "pyright-1.1.372.tar.gz", hash = "sha256:a9f5e0daa955daaa17e3d1ef76d3623e75f8afd5e37b437d3ff84d5b38c15420"},
 ]
 
 [package.dependencies]
@@ -1932,4 +1932,4 @@ cuda = ["nvidia-cublas-cu12", "nvidia-cudnn-cu12"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "e3fb5d45c50ac8c56d9823a3ab0244bf2d09e91c0fe6e077e62a8a3837e075df"
+content-hash = "1d41304444c5b79ffbe0b310ceb64142296558fd94e43f8073b778cbbb7c33ee"
