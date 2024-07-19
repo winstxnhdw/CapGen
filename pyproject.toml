@@ -54,7 +54,7 @@ numpy = "<2.0.0"
 pyright = "^1.1.372"
 pylint = "^3.2.5"
 pytest = "^8.2.2"
-ruff = "^0.5.2"
+ruff = "^0.5.3"
 httpx = "^0.27.0"
 
 [tool.poetry.extras]
