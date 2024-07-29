@@ -1,8 +1,8 @@
-FROM python:slim as python-builder
+FROM python:slim AS python-builder
 
-ENV POETRY_VIRTUALENVS_CREATE false
-ENV POETRY_HOME /opt/poetry
-ENV PATH $POETRY_HOME/bin:$PATH
+ENV POETRY_VIRTUALENVS_CREATE=false
+ENV POETRY_HOME=/opt/poetry
+ENV PATH=$POETRY_HOME/bin:$PATH
 
 WORKDIR /
 
@@ -13,24 +13,24 @@ RUN $POETRY_HOME/bin/pip install poetry
 RUN poetry install --without dev --no-root
 
 
-FROM python:slim as model-builder
+FROM python:slim AS model-builder
 
 RUN pip install huggingface_hub
 RUN python -c \
     "from huggingface_hub import snapshot_download; snapshot_download('Systran/faster-distil-whisper-large-v3')"
 
 
-FROM caddy:builder-alpine as caddy-builder
+FROM caddy:builder-alpine AS caddy-builder
 
 RUN xcaddy build
 
 
 FROM python:slim
 
-ENV HOME /home/user
-ENV PYTHONUNBUFFERED 1
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV SERVER_PORT 5000
+ENV HOME=/home/user
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV SERVER_PORT=5000
 
 RUN useradd -m -u 1000 user
 
