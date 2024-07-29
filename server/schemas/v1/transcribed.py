@@ -1,7 +1,9 @@
-from pydantic import BaseModel, Field
+from typing import Annotated
+
+from msgspec import Meta, Struct
 
 
-class Transcribed(BaseModel):
+class Transcribed(Struct):
     """
     Summary
     -------
@@ -12,4 +14,4 @@ class Transcribed(BaseModel):
     result (str) : the transcribed text in the chosen caption file format
     """
 
-    result: str = Field(examples=['1\n' '00:00:00,000 --> 00:00:02,000\n' 'Hello world.'])
+    result: Annotated[str, Meta(examples=['1\n' '00:00:00,000 --> 00:00:02,000\n' 'Hello world.'])]

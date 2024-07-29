@@ -1,28 +1,19 @@
 # pylint: disable=missing-function-docstring,redefined-outer-name
 
-from typing import Generator
 
-from fastapi.testclient import TestClient
-from pytest import fixture
-
-from server import initialise
+from litestar import Litestar
+from litestar.testing import AsyncTestClient
 
 
-@fixture()
-def client() -> Generator[TestClient, None, None]:
-    with TestClient(initialise()) as client:
-        yield client
-
-
-def test_transcribe_srt(client: TestClient):
+async def test_transcribe_srt(client: AsyncTestClient[Litestar]):
     with open('tests/test.mp3', 'rb') as file:
-        response = client.post('/v1/transcribe', files={'request': file}, params={'caption_format': 'srt'}).json()
+        response = await client.post('/v1/transcribe', files={'request': file}, params={'caption_format': 'srt'})
 
-    assert response['result'] == '1\n00:00:00,000 --> 00:00:01,720\nHello there, my name is Bella.'
+    assert response.json()['result'] == '1\n00:00:00,000 --> 00:00:01,720\nHello there, my name is Bella.'
 
 
-def test_transcribe_vtt(client: TestClient):
+async def test_transcribe_vtt(client: AsyncTestClient[Litestar]):
     with open('tests/test.mp3', 'rb') as file:
-        response = client.post('/v1/transcribe', files={'request': file}, params={'caption_format': 'vtt'}).json()
+        response = await client.post('/v1/transcribe', files={'request': file}, params={'caption_format': 'vtt'})
 
-    assert response['result'] == 'WEBVTT\n\n00:00:00.000 --> 00:00:01.720\nHello there, my name is Bella.'
+    assert response.json()['result'] == 'WEBVTT\n\n00:00:00.000 --> 00:00:01.720\nHello there, my name is Bella.'

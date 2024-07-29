@@ -1,24 +1,38 @@
-from typing import Literal
+from io import BytesIO
+from typing import Annotated, Literal
 
-from fastapi import UploadFile
-from starlette.exceptions import HTTPException
-from starlette.status import HTTP_400_BAD_REQUEST
+from litestar import Controller, post
+from litestar.datastructures import UploadFile
+from litestar.enums import RequestEncodingType
+from litestar.exceptions import HTTPException
+from litestar.params import Body
+from litestar.status_codes import HTTP_400_BAD_REQUEST
 
-from server.api.v1 import v1
 from server.features import Transcriber
 from server.schemas.v1 import Transcribed
 
 
-@v1.post('/transcribe', response_model=Transcribed)
-async def transcribe(request: UploadFile, caption_format: Literal['srt', 'vtt'] = 'srt'):
+class TranscriberController(Controller):
     """
     Summary
     -------
-    the `/transcribe` route transcribes the audio file into a chosen caption format
+    the `/transcribe` route ingests an audio file and transcribes it into a chosen caption format
     """
-    request.file.fileno()
 
-    if not (result := await Transcriber.transcribe(request.file, caption_format)):
-        raise HTTPException(HTTP_400_BAD_REQUEST, f'Invalid format: {caption_format}!')
+    path = '/transcribe'
 
-    return Transcribed(result=result)
+    @post()
+    async def transcribe(
+        self,
+        data: Annotated[UploadFile, Body(media_type=RequestEncodingType.MULTI_PART)],
+        caption_format: Literal['srt', 'vtt'] = 'srt',
+    ) -> Transcribed:
+        """
+        Summary
+        -------
+        the POST variant of the `/transcribe` route
+        """
+        if not (result := await Transcriber.transcribe(BytesIO(await data.read()), caption_format)):
+            raise HTTPException(detail=f'Invalid format: {caption_format}!', status_code=HTTP_400_BAD_REQUEST)
+
+        return Transcribed(result=result)

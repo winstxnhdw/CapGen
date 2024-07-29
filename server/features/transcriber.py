@@ -1,3 +1,5 @@
+from asyncio import wrap_future
+from concurrent.futures import ThreadPoolExecutor
 from typing import BinaryIO, Literal
 
 from capgen.transcriber import Transcriber as WhisperTranscriber
@@ -17,6 +19,7 @@ class Transcriber:
     """
 
     transcriber: WhisperTranscriber
+    thread_pool: ThreadPoolExecutor
 
     @classmethod
     def load(cls):
@@ -26,6 +29,7 @@ class Transcriber:
         download and load the model
         """
         cls.transcriber = WhisperTranscriber('cpu', number_of_workers=Config.worker_count)
+        cls.thread_pool = ThreadPoolExecutor()
 
     @classmethod
     async def transcribe(cls, file: str | BinaryIO, transcription_type: Literal['srt', 'vtt']) -> str | None:
@@ -43,4 +47,4 @@ class Transcriber:
         -------
         transcription (str | None) : the transcribed text in the chosen caption format
         """
-        return cls.transcriber.transcribe(file, transcription_type)
+        return await wrap_future(cls.thread_pool.submit(cls.transcriber.transcribe, file, transcription_type))
