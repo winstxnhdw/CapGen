@@ -37,7 +37,7 @@ readme = "README.md"
 python = "^3.11"
 faster-whisper = "^1.0.3"
 nvidia-cudnn-cu12 = { version = "8.9.7.29", optional = true }
-nvidia-cublas-cu12 = { version = "^12.5.3.2", optional = true }
+nvidia-cublas-cu12 = { version = "^12.6.0.22", optional = true }
 
 [tool.poetry.group.server.dependencies]
 supervisor = "^4.2.5"
@@ -45,7 +45,7 @@ granian = "^1.5.2"
 litestar = "^2.10.0"
 pydantic-settings = "^2.4.0"
 python-multipart = "^0.0.9"
-uvicorn = "^0.30.4"
+uvicorn = "^0.30.5"
 uvloop = "^0.19.0"
 numpy = "<2.0.0"
 picologging = "^0.9.3"
