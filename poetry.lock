@@ -949,14 +949,13 @@ files = [
 
 [[package]]
 name = "nvidia-cublas-cu12"
-version = "12.5.3.2"
+version = "12.6.0.22"
 description = "CUBLAS native runtime libraries"
 optional = true
 python-versions = ">=3"
 files = [
-    {file = "nvidia_cublas_cu12-12.5.3.2-py3-none-manylinux2014_aarch64.whl", hash = "sha256:7d0191251180de606023d396b94d66f66470a0ae96d1dbb906c7656ea0f71eda"},
-    {file = "nvidia_cublas_cu12-12.5.3.2-py3-none-manylinux2014_x86_64.whl", hash = "sha256:ca070ad70e9fa6654084575d01bd001f30cc4665e33d4bb9fc8e0f321caa034b"},
-    {file = "nvidia_cublas_cu12-12.5.3.2-py3-none-win_amd64.whl", hash = "sha256:4960f3dc5f39699acadf76fa6d94b10a2a00f2956c2c442efa299fb22b0748f3"},
+    {file = "nvidia_cublas_cu12-12.6.0.22-py3-none-manylinux2014_x86_64.whl", hash = "sha256:1383c8ff44c68da27eb79224d1ce9d6e3c616563adf11cdb468cca3449fdd3e4"},
+    {file = "nvidia_cublas_cu12-12.6.0.22-py3-none-win_amd64.whl", hash = "sha256:6c3620a0477564c777287ac4fa0eec0ce01577467cb5f8b8cfbc201b150c91f9"},
 ]
 
 [[package]]
@@ -1834,13 +1833,13 @@ zstd = ["zstandard (>=0.18.0)"]
 
 [[package]]
 name = "uvicorn"
-version = "0.30.4"
+version = "0.30.5"
 description = "The lightning-fast ASGI server."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "uvicorn-0.30.4-py3-none-any.whl", hash = "sha256:06b00e3087e58c6865c284143c0c42f810b32ff4f265ab19d08c566f74a08728"},
-    {file = "uvicorn-0.30.4.tar.gz", hash = "sha256:00db9a9e3711a5fa59866e2b02fac69d8dc70ce0814aaec9a66d1d9e5c832a30"},
+    {file = "uvicorn-0.30.5-py3-none-any.whl", hash = "sha256:b2d86de274726e9878188fa07576c9ceeff90a839e2b6e25c917fe05f5a6c835"},
+    {file = "uvicorn-0.30.5.tar.gz", hash = "sha256:ac6fdbd4425c5fd17a9fe39daf4d4d075da6fdc80f653e5894cdc2fd98752bee"},
 ]
 
 [package.dependencies]
@@ -1900,4 +1899,4 @@ cuda = ["nvidia-cublas-cu12", "nvidia-cudnn-cu12"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "fa5b8e645067f398dea16a3337cee4da29d7e8418f5f587b4f4a59849cd3a7af"
+content-hash = "ed090a416f7c0637d39a029acbd879bcb0b40fb4222ffc4e91933c9984415ada"
