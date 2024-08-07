@@ -51,7 +51,7 @@ numpy = "<2.0.0"
 picologging = "^0.9.3"
 
 [tool.poetry.group.dev.dependencies]
-pyright = "^1.1.374"
+pyright = "^1.1.375"
 pylint = "^3.2.6"
 pytest = "^8.3.2"
 ruff = "^0.5.6"
