@@ -1,5 +1,0 @@
-:{$APP_PORT} {
-	handle_path /api/* {
-		reverse_proxy http://localhost:{$SERVER_PORT}
-	}
-}

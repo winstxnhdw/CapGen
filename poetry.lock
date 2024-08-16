@@ -1626,23 +1626,6 @@ files = [
 ]
 
 [[package]]
-name = "supervisor"
-version = "4.2.5"
-description = "A system for controlling process state under UNIX"
-optional = false
-python-versions = "*"
-files = [
-    {file = "supervisor-4.2.5-py2.py3-none-any.whl", hash = "sha256:2ecaede32fc25af814696374b79e42644ecaba5c09494c51016ffda9602d0f08"},
-    {file = "supervisor-4.2.5.tar.gz", hash = "sha256:34761bae1a23c58192281a5115fb07fbf22c9b0133c08166beffc70fed3ebc12"},
-]
-
-[package.dependencies]
-setuptools = "*"
-
-[package.extras]
-testing = ["pytest", "pytest-cov"]
-
-[[package]]
 name = "sympy"
 version = "1.12.1"
 description = "Computer algebra system (CAS) in Python"
@@ -1900,4 +1883,4 @@ cuda = ["nvidia-cublas-cu12", "nvidia-cudnn-cu12"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "107270895d1a4280cdd9e90b2385905403458e01db17796631d3a14419067b06"
+content-hash = "be1caee6d8d8f091cf72a0e6ec0ab388ec286371397602ebf0fb1a26045e3918"

@@ -40,7 +40,6 @@ nvidia-cudnn-cu12 = { version = "8.9.7.29", optional = true }
 nvidia-cublas-cu12 = { version = "^12.6.0.22", optional = true }
 
 [tool.poetry.group.server.dependencies]
-supervisor = "^4.2.5"
 granian = "^1.5.2"
 litestar = "^2.10.0"
 pydantic-settings = "^2.4.0"
