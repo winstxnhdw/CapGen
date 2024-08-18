@@ -6,7 +6,7 @@ from litestar.datastructures import UploadFile
 from litestar.enums import RequestEncodingType
 from litestar.exceptions import HTTPException
 from litestar.params import Body
-from litestar.status_codes import HTTP_400_BAD_REQUEST
+from litestar.status_codes import HTTP_200_OK, HTTP_400_BAD_REQUEST
 
 from server.features import Transcriber
 from server.schemas.v1 import Transcribed
@@ -21,7 +21,7 @@ class TranscriberController(Controller):
 
     path = '/transcribe'
 
-    @post()
+    @post(status_code=HTTP_200_OK)
     async def transcribe(
         self,
         data: Annotated[UploadFile, Body(media_type=RequestEncodingType.MULTI_PART)],
