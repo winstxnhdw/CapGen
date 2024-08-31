@@ -2,12 +2,12 @@ from litestar import Litestar, Response
 from litestar.openapi import OpenAPIConfig
 from litestar.openapi.spec import Server
 from litestar.status_codes import HTTP_500_INTERNAL_SERVER_ERROR
-from litestar.types import LifeSpanReceive, LifeSpanScope, LifeSpanSend, Receive, Scope, Send
 from picologging import getLogger
 
 from server.api import v1
 from server.config import Config
 from server.lifespans import load_model
+from server.singleton import singleton
 
 
 def exception_handler(_, exception: Exception) -> Response[dict[str, str]]:
@@ -29,30 +29,16 @@ def exception_handler(_, exception: Exception) -> Response[dict[str, str]]:
     )
 
 
-class App:
+@singleton
+def app() -> Litestar:
     """
     Summary
     -------
-    the ASGI application wrapper
-
-    Parameters
-    ----------
-    scope (Scope) : the ASGI scope
-    receive (Receive) : the ASGI receive channel
-    send (Send) : the ASGI send channel
+    the Litestar application
     """
-
-    asgi = Litestar(
+    return Litestar(
         openapi_config=OpenAPIConfig(title='CapGen', version='1.0.0', servers=[Server(url=Config.server_root_path)]),
         exception_handlers={HTTP_500_INTERNAL_SERVER_ERROR: exception_handler},
         route_handlers=[v1],
         lifespan=[load_model],
     )
-
-    async def __new__(  # pylint: disable=invalid-overridden-method
-        cls,
-        scope: Scope | LifeSpanScope,
-        receive: Receive | LifeSpanReceive,
-        send: Send | LifeSpanSend,
-    ):
-        await cls.asgi(scope, receive, send)
