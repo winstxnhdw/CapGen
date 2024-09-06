@@ -1,15 +1,22 @@
 from contextlib import asynccontextmanager
 from typing import AsyncIterator
 
-from server.features import Transcriber
+from litestar import Litestar
+
+from capgen.transcriber import Transcriber
+from server.config import Config
 
 
 @asynccontextmanager
-async def load_model(_) -> AsyncIterator[None]:
+async def load_model(app: Litestar) -> AsyncIterator[None]:
     """
     Summary
     -------
     download and load the model
     """
-    Transcriber.load()
-    yield
+    app.state.transcriber = Transcriber('cpu', number_of_workers=Config.worker_count)
+
+    try:
+        yield
+    finally:
+        pass

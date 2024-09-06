@@ -3,6 +3,7 @@ from typing import BinaryIO, Literal, TypedDict
 from faster_whisper import WhisperModel
 
 from capgen.transcriber.converter import Converter
+from capgen.transcriber.protocol import TranscriberProtocol
 
 
 class WhisperParameters(TypedDict):
@@ -19,7 +20,7 @@ class WhisperParameters(TypedDict):
     num_workers: int
 
 
-class Transcriber:
+class Transcriber(TranscriberProtocol):
     """
     Summary
     -------
