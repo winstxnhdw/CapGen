@@ -33,6 +33,7 @@ class Config(BaseSettings):
     server_root_path (str) : the root path for the server
     worker_count (int) : the number of workers to use
     use_cuda (bool) : whether to use CUDA for inference
+    transcriber_model_name (str) : the name of the transcriber model to use
     """
 
     server_port: int = 49494
