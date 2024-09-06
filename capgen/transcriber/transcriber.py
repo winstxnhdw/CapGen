@@ -79,9 +79,9 @@ class Transcriber:
         converter = Converter(segments)
 
         if caption_format == 'srt':
-            return converter.to_srt(segments)
+            return converter.to_srt()
 
         if caption_format == 'vtt':
-            return converter.to_vtt(segments)
+            return converter.to_vtt()
 
         return None
