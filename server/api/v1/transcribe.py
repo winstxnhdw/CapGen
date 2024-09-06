@@ -4,9 +4,9 @@ from typing import Annotated, Literal
 from litestar import Controller, post
 from litestar.datastructures import UploadFile
 from litestar.enums import RequestEncodingType
-from litestar.exceptions import HTTPException
+from litestar.exceptions import ClientException
 from litestar.params import Body
-from litestar.status_codes import HTTP_200_OK, HTTP_400_BAD_REQUEST
+from litestar.status_codes import HTTP_200_OK
 
 from server.features import Transcriber
 from server.schemas.v1 import Transcribed
@@ -33,6 +33,6 @@ class TranscriberController(Controller):
         the POST variant of the `/transcribe` route
         """
         if not (result := await Transcriber.transcribe(BytesIO(await data.read()), caption_format)):
-            raise HTTPException(detail=f'Invalid format: {caption_format}!', status_code=HTTP_400_BAD_REQUEST)
+            raise ClientException(detail=f'Invalid format: {caption_format}!')
 
         return Transcribed(result=result)
