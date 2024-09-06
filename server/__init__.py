@@ -7,7 +7,6 @@ from picologging import getLogger
 from server.api import v1
 from server.config import Config
 from server.lifespans import load_model
-from server.singleton import singleton
 
 
 def exception_handler(_, exception: Exception) -> Response[dict[str, str]]:
@@ -29,7 +28,6 @@ def exception_handler(_, exception: Exception) -> Response[dict[str, str]]:
     )
 
 
-@singleton
 def app() -> Litestar:
     """
     Summary

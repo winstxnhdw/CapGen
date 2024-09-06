@@ -11,5 +11,5 @@ from server import app
 
 @fixture(scope='function')
 async def client() -> AsyncIterator[AsyncTestClient[Litestar]]:
-    async with AsyncTestClient(app=app) as client:
+    async with AsyncTestClient(app=app()) as client:
         yield client
