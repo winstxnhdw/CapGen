@@ -1293,13 +1293,13 @@ typing-extensions = ">=4.6.0,<4.7.0 || >4.7.0"
 
 [[package]]
 name = "pydantic-settings"
-version = "2.4.0"
+version = "2.5.2"
 description = "Settings management using Pydantic"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "pydantic_settings-2.4.0-py3-none-any.whl", hash = "sha256:bb6849dc067f1687574c12a639e231f3a6feeed0a12d710c1382045c5db1c315"},
-    {file = "pydantic_settings-2.4.0.tar.gz", hash = "sha256:ed81c3a0f46392b4d7c0a565c05884e6e54b3456e6f0fe4d8814981172dc9a88"},
+    {file = "pydantic_settings-2.5.2-py3-none-any.whl", hash = "sha256:2c912e55fd5794a59bf8c832b9de832dcfdf4778d79ff79b708744eed499a907"},
+    {file = "pydantic_settings-2.5.2.tar.gz", hash = "sha256:f90b139682bee4d2065273d5185d71d37ea46cfe57e1b5ae184fc6a0b2484ca0"},
 ]
 
 [package.dependencies]
@@ -1365,13 +1365,13 @@ files = [
 
 [[package]]
 name = "pyright"
-version = "1.1.379"
+version = "1.1.380"
 description = "Command line wrapper for pyright"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "pyright-1.1.379-py3-none-any.whl", hash = "sha256:01954811ac71db8646f50de1577576dc275ffb891a9e7324350e676cf6df323f"},
-    {file = "pyright-1.1.379.tar.gz", hash = "sha256:6f426cb6443786fa966b930c23ad1941c8cb9fe672e4589daea8d80bb34193ea"},
+    {file = "pyright-1.1.380-py3-none-any.whl", hash = "sha256:a6404392053d8848bacc7aebcbd9d318bb46baf1a1a000359305481920f43879"},
+    {file = "pyright-1.1.380.tar.gz", hash = "sha256:e6ceb1a5f7e9f03106e0aa1d6fbb4d97735a5e7ffb59f3de6b2db590baf935b2"},
 ]
 
 [package.dependencies]
@@ -1884,4 +1884,4 @@ cuda = ["nvidia-cublas-cu12", "nvidia-cudnn-cu12"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "4291432f6c4af16c50a03d71407bd8ee35871df1969340ef93a2b55f31939875"
+content-hash = "f39a9b479955b01fa0f03906e9ec8bbaf4531edd86a4df9207b9ab62f566c4a8"
