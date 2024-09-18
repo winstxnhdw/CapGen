@@ -86,5 +86,5 @@ You can spin the server up locally with the following. You can access the Swagge
 
 ```bash
 docker build -f Dockerfile.build -t capgen .
-docker run --rm -e APP_PORT=7860 -p 7860:7860 capgen
+docker run --rm -e SERVER_PORT=7860 -p 7860:7860 capgen
 ```
