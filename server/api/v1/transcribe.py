@@ -1,9 +1,8 @@
-from asyncio import wrap_future
-from concurrent.futures import ThreadPoolExecutor
 from io import BytesIO
 from typing import Annotated, Literal
 
 from litestar import Controller, post
+from litestar.concurrency import _run_sync_asyncio as run_sync
 from litestar.datastructures import UploadFile
 from litestar.enums import RequestEncodingType
 from litestar.exceptions import ClientException
@@ -22,7 +21,6 @@ class TranscriberController(Controller):
     """
 
     path = '/transcribe'
-    thread_pool = ThreadPoolExecutor()
 
     @post(status_code=HTTP_200_OK)
     async def transcribe(
@@ -37,7 +35,7 @@ class TranscriberController(Controller):
         the POST variant of the `/transcribe` route
         """
         audio = BytesIO(await data.read())
-        transcription = await wrap_future(self.thread_pool.submit(state.transcriber.transcribe, audio, caption_format))
+        transcription = await run_sync(state.transcriber.transcribe, audio, caption_format)
 
         if not transcription:
             raise ClientException(detail=f'Invalid format: {caption_format}!')
