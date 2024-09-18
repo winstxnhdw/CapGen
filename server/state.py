@@ -1,6 +1,6 @@
 from litestar.datastructures import State
 
-from capgen.transcriber.protocol import TranscriberProtocol
+from capgen.transcriber import Transcriber
 
 
 class AppState(State):
@@ -14,4 +14,4 @@ class AppState(State):
     transcriber (TranscriberProtocol) : the transcriber instance for transcribing audio
     """
 
-    transcriber: TranscriberProtocol
+    transcriber: Transcriber

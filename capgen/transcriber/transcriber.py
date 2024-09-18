@@ -1,26 +1,11 @@
-from typing import BinaryIO, Literal, TypedDict
+from typing import BinaryIO, Literal
 
 from faster_whisper import WhisperModel
 
 from capgen.transcriber.converter import Converter
-from capgen.transcriber.protocol import TranscriberProtocol
 
 
-class WhisperParameters(TypedDict):
-    """
-    Summary
-    -------
-    a type hint for the parameters of the WhisperModel class
-    """
-
-    model_size_or_path: str
-    device: str
-    compute_type: str
-    cpu_threads: int
-    num_workers: int
-
-
-class Transcriber(TranscriberProtocol):
+class Transcriber:
     """
     Summary
     -------
@@ -34,25 +19,14 @@ class Transcriber(TranscriberProtocol):
 
     __slots__ = ('model',)
 
-    def __init__(
-        self,
-        device: Literal['auto', 'cpu', 'cuda'],
-        number_of_threads: int = 0,
-        number_of_workers: int = 1,
-    ):
-        model_parameters: WhisperParameters = {
-            'model_size_or_path': 'Systran/faster-distil-whisper-large-v3',
-            'device': device,
-            'compute_type': 'auto',
-            'cpu_threads': number_of_threads,
-            'num_workers': number_of_workers,
-        }
-
-        try:
-            self.model = WhisperModel(**model_parameters, flash_attention=True)
-
-        except ValueError:
-            self.model = WhisperModel(**model_parameters)
+    def __init__(self, device: Literal['auto', 'cpu', 'cuda'], number_of_threads: int = 0, number_of_workers: int = 1):
+        self.model = WhisperModel(
+            'Systran/faster-distil-whisper-large-v3',
+            device,
+            compute_type='auto',
+            cpu_threads=number_of_threads,
+            num_workers=number_of_workers,
+        )
 
     def transcribe(self, file: str | BinaryIO, caption_format: str) -> str | None:
         """
