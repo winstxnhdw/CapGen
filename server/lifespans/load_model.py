@@ -19,4 +19,4 @@ async def load_model(app: Litestar) -> AsyncIterator[None]:
     try:
         yield
     finally:
-        pass
+        del app.state.transcriber.model
