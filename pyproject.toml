@@ -45,7 +45,7 @@ litestar = "^2.12.1"
 pydantic-settings = "^2.5.2"
 python-multipart = "^0.0.10"
 uvicorn = "^0.30.6"
-uvloop = "^0.20.0"
+uvloop = { version = "^0.20.0", markers = "sys_platform != 'win32'" }
 numpy = "<2.0.0"
 picologging = "^0.9.3"
 
