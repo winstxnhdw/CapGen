@@ -43,8 +43,8 @@ nvidia-cublas-cu12 = { version = "^12.6.1.4", optional = true }
 granian = "^1.6.0"
 litestar = "^2.12.1"
 pydantic-settings = "^2.5.2"
-python-multipart = "^0.0.10"
-uvicorn = "^0.30.6"
+python-multipart = "^0.0.12"
+uvicorn = "^0.31.0"
 uvloop = { version = "^0.20.0", markers = "sys_platform != 'win32'" }
 numpy = "<2.0.0"
 picologging = "^0.9.3"
