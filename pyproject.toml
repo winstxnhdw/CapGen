@@ -37,7 +37,7 @@ readme = "README.md"
 python = "^3.11"
 faster-whisper = "^1.0.3"
 nvidia-cudnn-cu12 = { version = "8.9.7.29", optional = true }
-nvidia-cublas-cu12 = { version = "^12.6.1.4", optional = true }
+nvidia-cublas-cu12 = { version = "^12.6.3.3", optional = true }
 
 [tool.poetry.group.server.dependencies]
 granian = "^1.6.0"
@@ -50,7 +50,7 @@ numpy = "<2.0.0"
 picologging = "^0.9.3"
 
 [tool.poetry.group.dev.dependencies]
-pyright = "^1.1.382"
+pyright = "^1.1.383"
 pylint = "^3.3.1"
 pytest = "^8.3.3"
 ruff = "^0.6.8"
