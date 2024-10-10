@@ -44,13 +44,13 @@ granian = "^1.6.0"
 litestar = "^2.12.1"
 pydantic-settings = "^2.5.2"
 python-multipart = "^0.0.12"
-uvicorn = "^0.31.0"
+uvicorn = "^0.31.1"
 uvloop = { version = "^0.20.0", markers = "sys_platform != 'win32'" }
 numpy = "<2.0.0"
 picologging = "^0.9.3"
 
 [tool.poetry.group.dev.dependencies]
-pyright = "^1.1.383"
+pyright = "^1.1.384"
 pylint = "^3.3.1"
 pytest = "^8.3.3"
 ruff = "^0.6.9"
