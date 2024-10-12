@@ -1,4 +1,6 @@
-from typing import BinaryIO, Literal, NamedTuple
+from typing import BinaryIO, NamedTuple
+
+from capgen.transcriber import CaptionFormat
 
 
 class Arguments(NamedTuple):
@@ -16,7 +18,7 @@ class Arguments(NamedTuple):
     """
 
     file: str | BinaryIO
-    caption: Literal['srt', 'vtt']
+    caption: CaptionFormat
     output: str
     cuda: bool
     threads: int | None

@@ -100,10 +100,10 @@ def main():
         resolve_cuda_libraries()
 
     if not (transcription := Transcriber(**options).transcribe(args.file, args.caption)):
-        raise InvalidFormatError(f'Invalid format: {args.caption}!')
+        raise InvalidFormatError(f'Invalid file: {args.file}!')
 
     with open(args.output, 'w', encoding='utf-8') as file:
-        file.write(transcription)
+        file.write('\n\n'.join(transcription))
 
 
 if __name__ == '__main__':

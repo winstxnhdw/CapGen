@@ -1,4 +1,4 @@
-from typing import Iterable
+from typing import Iterable, Iterator
 
 from faster_whisper.transcribe import Segment
 
@@ -50,7 +50,7 @@ class Converter:
 
         return f'{int(hours):02}:{int(minutes):02}:{int(seconds):02}{millisecond_separator}{milliseconds:03}'
 
-    def to_srt(self) -> str:
+    def to_srt(self) -> Iterator[str]:
         """
         Summary
         -------
@@ -64,14 +64,14 @@ class Converter:
         -------
         subrip_subtitle (str) : the SRT subtitles
         """
-        return '\n\n'.join(
+        return (
             f'{id}\n'
             f'{self.convert_seconds_to_hhmmssmmm(start, ",")} --> '
             f'{self.convert_seconds_to_hhmmssmmm(end, ",")}\n{text[1:]}'
             for id, _, start, end, text, *_ in self.segments
         )
 
-    def to_vtt(self) -> str:
+    def to_vtt(self) -> Iterator[str]:
         """
         Summary
         -------
@@ -85,10 +85,9 @@ class Converter:
         -------
         video_text_tracks_subtitle (str) : the VTT subtitles
         """
-        captions = '\n\n'.join(
+        yield 'WEBVTT'
+        yield from (
             f'{self.convert_seconds_to_hhmmssmmm(start, ".")} --> '
             f'{self.convert_seconds_to_hhmmssmmm(end, ".")}\n{text[1:]}'
             for _, _, start, end, text, *_ in self.segments
         )
-
-        return f'WEBVTT\n\n{captions}'

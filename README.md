@@ -19,7 +19,7 @@ A fast cross-platform CPU-first video/audio English-only transcriber for generat
 
 ## Usage (API)
 
-Simply cURL the endpoint like in the following. Currently, the only available caption format is `srt` and `vtt`.
+Simply cURL the endpoint like in the following. Currently, the only available caption format are `srt`, `vtt` and `txt`.
 
 ```bash
 curl "https://winstxnhdw-CapGen.hf.space/api/v1/transcribe?caption_format=$CAPTION_FORMAT" \
@@ -29,8 +29,15 @@ curl "https://winstxnhdw-CapGen.hf.space/api/v1/transcribe?caption_format=$CAPTI
 You can also redirect the output to a file.
 
 ```bash
-  curl "https://winstxnhdw-CapGen.hf.space/api/v1/transcribe" \
-    -F "request=@$AUDIO_FILE_PATH" | jq -r ".result" > result.srt
+curl "https://winstxnhdw-CapGen.hf.space/api/v1/transcribe?caption_format=$CAPTION_FORMAT" \
+  -F "request=@$AUDIO_FILE_PATH" | jq -r ".result" > result.srt
+```
+
+You can stream the captions in real-time with the following.
+
+```bash
+curl -N "https://winstxnhdw-CapGen.hf.space/api/v1/transcribe/stream?caption_format=$CAPTION_FORMAT" \
+  -F "request=@$AUDIO_FILE_PATH"
 ```
 
 ## Usage (CLI)

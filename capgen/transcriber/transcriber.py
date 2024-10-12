@@ -1,7 +1,9 @@
-from typing import BinaryIO, Literal
+from typing import BinaryIO, Iterator, Literal
 
+from av.error import InvalidDataError
 from faster_whisper import WhisperModel
 
+from capgen.transcriber.caption_format import CaptionFormat
 from capgen.transcriber.converter import Converter
 
 
@@ -28,7 +30,7 @@ class Transcriber:
             num_workers=number_of_workers,
         )
 
-    def transcribe(self, file: str | BinaryIO, caption_format: str) -> str | None:
+    def transcribe(self, file: str | BinaryIO, caption_format: CaptionFormat) -> Iterator[str] | None:
         """
         Summary
         -------
@@ -41,15 +43,19 @@ class Transcriber:
 
         Returns
         -------
-        transcription (str | None) : the transcribed text in the chosen caption format
+        transcription (Iterator[str] | None) : the transcribed text in the chosen caption format
         """
-        segments, _ = self.model.transcribe(
-            file,
-            language='en',
-            beam_size=1,
-            vad_filter=True,
-            vad_parameters={'min_silence_duration_ms': 500},
-        )
+        try:
+            segments, _ = self.model.transcribe(
+                file,
+                language='en',
+                beam_size=1,
+                vad_filter=True,
+                vad_parameters={'min_silence_duration_ms': 500},
+            )
+
+        except InvalidDataError:
+            return None
 
         converter = Converter(segments)
 
@@ -59,4 +65,4 @@ class Transcriber:
         if caption_format == 'vtt':
             return converter.to_vtt()
 
-        return None
+        return (segment.text for segment in segments)
