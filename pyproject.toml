@@ -36,7 +36,7 @@ authors = ["winstxnhdw <you@example.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = ">= 3.11, < 3.13"
 faster-whisper = "^1.0.3"
 nvidia-cudnn-cu12 = { version = "8.9.7.29", optional = true }
 nvidia-cublas-cu12 = { version = "^12.6.3.3", optional = true }
