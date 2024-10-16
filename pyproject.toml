@@ -42,14 +42,14 @@ nvidia-cudnn-cu12 = { version = "8.9.7.29", optional = true }
 nvidia-cublas-cu12 = { version = "^12.6.3.3", optional = true }
 
 [tool.poetry.group.server.dependencies]
-granian = "^1.6.0"
+granian = "^1.6.1"
 litestar = "^2.12.1"
 pydantic-settings = "^2.5.2"
 uvloop = { version = "^0.21.0", markers = "sys_platform != 'win32'" }
 picologging = "^0.9.3"
 
 [tool.poetry.group.dev.dependencies]
-pyright = "^1.1.384"
+pyright = "^1.1.385"
 pylint = "^3.3.1"
 pytest = "^8.3.3"
 ruff = "^0.6.9"
