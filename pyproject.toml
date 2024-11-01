@@ -44,7 +44,7 @@ nvidia-cublas-cu12 = { version = "^12.6.3.3", optional = true }
 [tool.poetry.group.server.dependencies]
 granian = "^1.6.3"
 litestar = "^2.12.1"
-pydantic-settings = "^2.6.0"
+pydantic-settings = "^2.6.1"
 uvloop = { version = "^0.21.0", markers = "sys_platform != 'win32'" }
 picologging = "^0.9.3"
 
