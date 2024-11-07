@@ -1,10 +1,11 @@
-from litestar import Litestar, Response
+from litestar import Litestar, Response, Router
 from litestar.openapi import OpenAPIConfig
 from litestar.openapi.spec import Server
 from litestar.status_codes import HTTP_500_INTERNAL_SERVER_ERROR
 from picologging import getLogger
 
-from server.api import v1
+from server.api.v1.index import index
+from server.api.v1.transcribe import TranscriberController
 from server.config import Config
 from server.lifespans import load_model
 
@@ -34,6 +35,8 @@ def app() -> Litestar:
     -------
     the Litestar application
     """
+    v1 = Router('/v1', tags=['v1'], route_handlers=[index, TranscriberController])
+
     return Litestar(
         openapi_config=OpenAPIConfig(title='CapGen', version='1.0.0', servers=[Server(url=Config.server_root_path)]),
         exception_handlers={HTTP_500_INTERNAL_SERVER_ERROR: exception_handler},
