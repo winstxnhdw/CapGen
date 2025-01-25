@@ -66,9 +66,9 @@ class Converter:
         """
         return (
             f'{id}\n'
-            f'{self.convert_seconds_to_hhmmssmmm(start, ",")} --> '
-            f'{self.convert_seconds_to_hhmmssmmm(end, ",")}\n{text[1:]}'
-            for id, _, start, end, text, *_ in self.segments
+            f'{self.convert_seconds_to_hhmmssmmm(segment.start, ",")} --> '
+            f'{self.convert_seconds_to_hhmmssmmm(segment.end, ",")}\n{segment.text[1:]}'
+            for segment in self.segments
         )
 
     def to_vtt(self) -> Iterator[str]:
@@ -87,7 +87,7 @@ class Converter:
         """
         yield 'WEBVTT'
         yield from (
-            f'{self.convert_seconds_to_hhmmssmmm(start, ".")} --> '
-            f'{self.convert_seconds_to_hhmmssmmm(end, ".")}\n{text[1:]}'
-            for _, _, start, end, text, *_ in self.segments
+            f'{self.convert_seconds_to_hhmmssmmm(segment.start, ".")} --> '
+            f'{self.convert_seconds_to_hhmmssmmm(segment.end, ".")}\n{segment.text[1:]}'
+            for segment in self.segments
         )
