@@ -1372,13 +1372,13 @@ windows-terminal = ["colorama (>=0.4.6)"]
 
 [[package]]
 name = "pylint"
-version = "3.3.3"
+version = "3.3.4"
 description = "python code static checker"
 optional = false
 python-versions = ">=3.9.0"
 files = [
-    {file = "pylint-3.3.3-py3-none-any.whl", hash = "sha256:26e271a2bc8bce0fc23833805a9076dd9b4d5194e2a02164942cb3cdc37b4183"},
-    {file = "pylint-3.3.3.tar.gz", hash = "sha256:07c607523b17e6d16e2ae0d7ef59602e332caa762af64203c24b41c27139f36a"},
+    {file = "pylint-3.3.4-py3-none-any.whl", hash = "sha256:289e6a1eb27b453b08436478391a48cd53bb0efb824873f949e709350f3de018"},
+    {file = "pylint-3.3.4.tar.gz", hash = "sha256:74ae7a38b177e69a9b525d0794bd8183820bfa7eb68cc1bee6e8ed22a42be4ce"},
 ]
 
 [package.dependencies]
@@ -1388,7 +1388,7 @@ dill = [
     {version = ">=0.3.7", markers = "python_version >= \"3.12\""},
     {version = ">=0.3.6", markers = "python_version >= \"3.11\" and python_version < \"3.12\""},
 ]
-isort = ">=4.2.5,<5.13.0 || >5.13.0,<6"
+isort = ">=4.2.5,<5.13.0 || >5.13.0,<7"
 mccabe = ">=0.6,<0.8"
 platformdirs = ">=2.2.0"
 tomlkit = ">=0.10.1"
@@ -1413,13 +1413,13 @@ dev = ["build", "flake8", "mypy", "pytest", "twine"]
 
 [[package]]
 name = "pyright"
-version = "1.1.392.post0"
+version = "1.1.393"
 description = "Command line wrapper for pyright"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "pyright-1.1.392.post0-py3-none-any.whl", hash = "sha256:252f84458a46fa2f0fd4e2f91fc74f50b9ca52c757062e93f6c250c0d8329eb2"},
-    {file = "pyright-1.1.392.post0.tar.gz", hash = "sha256:3b7f88de74a28dcfa90c7d90c782b6569a48c2be5f9d4add38472bdaac247ebd"},
+    {file = "pyright-1.1.393-py3-none-any.whl", hash = "sha256:8320629bb7a44ca90944ba599390162bf59307f3d9fb6e27da3b7011b8c17ae5"},
+    {file = "pyright-1.1.393.tar.gz", hash = "sha256:aeeb7ff4e0364775ef416a80111613f91a05c8e01e58ecfefc370ca0db7aed9c"},
 ]
 
 [package.dependencies]
@@ -1919,4 +1919,4 @@ cuda = ["nvidia-cublas-cu12", "nvidia-cudnn-cu12"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">= 3.11, < 3.13"
-content-hash = "057ba75fc987767226b6c35c8ddc97f811adee6c5adc7a1d51c187edb0e991a3"
+content-hash = "f291b43feacfd13373ef0e957279db781504ddc7e3c80e4fe4481c6bde110b89"
