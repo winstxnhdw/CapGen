@@ -1,66 +1,31 @@
-[tool.pylint.format]
-good-names = ["x", "y", "z", "i", "id", "ok"]
+[project]
+name = "CapGen"
+version = "2.0.0"
+description = "A fast CPU-based transcriber"
+requires-python = ">=3.13.5, <3.14"
 
-[tool.pylint.messages_control]
-disable = [
-    "missing-module-docstring",
-    "no-name-in-module",
-    "useless-import-alias",
-    "line-too-long",
-    "too-many-arguments",
-    "too-few-public-methods",
-]
+[dependency-groups]
+dev = ["httpx>=0.28.1", "nodejs-wheel-binaries>=22.17.0", "pyright>=1.1.403", "pytest>=8.4.1", "ruff>=0.12.4"]
 
-[tool.pyright]
-typeCheckingMode = "strict"
-stubPath = "server/typings"
-reportUnknownVariableType = false
-reportUnknownMemberType = false
-reportMissingTypeStubs = false
-reportPrivateUsage = false
+[tool.uv.workspace]
+members = ["cli", "transcriber", "captions", "server"]
 
 [tool.ruff]
 line-length = 120
 
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = ["D", "Q", "INP001", "PLC0414", "TC001", "PT013"]
+
 [tool.ruff.format]
 quote-style = "single"
 
-[tool.pytest.ini_options]
-pythonpath = ["."]
+[tool.ruff.lint.flake8-annotations]
+suppress-dummy-args = true
 
-[tool.poetry]
-name = "CapGen"
-version = "0.1.0"
-description = ""
-authors = ["winstxnhdw <you@example.com>"]
-readme = "README.md"
-
-[tool.poetry.dependencies]
-python = ">= 3.11, < 3.13"
-faster-whisper = "^1.1.1"
-nvidia-cudnn-cu12 = { version = "8.9.7.29", optional = true }
-nvidia-cublas-cu12 = { version = "^12.8.3.14", optional = true }
-
-[tool.poetry.group.server.dependencies]
-granian = "^1.7.6"
-litestar = "^2.14.0"
-pydantic-settings = "^2.8.0"
-uvloop = { version = "^0.21.0", markers = "sys_platform != 'win32'" }
-picologging = "^0.9.3"
-
-[tool.poetry.group.dev.dependencies]
-pyright = "^1.1.394"
-pylint = "^3.3.4"
-pytest = "^8.3.4"
-ruff = "^0.9.7"
-httpx = "^0.28.1"
-
-[tool.poetry.extras]
-cuda = ["nvidia-cudnn-cu12", "nvidia-cublas-cu12"]
-
-[tool.poetry.scripts]
-capgen = "capgen:main"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[tool.pyright]
+typeCheckingMode = "strict"
+reportUnknownVariableType = false
+reportUnknownMemberType = false
+reportMissingTypeStubs = false
+reportPrivateUsage = false

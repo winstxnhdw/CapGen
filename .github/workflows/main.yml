@@ -1,23 +1,33 @@
 name: Build
 
 on:
+  pull_request:
   push:
-    branches: [main]
     paths:
-      - .github/workflows/build.yml
+      - .github/workflows/main.yml
       - .dockerignore
       - Dockerfile.build
-      - supervisord.conf
-      - Caddyfile
       - pyproject.toml
-      - poetry.lock
-      - '**.py'
+      - uv.lock
+      - server/**
+      - cli/**
+      - transcriber/**
+      - captions/**
 
 jobs:
   test:
-    uses: winstxnhdw/actions/.github/workflows/python.yml@main
+    uses: winstxnhdw/actions/.github/workflows/uv.yml@main
+    with:
+      working-directory: server
 
   build:
+    uses: winstxnhdw/actions/.github/workflows/docker-build.yml@main
+    with:
+      file: Dockerfile.build
+
+  push:
+    if: github.ref == 'refs/heads/main'
+    needs: [test, build]
     uses: winstxnhdw/actions/.github/workflows/docker-push.yml@main
     with:
       file: Dockerfile.build
@@ -27,6 +37,7 @@ jobs:
       packages: write
 
   restart:
+    if: github.ref == 'refs/heads/main'
     needs: [test, build]
     uses: winstxnhdw/actions/.github/workflows/spaces-restart.yml@main
     secrets:

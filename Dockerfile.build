@@ -1,18 +1,18 @@
-FROM python:3.12-slim AS python-builder
+FROM python:slim AS python-builder
 
-ENV POETRY_VIRTUALENVS_CREATE=false
-ENV POETRY_HOME=/opt/poetry
-ENV PATH=$POETRY_HOME/bin:$PATH
+WORKDIR /home/user
 
-WORKDIR /
+ENV UV_LINK_MODE=copy
+ENV UV_COMPILE_BYTECODE=1
+ENV UV_LOCKED=1
+ENV UV_NO_CACHE=1
+ENV UV_NO_EDITABLE=1
+ENV PYTHONOPTIMIZE=2
 
-COPY pyproject.toml poetry.lock ./
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/
+COPY . .
 
-RUN apt update
-RUN apt install -y build-essential
-RUN python -m venv $POETRY_HOME
-RUN $POETRY_HOME/bin/pip install poetry
-RUN poetry install --without dev --no-root
+RUN uv sync --no-dev --package server
 
 
 FROM python:slim AS model-builder
@@ -22,20 +22,21 @@ RUN python -c \
     "from huggingface_hub import snapshot_download; snapshot_download('Systran/faster-distil-whisper-large-v3')"
 
 
-FROM python:3.12-slim
+FROM python:slim
 
 ENV HOME=/home/user
-ENV PYTHONUNBUFFERED=1
+ENV PATH=$HOME/.venv/bin:$PATH
 ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV HF_HUB_OFFLINE=1
 
 RUN useradd -m -u 1000 user
 
 USER user
 
-WORKDIR $HOME/app
+WORKDIR $HOME
 
 COPY --chown=user --from=model-builder  /root/.cache/huggingface $HOME/.cache/huggingface
-COPY --chown=user --from=python-builder /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
-COPY --chown=user . $HOME/app
+COPY --chown=user  --from=python-builder $HOME/.venv .venv
 
-CMD ["python", "main.py"]
+CMD ["capgen"]

@@ -1,0 +1,36 @@
+[project]
+name = "server"
+version = "0.1.0"
+requires-python = ">=3.13.5, <3.14"
+dependencies = [
+    "granian>=2.4.2",
+    "litestar>=2.16.0",
+    "pydantic-settings>=2.10.1",
+    "uvloop>=0.21.0; sys_platform != 'win32'",
+    "picologging>=0.9.3; python_version < '3.13'",
+    "prometheus-client>=0.22.1",
+    "aiohttp>=3.12.14",
+    "transcriber",
+    "captions",
+]
+
+[dependency-groups]
+dev = ["httpx>=0.28.1", "nodejs-wheel-binaries>=22.17.0", "pyright>=1.1.403", "pytest>=8.4.1", "ruff>=0.12.4"]
+
+[build-system]
+requires = ["uv_build"]
+build-backend = "uv_build"
+
+[project.scripts]
+capgen = "src:main"
+
+[tool.uv.sources]
+transcriber = { workspace = true }
+captions = { workspace = true }
+
+[tool.uv.build-backend]
+module-root = ""
+module-name = "src"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]

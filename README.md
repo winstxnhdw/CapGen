@@ -3,7 +3,6 @@
 [![main.yml](https://github.com/winstxnhdw/CapGen/actions/workflows/main.yml/badge.svg)](https://github.com/winstxnhdw/CapGen/actions/workflows/main.yml)
 [![deploy.yml](https://github.com/winstxnhdw/CapGen/actions/workflows/deploy.yml/badge.svg)](https://github.com/winstxnhdw/CapGen/actions/workflows/deploy.yml)
 [![formatter.yml](https://github.com/winstxnhdw/CapGen/actions/workflows/formatter.yml/badge.svg)](https://github.com/winstxnhdw/CapGen/actions/workflows/formatter.yml)
-[![dependabot.yml](https://github.com/winstxnhdw/CapGen/actions/workflows/dependabot.yml/badge.svg)](https://github.com/winstxnhdw/CapGen/actions/workflows/dependabot.yml)
 
 [![Open in Spaces](https://huggingface.co/datasets/huggingface/badges/raw/main/open-in-hf-spaces-md-dark.svg)](https://huggingface.co/spaces/winstxnhdw/CapGen)
 [![Open a Pull Request](https://huggingface.co/datasets/huggingface/badges/raw/main/open-a-pr-md-dark.svg)](https://github.com/winstxnhdw/CapGen/compare)
@@ -20,21 +19,21 @@ A fast cross-platform CPU-first video/audio English-only transcriber for generat
 Simply cURL the endpoint like in the following. Currently, the only available caption format are `srt`, `vtt` and `txt`.
 
 ```bash
-curl "https://winstxnhdw-CapGen.hf.space/api/v1/transcribe?caption_format=$CAPTION_FORMAT" \
+curl "https://winstxnhdw-CapGen.hf.space/api/v2/transcribe?caption_format=$CAPTION_FORMAT" \
   -F "file=@$AUDIO_FILE_PATH"
 ```
 
 You can also redirect the output to a file.
 
 ```bash
-curl "https://winstxnhdw-CapGen.hf.space/api/v1/transcribe?caption_format=$CAPTION_FORMAT" \
+curl "https://winstxnhdw-CapGen.hf.space/api/v2/transcribe?caption_format=$CAPTION_FORMAT" \
   -F "file=@$AUDIO_FILE_PATH" | jq -r ".result" > result.srt
 ```
 
 You can stream the captions in real-time with the following.
 
 ```bash
-curl -N "https://winstxnhdw-CapGen.hf.space/api/v1/transcribe/stream?caption_format=$CAPTION_FORMAT" \
+curl -N "https://winstxnhdw-CapGen.hf.space/api/v2/transcribe/stream?caption_format=$CAPTION_FORMAT" \
   -F "file=@$AUDIO_FILE_PATH"
 ```
 
@@ -43,23 +42,23 @@ curl -N "https://winstxnhdw-CapGen.hf.space/api/v1/transcribe/stream?caption_for
 `CapGen` is available as a CLI tool with CUDA support. You can install it with `pip`.
 
 ```bash
-pip install git+https://github.com/winstxnhdw/CapGen
+pip install "capgen-cli @ git+https://github.com/winstxnhdw/CapGen#subdirectory=cli"
 ```
 
-You may also install `CapGen` with the necessary CUDA binaries.
+You may also install `capgen` with the necessary CUDA binaries.
 
 ```bash
-pip install "capgen[cuda] @ git+https://github.com/winstxnhdw/CapGen"
+pip install "capgen-cli[cuda] @ git+https://github.com/winstxnhdw/CapGen#subdirectory=cli"
 ```
 
 Now, you can run the CLI tool with the following command.
 
 ```bash
-capgen -c srt -o ./result.srt --cuda < ~/Downloads/audio.mp3
+capgen-cli -c srt -o ./result.srt --cuda < ~/Downloads/audio.mp3
 ```
 
 ```yaml
-usage: capgen [-h] [-g] [-t] [-w] -c  -o  [file]
+usage: capgen-cli [-h] [-g] [-t] [-w] -c  -o  [file]
 
 transcribe a compatible audio/video file into a chosen caption file format
 
@@ -84,7 +83,7 @@ required:
 You can install the required dependencies for your editor with the following.
 
 ```bash
-poetry install
+uv sync
 ```
 
 You can spin the server up locally with the following. You can access the Swagger UI at [localhost:7860/api/docs](http://localhost:7860/api/docs).

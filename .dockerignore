@@ -1,15 +1,13 @@
 .gitignore
 .dockerignore
 
-capgen/__init__.py
-capgen/types/*
-
-*.md
-*.pyc
-Dockerfile*
+**/*.pyi
+**/*.md
+**/*.pyc
+**/Dockerfile*
 
 .github/
-tests/
-.vscode/
-.venv/
-.pytest_cache/
+**/tests/
+**/.vscode/
+**/.venv/
+**/.pytest_cache/
