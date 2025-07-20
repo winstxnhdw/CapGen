@@ -1,0 +1,24 @@
+name: CLI
+
+on:
+  push:
+    paths:
+      - .github/workflows/cli.yml
+      - pyproject.toml
+      - uv.lock
+      - cli/**
+      - transcriber/**
+      - captions/**
+jobs:
+  test:
+    strategy:
+      matrix:
+        python-version: [3.9, '3.10', 3.11, 3.12, 3.13]
+        runs-on: [ubuntu, windows, macos]
+
+    uses: winstxnhdw/actions/.github/workflows/uv.yml@main
+    with:
+      runs-on: ${{ matrix.runs-on }}-latest
+      python-version: ${{ matrix.python-version }}
+      working-directory: cli
+
