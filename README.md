@@ -1,5 +1,6 @@
 # CapGen
 
+[![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
 [![main.yml](https://github.com/winstxnhdw/CapGen/actions/workflows/main.yml/badge.svg)](https://github.com/winstxnhdw/CapGen/actions/workflows/main.yml)
 [![deploy.yml](https://github.com/winstxnhdw/CapGen/actions/workflows/deploy.yml/badge.svg)](https://github.com/winstxnhdw/CapGen/actions/workflows/deploy.yml)
 [![cli.yml](https://github.com/winstxnhdw/CapGen/actions/workflows/cli.yml/badge.svg)](https://github.com/winstxnhdw/CapGen/actions/workflows/cli.yml)
