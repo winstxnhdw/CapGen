@@ -44,7 +44,7 @@ class Transcriber:
         except InvalidDataError:
             return None
 
-        segment = next(iter(segments))
+        segment: Segment = next(segments)  # pyright: ignore [reportArgumentType]
         segment.text = segment.text.lstrip()
 
         yield segment
