@@ -1,5 +1,7 @@
 # ruff: noqa: S101
 
+from __future__ import annotations
+
 from litestar import Litestar
 from litestar.testing import AsyncTestClient
 from pytest import mark
