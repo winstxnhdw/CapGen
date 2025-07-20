@@ -119,26 +119,6 @@ name = "capgen"
 version = "2.0.0"
 source = { virtual = "." }
 
-[package.dev-dependencies]
-dev = [
-    { name = "httpx" },
-    { name = "nodejs-wheel-binaries" },
-    { name = "pyright" },
-    { name = "pytest" },
-    { name = "ruff" },
-]
-
-[package.metadata]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "httpx", specifier = ">=0.28.1" },
-    { name = "nodejs-wheel-binaries", specifier = ">=22.17.0" },
-    { name = "pyright", specifier = ">=1.1.403" },
-    { name = "pytest", specifier = ">=8.4.1" },
-    { name = "ruff", specifier = ">=0.12.4" },
-]
-
 [[package]]
 name = "capgen-cli"
 version = "0.1.0"
