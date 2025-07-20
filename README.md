@@ -81,7 +81,7 @@ cpu:
 You can install the required dependencies for your editor with the following.
 
 ```bash
-uv sync
+uv sync --all-packages
 ```
 
 You can spin the server up locally with the following. You can access the Swagger UI at [localhost:7860/api/docs](http://localhost:7860/api/docs).
