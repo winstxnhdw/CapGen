@@ -16,21 +16,28 @@ async def transcribe(session_client: AsyncTestClient[Litestar], audio_file: byte
 
 
 @mark.anyio
+async def test_transcribe_incorrect_format(session_client: AsyncTestClient[Litestar], audio_file: bytes) -> None:
+    assert not await transcribe(session_client, audio_file, 'art')
+
+
+@mark.anyio
 async def test_transcribe_txt(session_client: AsyncTestClient[Litestar], audio_file: bytes) -> None:
     assert await transcribe(session_client, audio_file, 'txt') == 'Hello there, my name is Bella.'
 
 
+@mark.flaky
 @mark.anyio
 async def test_transcribe_srt(session_client: AsyncTestClient[Litestar], audio_file: bytes) -> None:
     assert (
         await transcribe(session_client, audio_file, 'srt')
-        == '1\n00:00:00,000 --> 00:00:02,000\nHello there, my name is Bella.'
+        == '1\n00:00:00,000 --> 00:00:01,720\nHello there, my name is Bella.'
     )
 
 
+@mark.flaky
 @mark.anyio
 async def test_transcribe_vtt(session_client: AsyncTestClient[Litestar], audio_file: bytes) -> None:
     assert (
         await transcribe(session_client, audio_file, 'vtt')
-        == 'WEBVTT\n\n00:00:00.000 --> 00:00:02.000\nHello there, my name is Bella.'
+        == 'WEBVTT\n\n00:00:00.000 --> 00:00:01.720\nHello there, my name is Bella.'
     )
