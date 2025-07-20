@@ -2,7 +2,7 @@
 	"extends": ["github>winstxnhdw/renovate"],
 	"packageRules": [
 		{
-			"matchFileNames": ["cli/**"],
+			"matchFileNames": ["cli/**", "captions/**", "transcriber/**"],
 			"matchPackageNames": ["python"],
 			"enabled": false
 		}

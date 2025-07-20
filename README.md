@@ -54,11 +54,11 @@ pip install "capgen-cli[cuda] @ git+https://github.com/winstxnhdw/CapGen#subdire
 Now, you can run the CLI tool with the following command.
 
 ```bash
-capgen-cli -c srt -o ./result.srt --cuda < ~/Downloads/audio.mp3
+capgen -c srt -o ./result.srt --cuda < ~/Downloads/audio.mp3
 ```
 
 ```yaml
-usage: capgen-cli [-h] [-g] [-t] [-w] -c  -o  [file]
+usage: capgen [-h] [-g] [-t] [-w] -c  -o  [file]
 
 transcribe a compatible audio/video file into a chosen caption file format
 
@@ -68,14 +68,12 @@ positional arguments:
 options:
   -h, --help      show this help message and exit
   -g, --cuda      whether to use CUDA for inference
+  -c, --caption   the chosen caption file format
+  -o, --output    the output file path
 
 cpu:
   -t, --threads   the number of CPU threads
   -w, --workers   the number of CPU workers
-
-required:
-  -c, --caption   the chosen caption file format
-  -o, --output    the output file path
 ```
 
 ## Development

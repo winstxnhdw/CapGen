@@ -142,7 +142,7 @@ dev = [
 [[package]]
 name = "capgen-cli"
 version = "0.1.0"
-source = { virtual = "cli" }
+source = { editable = "cli" }
 dependencies = [
     { name = "captions" },
     { name = "transcriber" },
