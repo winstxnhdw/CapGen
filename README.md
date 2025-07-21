@@ -13,7 +13,7 @@ A fast cross-platform CPU-first video/audio English-only transcriber for generat
 
 ## Requirements
 
-- Python 3.11
+- Python 3.9
 - 4 GB RAM
 
 ## Usage (API)
