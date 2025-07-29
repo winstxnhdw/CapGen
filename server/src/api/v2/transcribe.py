@@ -47,7 +47,7 @@ class TranscriberController(Controller):
         else:
             result = (segment.text for segment in transcription)
 
-        return Transcribed(result='\n\n'.join(result))
+        return Transcribed(result=''.join(result))
 
     @post('/stream', status_code=HTTP_200_OK)
     async def transcribe_stream(

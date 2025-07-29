@@ -1,4 +1,4 @@
-FROM python:slim AS python-builder
+FROM python AS python-builder
 
 WORKDIR /home/user
 

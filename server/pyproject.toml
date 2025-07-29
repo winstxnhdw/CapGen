@@ -34,3 +34,4 @@ module-name = "src"
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
+markers = ["flaky"]
