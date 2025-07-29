@@ -15,9 +15,12 @@ on:
 
 jobs:
   test:
+    strategy:
+      matrix:
+        working-directory: [server, transcriber]
     uses: winstxnhdw/actions/.github/workflows/uv.yml@main
     with:
-      working-directory: server
+      working-directory: ${{ matrix.working-directory }}
 
   build:
     uses: winstxnhdw/actions/.github/workflows/docker-build.yml@main

@@ -32,7 +32,7 @@ async def test_transcribe_txt(session_client: AsyncTestClient[Litestar], audio_f
 async def test_transcribe_srt(session_client: AsyncTestClient[Litestar], audio_file: bytes) -> None:
     assert (
         await transcribe(session_client, audio_file, 'srt')
-        == '1\n00:00:00,000 --> 00:00:01,720\nHello there, my name is Bella.'
+        == '1\n00:00:00,000 --> 00:00:01,720\nHello there, my name is Bella.\n\n'
     )
 
 
@@ -41,5 +41,5 @@ async def test_transcribe_srt(session_client: AsyncTestClient[Litestar], audio_f
 async def test_transcribe_vtt(session_client: AsyncTestClient[Litestar], audio_file: bytes) -> None:
     assert (
         await transcribe(session_client, audio_file, 'vtt')
-        == 'WEBVTT\n\n00:00:00.000 --> 00:00:01.720\nHello there, my name is Bella.'
+        == 'WEBVTT\n\n00:00:00.000 --> 00:00:01.720\nHello there, my name is Bella.\n\n'
     )
