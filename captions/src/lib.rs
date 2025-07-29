@@ -42,7 +42,8 @@ fn convert_seconds_to_hhmmssmmm(
     unsafe { std::str::from_utf8_unchecked(time_buffer) }
 }
 
-#[pyclass(immutable_type)]
+#[cfg_attr(not(any(Py_3_8, Py_3_9)), pyclass(frozen, immutable_type))]
+#[cfg_attr(any(Py_3_8, Py_3_9), pyclass(frozen))]
 struct SubRipText {
     segments: Py<PyIterator>,
 }
@@ -53,7 +54,7 @@ impl SubRipText {
         slf
     }
 
-    fn __next__(slf: PyRefMut<'_, Self>, py: Python<'_>) -> PyResult<String> {
+    fn __next__(slf: PyRef<'_, Self>, py: Python<'_>) -> PyResult<String> {
         let next_segment = slf.segments.clone_ref(py).into_bound(py).next();
         let segment =
             next_segment.unwrap_or_else(|| Err(pyo3::exceptions::PyStopIteration::new_err(())))?;
@@ -86,7 +87,8 @@ impl SubRipText {
     }
 }
 
-#[pyclass(immutable_type)]
+#[cfg_attr(not(any(Py_3_8, Py_3_9)), pyclass(immutable_type))]
+#[cfg_attr(any(Py_3_8, Py_3_9), pyclass)]
 struct WebVideoTextTracks {
     segments: Py<PyIterator>,
     has_started: bool,
