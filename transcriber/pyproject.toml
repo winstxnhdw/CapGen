@@ -2,8 +2,11 @@
 name = "transcriber"
 version = "0.1.0"
 requires-python = ">=3.8"
-dependencies = ["faster-whisper>=1.1.0", "faster-whisper>=1.1.1; python_version >= '3.9'"]
-
+dependencies = [
+    "faster-whisper>=1.1.0",
+    "faster-whisper>=1.1.1; python_version >= '3.9'",
+    "tokenizers<0.21.0; python_version < '3.9'",
+]
 [dependency-groups]
 dev = ["nodejs-wheel-binaries>=22.17.0", "pyright>=1.1.403", "pytest>=8.4.1", "ruff>=0.12.4"]
 
@@ -18,3 +21,6 @@ module-name = "transcriber"
 [tool.pytest.ini_options]
 pythonpath = ["."]
 markers = ["flaky"]
+name = "transcriber"
+version = "0.1.0"
+requires-python = ">=3.8"
