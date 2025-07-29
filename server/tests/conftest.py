@@ -21,5 +21,5 @@ async def session_client() -> AsyncIterator[AsyncTestClient[Litestar]]:
 
 @fixture(scope='session')
 async def audio_file() -> AsyncIterator[bytes]:
-    async with await open_file('tests/test.mp3', 'rb') as file:
+    async with await open_file('../transcriber/tests/test.mp3', 'rb') as file:
         yield await file.read()

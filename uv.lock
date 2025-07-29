@@ -1116,6 +1116,7 @@ dependencies = [
 dev = [
     { name = "nodejs-wheel-binaries" },
     { name = "pyright" },
+    { name = "pytest" },
     { name = "ruff" },
 ]
 
@@ -1126,6 +1127,7 @@ requires-dist = [{ name = "faster-whisper", specifier = ">=1.1.1" }]
 dev = [
     { name = "nodejs-wheel-binaries", specifier = ">=22.17.0" },
     { name = "pyright", specifier = ">=1.1.403" },
+    { name = "pytest", specifier = ">=8.4.1" },
     { name = "ruff", specifier = ">=0.12.4" },
 ]
 
