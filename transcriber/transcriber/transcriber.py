@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from collections.abc import Iterator
 from logging import Logger, getLogger
+from pathlib import Path
 from typing import BinaryIO, Literal, Self
 
 from av.error import FileNotFoundError as AVFileNotFoundError
@@ -35,10 +36,10 @@ class Transcriber:
     def __exit__(self, *_) -> None:
         del self.model
 
-    def transcribe(self, file: str | BinaryIO) -> Iterator[Segment]:
+    def transcribe(self, file: str | Path | BinaryIO) -> Iterator[Segment]:
         try:
             segments, _ = self.model.transcribe(
-                file,
+                file,  # pyright: ignore [reportArgumentType]
                 language='en',
                 beam_size=1,
                 vad_filter=True,

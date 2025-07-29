@@ -2,7 +2,7 @@
 name = "capgen-cli"
 version = "0.1.0"
 description = "CLI for CapGen"
-requires-python = ">=3.9"
+requires-python = ">=3.8"
 dependencies = ["transcriber", "captions"]
 
 [dependency-groups]
