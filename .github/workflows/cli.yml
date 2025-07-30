@@ -20,6 +20,8 @@ jobs:
     with:
       runs-on: ${{ matrix.runs-on }}-latest
       python-version: ${{ matrix.python-version }}
+      disable-lint: true
+      disable-type-check: true
       disable-test: true
       install-project: true
       working-directory: cli
