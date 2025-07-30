@@ -21,6 +21,3 @@ module-name = "transcriber"
 [tool.pytest.ini_options]
 pythonpath = ["."]
 markers = ["flaky"]
-name = "transcriber"
-version = "0.1.0"
-requires-python = ">=3.8"
