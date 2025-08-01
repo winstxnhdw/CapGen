@@ -1,12 +1,12 @@
+use pyo3::exceptions::PyStopIteration;
 use pyo3::intern;
-use pyo3::prelude::pyclass;
-use pyo3::prelude::pymethods;
 use pyo3::prelude::Bound;
 use pyo3::prelude::Py;
 use pyo3::prelude::PyRef;
-use pyo3::prelude::PyRefMut;
 use pyo3::prelude::PyResult;
 use pyo3::prelude::Python;
+use pyo3::prelude::pyclass;
+use pyo3::prelude::pymethods;
 use pyo3::pyfunction;
 use pyo3::types::PyAnyMethods;
 use pyo3::types::PyIterator;
@@ -54,10 +54,14 @@ impl SubRipText {
         slf
     }
 
-    fn __next__(slf: PyRef<'_, Self>, py: Python<'_>) -> PyResult<String> {
-        let next_segment = slf.segments.clone_ref(py).into_bound(py).next();
-        let segment =
-            next_segment.unwrap_or_else(|| Err(pyo3::exceptions::PyStopIteration::new_err(())))?;
+    fn __next__(&self, py: Python) -> PyResult<String> {
+        let segment = self
+            .segments
+            .clone_ref(py)
+            .into_bound(py)
+            .next()
+            .transpose()?
+            .ok_or_else(|| PyStopIteration::new_err(()))?;
 
         let id = segment.getattr(intern!(py, "id"))?;
         let mut start_time_buffer = [b'0'; 12];
@@ -74,10 +78,11 @@ impl SubRipText {
             b',',
         );
 
-        let text = segment.getattr(intern!(py, "text"))?.extract::<String>()?;
-        let caption = format!("{id}\n{start} --> {end}\n{text}\n\n",);
+        let text = segment
+            .getattr(intern!(py, "text"))?
+            .extract::<Bound<'_, PyString>>()?;
 
-        Ok(caption)
+        Ok(format!("{id}\n{start} --> {end}\n{text}\n\n",))
     }
 }
 
@@ -100,15 +105,19 @@ impl WebVideoTextTracks {
         slf
     }
 
-    fn __next__(mut slf: PyRefMut<'_, Self>, py: Python<'_>) -> PyResult<String> {
-        if !slf.has_started {
-            slf.has_started = true;
+    fn __next__(&mut self, py: Python<'_>) -> PyResult<String> {
+        if !self.has_started {
+            self.has_started = true;
             return Ok("WEBVTT\n\n".into());
         }
 
-        let next_segment = slf.segments.clone_ref(py).into_bound(py).next();
-        let segment =
-            next_segment.unwrap_or_else(|| Err(pyo3::exceptions::PyStopIteration::new_err(())))?;
+        let segment = self
+            .segments
+            .clone_ref(py)
+            .into_bound(py)
+            .next()
+            .transpose()?
+            .ok_or_else(|| PyStopIteration::new_err(()))?;
 
         let mut start_time_buffer = [b'0'; 12];
         let start = convert_seconds_to_hhmmssmmm(
@@ -128,9 +137,7 @@ impl WebVideoTextTracks {
             .getattr(intern!(py, "text"))?
             .extract::<Bound<'_, PyString>>()?;
 
-        let caption = format!("{start} --> {end}\n{text}\n\n",);
-
-        Ok(caption)
+        Ok(format!("{start} --> {end}\n{text}\n\n"))
     }
 }
 
