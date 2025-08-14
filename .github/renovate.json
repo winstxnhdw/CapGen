@@ -3,7 +3,7 @@
 	"packageRules": [
 		{
 			"matchFileNames": ["cli/**", "captions/**", "transcriber/**"],
-			"matchPackageNames": ["python"],
+			"matchPackageNames": ["python", "faster-whisper", "tokenizers"],
 			"enabled": false
 		}
 	]
