@@ -1,6 +1,6 @@
 version = 1
 revision = 3
-requires-python = ">=3.13.6, <3.14"
+requires-python = ">=3.13.7, <3.14"
 
 [manifest]
 members = [
@@ -144,8 +144,8 @@ requires-dist = [
 [package.metadata.requires-dev]
 dev = [
     { name = "nodejs-wheel-binaries", specifier = ">=22.18.0" },
-    { name = "pyright", specifier = ">=1.1.403" },
-    { name = "ruff", specifier = ">=0.12.9" },
+    { name = "pyright", specifier = ">=1.1.404" },
+    { name = "ruff", specifier = ">=0.12.10" },
 ]
 
 [[package]]
@@ -1030,9 +1030,9 @@ requires-dist = [
 dev = [
     { name = "httpx", specifier = ">=0.28.1" },
     { name = "nodejs-wheel-binaries", specifier = ">=22.18.0" },
-    { name = "pyright", specifier = ">=1.1.403" },
+    { name = "pyright", specifier = ">=1.1.404" },
     { name = "pytest", specifier = ">=8.4.1" },
-    { name = "ruff", specifier = ">=0.12.9" },
+    { name = "ruff", specifier = ">=0.12.10" },
 ]
 
 [[package]]
@@ -1128,9 +1128,9 @@ requires-dist = [
 [package.metadata.requires-dev]
 dev = [
     { name = "nodejs-wheel-binaries", specifier = ">=22.18.0" },
-    { name = "pyright", specifier = ">=1.1.403" },
+    { name = "pyright", specifier = ">=1.1.404" },
     { name = "pytest", specifier = ">=8.4.1" },
-    { name = "ruff", specifier = ">=0.12.9" },
+    { name = "ruff", specifier = ">=0.12.10" },
 ]
 
 [[package]]
