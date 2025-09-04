@@ -8,7 +8,7 @@ dependencies = [
     "tokenizers<0.21.0; python_version < '3.9'",
 ]
 [dependency-groups]
-dev = ["nodejs-wheel-binaries>=22.18.0", "pyright>=1.1.404", "pytest>=8.4.1", "ruff>=0.12.11"]
+dev = ["nodejs-wheel-binaries>=22.18.0", "pyright>=1.1.405", "pytest>=8.4.1", "ruff>=0.12.11"]
 
 [build-system]
 requires = ["uv_build"]
