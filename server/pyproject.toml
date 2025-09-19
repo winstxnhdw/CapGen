@@ -3,19 +3,19 @@ name = "server"
 version = "2.0.0"
 requires-python = ">=3.13.7, <3.14"
 dependencies = [
-    "granian>=2.5.3",
+    "granian>=2.5.4",
     "litestar>=2.17.0",
     "pydantic-settings>=2.10.1",
     "uvloop>=0.21.0; sys_platform != 'win32'",
     "picologging>=0.9.3; python_version < '3.13'",
-    "prometheus-client>=0.22.1",
+    "prometheus-client>=0.23.1",
     "aiohttp>=3.12.15",
     "transcriber",
     "captions",
 ]
 
 [dependency-groups]
-dev = ["httpx>=0.28.1", "nodejs-wheel-binaries>=22.19.0", "pyright>=1.1.405", "pytest>=8.4.2", "ruff>=0.13.0"]
+dev = ["httpx>=0.28.1", "nodejs-wheel-binaries>=22.19.0", "pyright>=1.1.405", "pytest>=8.4.2", "ruff>=0.13.1"]
 
 [build-system]
 requires = ["uv_build"]
