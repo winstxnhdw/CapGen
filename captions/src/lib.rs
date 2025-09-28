@@ -1,3 +1,5 @@
+#![feature(cold_path)]
+
 use pyo3::exceptions::PyStopIteration;
 use pyo3::intern;
 use pyo3::prelude::Bound;
@@ -107,6 +109,7 @@ impl WebVideoTextTracks {
 
     fn __next__(&mut self, py: Python<'_>) -> PyResult<String> {
         if !self.has_started {
+            std::hint::cold_path();
             self.has_started = true;
             return Ok("WEBVTT\n\n".into());
         }
