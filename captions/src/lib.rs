@@ -13,7 +13,6 @@ use pyo3::pyfunction;
 use pyo3::types::PyAnyMethods;
 use pyo3::types::PyIterator;
 use pyo3::types::PyModuleMethods;
-use pyo3::types::PyString;
 use pyo3::wrap_pyfunction;
 
 fn convert_seconds_to_hhmmssmmm(
@@ -65,7 +64,6 @@ impl SubRipText {
             .transpose()?
             .ok_or_else(|| PyStopIteration::new_err(()))?;
 
-        let id = segment.getattr(intern!(py, "id"))?;
         let mut start_time_buffer = [b'0'; 12];
         let start = convert_seconds_to_hhmmssmmm(
             &mut start_time_buffer,
@@ -80,9 +78,8 @@ impl SubRipText {
             b',',
         );
 
-        let text = segment
-            .getattr(intern!(py, "text"))?
-            .extract::<Bound<'_, PyString>>()?;
+        let id = segment.getattr(intern!(py, "id"))?;
+        let text = segment.getattr(intern!(py, "text"))?;
 
         Ok(format!("{id}\n{start} --> {end}\n{text}\n\n",))
     }
@@ -136,9 +133,7 @@ impl WebVideoTextTracks {
             b'.',
         );
 
-        let text = segment
-            .getattr(intern!(py, "text"))?
-            .extract::<Bound<'_, PyString>>()?;
+        let text = segment.getattr(intern!(py, "text"))?;
 
         Ok(format!("{start} --> {end}\n{text}\n\n"))
     }
