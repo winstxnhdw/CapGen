@@ -5,6 +5,7 @@ WORKDIR /home/user
 ENV UV_LINK_MODE=copy
 ENV UV_COMPILE_BYTECODE=1
 ENV UV_LOCKED=1
+ENV UV_NO_DEV=1
 ENV UV_NO_CACHE=1
 ENV UV_NO_EDITABLE=1
 ENV PYTHONOPTIMIZE=2
@@ -13,7 +14,7 @@ ENV RUSTFLAGS="-C target-cpu=native"
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/
 COPY . .
 
-RUN uv sync --no-dev --package server
+RUN uv sync --package server
 
 
 FROM python:slim AS model-builder
