@@ -5,23 +5,3 @@ description = "A fast CPU-based transcriber"
 
 [tool.uv.workspace]
 members = ["cli", "transcriber", "captions", "server"]
-
-[tool.ruff]
-line-length = 120
-
-[tool.ruff.lint]
-select = ["ALL"]
-ignore = ["D", "Q", "TC", "INP001", "PLC0414", "PT013"]
-
-[tool.ruff.format]
-quote-style = "single"
-
-[tool.ruff.lint.flake8-annotations]
-suppress-dummy-args = true
-
-[tool.pyright]
-typeCheckingMode = "strict"
-reportUnknownVariableType = false
-reportUnknownMemberType = false
-reportMissingTypeStubs = false
-reportPrivateUsage = false
