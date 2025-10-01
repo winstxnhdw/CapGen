@@ -1,13 +1,15 @@
 .gitignore
 .dockerignore
 
+.github/
+
 **/*.pyi
 **/*.md
 **/*.pyc
 **/Dockerfile*
 
-.github/
 **/tests/
 **/.vscode/
 **/.venv/
 **/.pytest_cache/
+**/.ruff_cache/
