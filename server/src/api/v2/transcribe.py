@@ -19,53 +19,61 @@ from src.typedefs import AppState, CaptionFormat
 
 class TranscriptionError(ClientException):
     def __init__(self, file_name: str) -> None:
-        super().__init__(detail=f'{file_name} is not a valid file!')
+        super().__init__(detail=f"{file_name} is not a valid file!")
 
 
 class TranscriberController(Controller):
-    path = '/transcription'
+    path = "/transcription"
 
     @post(status_code=HTTP_200_OK)
     async def transcribe(
         self,
         state: AppState,
         data: Annotated[UploadFile, Body(media_type=RequestEncodingType.MULTI_PART)],
-        caption_format: CaptionFormat = 'srt',
+        caption_format: CaptionFormat = "srt",
     ) -> Transcribed:
         thread_pool = ConcurrencyState.EXECUTOR or ThreadPoolExecutor()
         audio = BytesIO(await data.read())
 
-        if not (transcription := await wrap_future(thread_pool.submit(state.transcriber.transcribe, audio))):
+        if not (
+            transcription := await wrap_future(
+                thread_pool.submit(state.transcriber.transcribe, audio)
+            )
+        ):
             raise TranscriptionError(data.filename)
 
-        if caption_format == 'srt':
+        if caption_format == "srt":
             result = segments_to_srt(transcription)
 
-        elif caption_format == 'vtt':
+        elif caption_format == "vtt":
             result = segments_to_vtt(transcription)
 
         else:
             result = (segment.text for segment in transcription)
 
-        return Transcribed(result=''.join(result))
+        return Transcribed(result="".join(result))
 
-    @post('/stream', status_code=HTTP_200_OK)
+    @post("/stream", status_code=HTTP_200_OK)
     async def transcribe_stream(
         self,
         state: AppState,
         data: Annotated[UploadFile, Body(media_type=RequestEncodingType.MULTI_PART)],
-        caption_format: CaptionFormat = 'srt',
+        caption_format: CaptionFormat = "srt",
     ) -> ServerSentEvent:
         thread_pool = ConcurrencyState.EXECUTOR or ThreadPoolExecutor()
         audio = BytesIO(await data.read())
 
-        if not (transcription := await wrap_future(thread_pool.submit(state.transcriber.transcribe, audio))):
+        if not (
+            transcription := await wrap_future(
+                thread_pool.submit(state.transcriber.transcribe, audio)
+            )
+        ):
             raise TranscriptionError(data.filename)
 
-        if caption_format == 'srt':
+        if caption_format == "srt":
             result = segments_to_srt(transcription)
 
-        elif caption_format == 'vtt':
+        elif caption_format == "vtt":
             result = segments_to_vtt(transcription)
 
         else:

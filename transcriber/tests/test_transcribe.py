@@ -11,20 +11,26 @@ from transcriber import Transcriber
 
 
 def test_transcribe_from_file(transcriber: Transcriber, audio_file: BinaryIO) -> None:
-    assert next(transcriber.transcribe(audio_file)).text == 'Hello there, my name is Bella.'
+    assert (
+        next(transcriber.transcribe(audio_file)).text
+        == "Hello there, my name is Bella."
+    )
 
 
 def test_transcribe_from_path(transcriber: Transcriber, audio_file_path: Path) -> None:
-    assert next(transcriber.transcribe(audio_file_path)).text == 'Hello there, my name is Bella.'
+    assert (
+        next(transcriber.transcribe(audio_file_path)).text
+        == "Hello there, my name is Bella."
+    )
 
 
 def test_transcribe_invalid_file(transcriber: Transcriber) -> None:
     with raises(StopIteration):
-        next(transcriber.transcribe('invalid_file.mp3'))
+        next(transcriber.transcribe("invalid_file.mp3"))
 
 
 def test_transcribe_invalid_data(transcriber: Transcriber) -> None:
-    with raises(StopIteration), Path('pyproject.toml').open('rb') as file:
+    with raises(StopIteration), Path("pyproject.toml").open("rb") as file:
         next(transcriber.transcribe(file))
 
 

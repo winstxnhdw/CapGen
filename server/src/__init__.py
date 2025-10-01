@@ -9,8 +9,8 @@ def main() -> None:
     config = Config()
 
     granian = Server(
-        f'{app.__module__}:{app.__name__}',
-        address='0.0.0.0',  # noqa: S104
+        f"{app.__module__}:{app.__name__}",
+        address="0.0.0.0",  # noqa: S104
         port=config.server_port,
         interface=Interfaces.ASGI,
         workers=config.worker_count,
