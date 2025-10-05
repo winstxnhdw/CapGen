@@ -8,18 +8,18 @@ from pytest import fixture
 from src.app import app
 
 
-@fixture(scope='session')
-def anyio_backend() -> tuple[Literal['asyncio', 'trio'], dict[str, bool]]:
-    return 'asyncio', {'use_uvloop': True}
+@fixture(scope="session")
+def anyio_backend() -> tuple[Literal["asyncio", "trio"], dict[str, bool]]:
+    return "asyncio", {"use_uvloop": True}
 
 
-@fixture(scope='session')
+@fixture(scope="session")
 async def session_client() -> AsyncIterator[AsyncTestClient[Litestar]]:
     async with AsyncTestClient(app=app()) as client:
         yield client
 
 
-@fixture(scope='session')
+@fixture(scope="session")
 async def audio_file() -> AsyncIterator[bytes]:
-    async with await open_file('../transcriber/tests/test.mp3', 'rb') as file:
+    async with await open_file("../transcriber/tests/test.mp3", "rb") as file:
         yield await file.read()

@@ -1,6 +1,6 @@
 from typing import BinaryIO, Literal, TypedDict
 
-type CaptionFormat = Literal['srt', 'vtt']
+type CaptionFormat = Literal["srt", "vtt"]
 
 class Arguments(TypedDict):
     file: str | BinaryIO
