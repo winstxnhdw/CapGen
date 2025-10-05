@@ -6,7 +6,6 @@
 [![API](https://img.shields.io/endpoint?url=https%3A%2F%2Fwinstxnhdw-CapGen.hf.space%2Fapi%2Fhealth&logo=huggingface&labelColor=%230B0F19&color=brightgreen)](https://huggingface.co/spaces/winstxnhdw/CapGen)
 [![main.yml](https://github.com/winstxnhdw/CapGen/actions/workflows/main.yml/badge.svg)](https://github.com/winstxnhdw/CapGen/actions/workflows/main.yml)
 [![clippy.yml](https://github.com/winstxnhdw/CapGen/actions/workflows/clippy.yml/badge.svg)](https://github.com/winstxnhdw/CapGen/actions/workflows/clippy.yml)
-[![deploy.yml](https://github.com/winstxnhdw/CapGen/actions/workflows/deploy.yml/badge.svg)](https://github.com/winstxnhdw/CapGen/actions/workflows/deploy.yml)
 [![cli.yml](https://github.com/winstxnhdw/CapGen/actions/workflows/cli.yml/badge.svg)](https://github.com/winstxnhdw/CapGen/actions/workflows/cli.yml)
 [![formatter.yml](https://github.com/winstxnhdw/CapGen/actions/workflows/formatter.yml/badge.svg)](https://github.com/winstxnhdw/CapGen/actions/workflows/formatter.yml)
 
