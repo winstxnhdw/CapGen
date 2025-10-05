@@ -470,7 +470,7 @@ wheels = [
 
 [[package]]
 name = "litestar"
-version = "2.17.0"
+version = "2.18.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "anyio" },
@@ -486,9 +486,9 @@ dependencies = [
     { name = "rich-click" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/3f/62/36619846adb94d24d31e1aad7a52632544f2db7b0df22c8839cfa1db0b2e/litestar-2.17.0.tar.gz", hash = "sha256:0f50c3b7063417c338b32902f9eb40b81a7b14c9802edbff921a24aec3b0ea5b", size = 372203, upload-time = "2025-08-10T13:37:41.401Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/c9/75/e0c286719860bc63459dd3364616bb436aecfbd8ab26f212a3a7957a551f/litestar-2.18.0.tar.gz", hash = "sha256:be8f91813854722b7a2f37cbb57d76977050a96b2427d3c4455d406f0f4fcd50", size = 372890, upload-time = "2025-10-05T16:24:00.094Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/52/04/0935667c3cee2a26152102b9319fdfe987b0f765e14e0311c17ca6698820/litestar-2.17.0-py3-none-any.whl", hash = "sha256:2e62f01f852195362d69e3305cccddaf6371f5ab0ced30a081a66fb85e1df532", size = 564343, upload-time = "2025-08-10T13:37:39.462Z" },
+    { url = "https://files.pythonhosted.org/packages/3f/ec/76d3e07db8bac2f3248acb8879c7a8ba6b6c96e846c40d8474d1a0f79160/litestar-2.18.0-py3-none-any.whl", hash = "sha256:459ec993bafe47245c981d802a0a0c73f47c98313b3c4e47923eebe978f0e511", size = 564603, upload-time = "2025-10-05T16:23:58.439Z" },
 ]
 
 [[package]]
@@ -1017,7 +1017,7 @@ requires-dist = [
     { name = "aiohttp", specifier = ">=3.12.15" },
     { name = "captions", editable = "captions" },
     { name = "granian", specifier = ">=2.5.4" },
-    { name = "litestar", specifier = ">=2.17.0" },
+    { name = "litestar", specifier = ">=2.18.0" },
     { name = "picologging", marker = "python_full_version < '3.13'", specifier = ">=0.9.3" },
     { name = "prometheus-client", specifier = ">=0.23.1" },
     { name = "pydantic-settings", specifier = ">=2.11.0" },
