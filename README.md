@@ -1,6 +1,6 @@
 # CapGen
 
-![API](https://img.shields.io/endpoint?url=https%3A%2F%2Fwinstxnhdw-CapGen.hf.space%2Fapi%2Fhealth&logo=huggingface&labelColor=%230B0F19&color=brightgreen&link=https%3A%2F%2Fhuggingface.co%2Fspaces%2Fwinstxnhdw%2FCapGen)
+[![API](https://img.shields.io/endpoint?url=https%3A%2F%2Fwinstxnhdw-CapGen.hf.space%2Fapi%2Fhealth&logo=huggingface&labelColor=%230B0F19&color=brightgreen)](https://huggingface.co/spaces/winstxnhdw/CapGen)
 [![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
 [![python](https://img.shields.io/badge/python-3.8%20|%203.9%20|%203.10%20|%203.11%20|%203.12%20|%203.13-blue)](https://www.python.org/)
 
@@ -9,9 +9,6 @@
 [![deploy.yml](https://github.com/winstxnhdw/CapGen/actions/workflows/deploy.yml/badge.svg)](https://github.com/winstxnhdw/CapGen/actions/workflows/deploy.yml)
 [![cli.yml](https://github.com/winstxnhdw/CapGen/actions/workflows/cli.yml/badge.svg)](https://github.com/winstxnhdw/CapGen/actions/workflows/cli.yml)
 [![formatter.yml](https://github.com/winstxnhdw/CapGen/actions/workflows/formatter.yml/badge.svg)](https://github.com/winstxnhdw/CapGen/actions/workflows/formatter.yml)
-
-[![Open in Spaces](https://huggingface.co/datasets/huggingface/badges/raw/main/open-in-hf-spaces-md-dark.svg)](https://huggingface.co/spaces/winstxnhdw/CapGen)
-[![Open a Pull Request](https://huggingface.co/datasets/huggingface/badges/raw/main/open-a-pr-md-dark.svg)](https://github.com/winstxnhdw/CapGen/compare)
 
 A fast cross-platform CPU-first video/audio English-only transcriber for generating caption files with [Whisper](https://openai.com/research/whisper) and [CTranslate2](https://github.com/OpenNMT/CTranslate2), hosted on Hugging Face Spaces. A `pip` installable offline CLI tool with CUDA support is provided. By default, Voice Activity Detection (VAD) preprocessing is always enabled.
 
