@@ -23,7 +23,7 @@ class Transcriber:
     ) -> None:
         self.logger = logger or getLogger(__name__)
         self.model = WhisperModel(
-            'Systran/faster-distil-whisper-large-v3',
+            'distil-whisper/distil-large-v3.5-ct2',
             device,
             compute_type='auto',
             cpu_threads=number_of_threads,

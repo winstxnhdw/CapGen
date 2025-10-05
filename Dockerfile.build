@@ -21,7 +21,7 @@ FROM python:slim AS model-builder
 
 RUN pip install huggingface_hub
 RUN python -c \
-    "from huggingface_hub import snapshot_download; snapshot_download('Systran/faster-distil-whisper-large-v3')"
+    "from huggingface_hub import snapshot_download; snapshot_download('distil-whisper/distil-large-v3.5-ct2')"
 
 
 FROM python:slim

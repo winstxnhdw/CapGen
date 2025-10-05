@@ -14,11 +14,6 @@
 
 A fast cross-platform CPU-first video/audio English-only transcriber for generating caption files with [Whisper](https://openai.com/research/whisper) and [CTranslate2](https://github.com/OpenNMT/CTranslate2), hosted on Hugging Face Spaces. A `pip` installable offline CLI tool with CUDA support is provided. By default, Voice Activity Detection (VAD) preprocessing is always enabled.
 
-## Requirements
-
-- Python 3.9
-- 4 GB RAM
-
 ## Usage (API)
 
 Simply cURL the endpoint like in the following. Currently, the only available caption format are `srt`, `vtt` and `txt`.
