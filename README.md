@@ -3,7 +3,7 @@
 [![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
 [![python](https://img.shields.io/badge/python-3.8%20|%203.9%20|%203.10%20|%203.11%20|%203.12%20|%203.13-blue)](https://www.python.org/)
 
-[![API](https://img.shields.io/endpoint?url=https%3A%2F%2Fwinstxnhdw-CapGen.hf.space%2Fapi%2Fhealth&logo=huggingface&labelColor=%230B0F19&color=brightgreen)](https://huggingface.co/spaces/winstxnhdw/CapGen)
+[![API](https://img.shields.io/endpoint?url=https%3A%2F%2Fwinstxnhdw-CapGen.hf.space%2Fapi%2Fhealth&logo=huggingface&label=CapGen&labelColor=%230B0F19&color=brightgreen)](https://huggingface.co/spaces/winstxnhdw/CapGen)
 [![main.yml](https://github.com/winstxnhdw/CapGen/actions/workflows/main.yml/badge.svg)](https://github.com/winstxnhdw/CapGen/actions/workflows/main.yml)
 [![clippy.yml](https://github.com/winstxnhdw/CapGen/actions/workflows/clippy.yml/badge.svg)](https://github.com/winstxnhdw/CapGen/actions/workflows/clippy.yml)
 [![cli.yml](https://github.com/winstxnhdw/CapGen/actions/workflows/cli.yml/badge.svg)](https://github.com/winstxnhdw/CapGen/actions/workflows/cli.yml)
