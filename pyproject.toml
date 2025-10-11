@@ -2,6 +2,9 @@
 name = "CapGen"
 version = "2.0.0"
 description = "A fast CPU-based transcriber"
+dependencies = [
+    "fast-query-parsers>=1.0.3",
+]
 
 [tool.uv.workspace]
 members = ["cli", "transcriber", "captions", "server"]
