@@ -1,9 +1,10 @@
 {
 	"extends": ["github>winstxnhdw/renovate"],
+	"ignoreDeps": ["python"],
 	"packageRules": [
 		{
 			"matchFileNames": ["cli/**", "captions/**", "transcriber/**"],
-			"matchPackageNames": ["python", "faster-whisper", "tokenizers"],
+			"matchPackageNames": ["faster-whisper", "tokenizers"],
 			"enabled": false
 		}
 	]
