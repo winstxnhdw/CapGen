@@ -11,6 +11,8 @@ class Config(BaseSettings):
     use_cuda: bool = False
     request_max_body_size: int = 209715200
 
+    otel_exporter_otlp_endpoint: str | None = None
+
     consul_http_addr: str | None = None
     consul_auth_token: str | None = None
     consul_service_address: str = "winstxnhdw-capgen.hf.space"

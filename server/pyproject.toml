@@ -13,6 +13,8 @@ dependencies = [
     "transcriber",
     "captions",
     "fast-query-parsers>=1.0.3",
+    "opentelemetry-instrumentation-asgi>=0.58b0",
+    "opentelemetry-exporter-otlp-proto-http>=1.37.0",
 ]
 
 [dependency-groups]
