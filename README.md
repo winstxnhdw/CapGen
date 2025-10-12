@@ -17,21 +17,21 @@ Simply cURL the endpoint like in the following. Currently, the only available ca
 
 ```bash
 curl "https://winstxnhdw-CapGen.hf.space/api/v2/transcribe?caption_format=$CAPTION_FORMAT" \
-  -F "file=@$AUDIO_FILE_PATH"
+     -F "file=@$AUDIO_FILE_PATH"
 ```
 
 You can also redirect the output to a file.
 
 ```bash
 curl "https://winstxnhdw-CapGen.hf.space/api/v2/transcribe?caption_format=$CAPTION_FORMAT" \
-  -F "file=@$AUDIO_FILE_PATH" | jq -r ".result" > result.srt
+     -F "file=@$AUDIO_FILE_PATH" | jq -r ".result" > result.srt
 ```
 
 You can stream the captions in real-time with the following.
 
 ```bash
 curl -N "https://winstxnhdw-CapGen.hf.space/api/v2/transcribe/stream?caption_format=$CAPTION_FORMAT" \
-  -F "file=@$AUDIO_FILE_PATH"
+     -F "file=@$AUDIO_FILE_PATH"
 ```
 
 ## Usage (CLI)
