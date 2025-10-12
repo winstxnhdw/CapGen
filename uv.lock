@@ -116,12 +116,6 @@ wheels = [
 name = "capgen"
 version = "2.0.0"
 source = { virtual = "." }
-dependencies = [
-    { name = "fast-query-parsers" },
-]
-
-[package.metadata]
-requires-dist = [{ name = "fast-query-parsers", specifier = ">=1.0.3" }]
 
 [[package]]
 name = "capgen-cli"
@@ -1023,6 +1017,7 @@ source = { editable = "server" }
 dependencies = [
     { name = "aiohttp" },
     { name = "captions" },
+    { name = "fast-query-parsers" },
     { name = "granian" },
     { name = "litestar" },
     { name = "prometheus-client" },
@@ -1044,6 +1039,7 @@ dev = [
 requires-dist = [
     { name = "aiohttp", specifier = ">=3.13.0" },
     { name = "captions", editable = "captions" },
+    { name = "fast-query-parsers", specifier = ">=1.0.3" },
     { name = "granian", specifier = ">=2.5.5" },
     { name = "litestar", specifier = ">=2.18.0" },
     { name = "picologging", marker = "python_full_version < '3.13'", specifier = ">=0.9.3" },

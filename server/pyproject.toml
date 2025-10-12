@@ -12,6 +12,7 @@ dependencies = [
     "aiohttp>=3.13.0",
     "transcriber",
     "captions",
+    "fast-query-parsers>=1.0.3",
 ]
 
 [dependency-groups]

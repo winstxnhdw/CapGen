@@ -1,4 +1,6 @@
-FROM python AS python-builder
+ARG PYTHON_VERSION_TAG=3.13
+
+FROM python:$PYTHON_VERSION_TAG AS python-builder
 
 WORKDIR /home/user
 
@@ -24,7 +26,7 @@ RUN python -c \
     "from huggingface_hub import snapshot_download; snapshot_download('distil-whisper/distil-large-v3.5-ct2')"
 
 
-FROM python:slim
+FROM python:$PYTHON_VERSION_TAG-slim
 
 ENV HOME=/home/user
 ENV PATH=$HOME/.venv/bin:$PATH
