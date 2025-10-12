@@ -42,7 +42,7 @@ curl -N "https://winstxnhdw-CapGen.hf.space/api/v2/transcribe/stream?caption_for
 pip install "capgen-cli @ git+https://github.com/winstxnhdw/CapGen#subdirectory=cli"
 ```
 
-You may also install `capgen` with the necessary CUDA binaries.
+You may also install `capgen-cli` with the necessary CUDA binaries.
 
 ```bash
 pip install "capgen-cli[cuda] @ git+https://github.com/winstxnhdw/CapGen#subdirectory=cli"
