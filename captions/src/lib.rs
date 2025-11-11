@@ -1,5 +1,6 @@
 #![feature(cold_path)]
 
+use pyo3::PyAny;
 use pyo3::exceptions::PyStopIteration;
 use pyo3::intern;
 use pyo3::prelude::Bound;
@@ -92,7 +93,7 @@ impl SubRipText {
 }
 
 #[cfg_attr(not(any(Py_3_8, Py_3_9)), pyclass(immutable_type))]
-#[cfg_attr(any(Py_3_8, Py_3_9), pyclass)]
+#[cfg_attr(any(Py_3_8, Py_3_9), pyclass())]
 struct WebVideoTextTracks {
     segments: Py<PyIterator>,
     has_started: bool,
@@ -149,13 +150,13 @@ impl WebVideoTextTracks {
 }
 
 #[pyfunction]
-fn segments_to_srt(segments: Py<PyIterator>) -> SubRipText {
-    SubRipText::new(segments)
+fn segments_to_srt(segments: Bound<'_, PyAny>) -> PyResult<SubRipText> {
+    Ok(SubRipText::new(segments.try_iter()?.into()))
 }
 
 #[pyfunction]
-fn segments_to_vtt(segments: Py<PyIterator>) -> WebVideoTextTracks {
-    WebVideoTextTracks::new(segments)
+fn segments_to_vtt(segments: Bound<'_, PyAny>) -> PyResult<WebVideoTextTracks> {
+    Ok(WebVideoTextTracks::new(segments.try_iter()?.into()))
 }
 
 #[pyo3::prelude::pymodule()]

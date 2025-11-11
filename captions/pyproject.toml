@@ -9,7 +9,13 @@ classifiers = [
 ]
 
 [dependency-groups]
-dev = ["maturin>=1.10.0"]
+dev = [
+    "maturin>=1.10.0",
+    "nodejs-wheel-binaries>=22.20.0",
+    "pyright>=1.1.407",
+    "pytest>=9.0.0",
+    "ruff>=0.14.4",
+]
 
 [build-system]
 requires = ["maturin>=1.10.0,<2.0"]
@@ -18,3 +24,6 @@ build-backend = "maturin"
 [tool.maturin]
 features = ["pyo3/extension-module"]
 exclude = ["**/uv.lock"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]

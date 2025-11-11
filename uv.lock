@@ -169,12 +169,22 @@ source = { editable = "captions" }
 [package.dev-dependencies]
 dev = [
     { name = "maturin" },
+    { name = "nodejs-wheel-binaries" },
+    { name = "pyright" },
+    { name = "pytest" },
+    { name = "ruff" },
 ]
 
 [package.metadata]
 
 [package.metadata.requires-dev]
-dev = [{ name = "maturin", specifier = ">=1.10.0" }]
+dev = [
+    { name = "maturin", specifier = ">=1.10.0" },
+    { name = "nodejs-wheel-binaries", specifier = ">=22.20.0" },
+    { name = "pyright", specifier = ">=1.1.407" },
+    { name = "pytest", specifier = ">=9.0.0" },
+    { name = "ruff", specifier = ">=0.14.4" },
+]
 
 [[package]]
 name = "certifi"

@@ -11,7 +11,7 @@ line-length = 120
 
 [tool.ruff.lint]
 select = ["ALL"]
-ignore = ["D", "Q", "TC", "INP001", "PLC0414", "PT013", "PLR0913"]
+ignore = ["D", "Q", "TC", "INP001", "PLC0414", "PT013", "COM812"]
 
 [tool.ruff.lint.flake8-annotations]
 suppress-dummy-args = true
