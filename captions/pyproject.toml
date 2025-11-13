@@ -13,7 +13,7 @@ dev = [
     "maturin>=1.10.1",
     "nodejs-wheel-binaries>=22.20.0",
     "pyright>=1.1.407",
-    "pytest>=9.0.0",
+    "pytest>=9.0.1",
     "ruff>=0.14.4",
 ]
 
