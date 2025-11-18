@@ -81,7 +81,7 @@ You can install the required dependencies for your editor with the following.
 uv sync --all-packages
 ```
 
-You can spin the server up locally with the following. You can access the Swagger UI at [localhost:7860/api/docs](http://localhost:7860/api/docs).
+You can spin the server up locally with the following. You can access the Swagger UI at [localhost:7860/api/schema/swagger](http://localhost:7860/api/schema/swagger).
 
 ```bash
 docker build -f Dockerfile.build -t capgen .
