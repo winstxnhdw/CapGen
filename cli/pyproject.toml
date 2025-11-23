@@ -6,7 +6,7 @@ requires-python = ">=3.8"
 dependencies = ["transcriber", "captions"]
 
 [dependency-groups]
-dev = ["nodejs-wheel-binaries>=24.11.1", "pyright>=1.1.407", "ruff>=0.14.5"]
+dev = ["nodejs-wheel-binaries>=24.11.1", "pyright>=1.1.407", "ruff>=0.14.6"]
 
 [build-system]
 requires = ["uv_build"]
