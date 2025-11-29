@@ -12,7 +12,7 @@ dependencies = [
 cuda = ["nvidia-cublas-cu12>=12.9.1.4"]
 
 [dependency-groups]
-dev = ["nodejs-wheel-binaries>=24.11.1", "pyright>=1.1.407", "pytest>=9.0.1", "ruff>=0.14.6"]
+dev = ["nodejs-wheel-binaries>=24.11.1", "pyright>=1.1.407", "pytest>=9.0.1", "ruff>=0.14.7"]
 
 [build-system]
 requires = ["uv_build"]
