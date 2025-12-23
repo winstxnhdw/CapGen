@@ -13,8 +13,6 @@ use pyo3::prelude::pymethods;
 use pyo3::pyfunction;
 use pyo3::types::PyAnyMethods;
 use pyo3::types::PyIterator;
-use pyo3::types::PyModuleMethods;
-use pyo3::wrap_pyfunction;
 
 fn convert_seconds_to_hhmmssmmm(
     time_buffer: &mut [u8; 12],
@@ -159,9 +157,10 @@ fn segments_to_vtt(segments: Bound<'_, PyAny>) -> PyResult<WebVideoTextTracks> {
     Ok(WebVideoTextTracks::new(segments.try_iter()?.into()))
 }
 
-#[pyo3::prelude::pymodule()]
-fn captions(m: &Bound<'_, pyo3::prelude::PyModule>) -> PyResult<()> {
-    m.add_function(wrap_pyfunction!(segments_to_srt, m)?)?;
-    m.add_function(wrap_pyfunction!(segments_to_vtt, m)?)?;
-    Ok(())
+#[pyo3::prelude::pymodule(gil_used = false)]
+mod captions {
+    #[pymodule_export]
+    use super::segments_to_srt;
+    #[pymodule_export]
+    use super::segments_to_vtt;
 }
