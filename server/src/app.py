@@ -5,7 +5,6 @@ from string import ascii_letters, digits
 
 from litestar import Litestar, Response, Router
 from litestar.contrib.opentelemetry import OpenTelemetryConfig, OpenTelemetryPlugin
-from litestar.datastructures import State
 from litestar.openapi import OpenAPIConfig
 from litestar.openapi.spec import Server
 from litestar.plugins import PluginProtocol
@@ -77,8 +76,8 @@ def app() -> Litestar:
         openapi_config=openapi_config,
         exception_handlers={HTTP_500_INTERNAL_SERVER_ERROR: partial(exception_handler, logger)},
         route_handlers=[PrometheusController, v2_router, health],
+        plugins=plugins,
         lifespan=[load_transcriber_model(logger=logger, use_cuda=config.use_cuda, worker_count=config.worker_count)],
         middleware=[PrometheusConfig(app_name).middleware],
         request_max_body_size=config.request_max_body_size,
-        state=State({"config": config}),
     )
