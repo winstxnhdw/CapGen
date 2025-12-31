@@ -12,7 +12,7 @@ on:
       - cli/**
 
 jobs:
-  build:
+  install:
     strategy:
       matrix:
         python-version: [3.8, 3.9, "3.10", 3.11, 3.12, 3.13]
@@ -28,7 +28,7 @@ jobs:
       working-directory: cli
 
   complete:
-    needs: build
+    needs: install
     runs-on: ubuntu-latest
 
     steps:
