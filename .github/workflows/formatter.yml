@@ -6,10 +6,10 @@ on:
       - .github/workflows/formatter.yml
       - pyproject.toml
       - uv.lock
-      - server/**
-      - cli/**
       - transcriber/**
       - captions/**
+      - server/**
+      - cli/**
 
 permissions:
   contents: write

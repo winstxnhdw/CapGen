@@ -9,9 +9,9 @@ on:
       - Dockerfile.build
       - pyproject.toml
       - uv.lock
-      - server/**
       - transcriber/**
       - captions/**
+      - server/**
 
 jobs:
   test:
