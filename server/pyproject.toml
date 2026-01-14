@@ -8,7 +8,7 @@ dependencies = [
     "pydantic-settings>=2.12.0",
     "uvloop>=0.22.1; sys_platform != 'win32'",
     "picologging>=0.9.3; python_version < '3.13'",
-    "prometheus-client>=0.24.0",
+    "prometheus-client>=0.24.1",
     "aiohttp>=3.13.3",
     "transcriber",
     "captions",
@@ -19,7 +19,7 @@ dependencies = [
 ]
 
 [dependency-groups]
-dev = ["httpx>=0.28.1", "nodejs-wheel-binaries>=24.12.0", "pyright>=1.1.408", "pytest>=9.0.2", "ruff>=0.14.11"]
+dev = ["httpx>=0.28.1", "nodejs-wheel-binaries>=24.13.0", "pyright>=1.1.408", "pytest>=9.0.2", "ruff>=0.14.11"]
 
 [build-system]
 requires = ["uv_build"]
