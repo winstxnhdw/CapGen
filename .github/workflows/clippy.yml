@@ -10,6 +10,7 @@ on:
 
 jobs:
   clippy:
-    uses: winstxnhdw/actions/.github/workflows/clippy.yml@main
+    uses: winstxnhdw/actions/.github/workflows/rust.yml@main
     with:
       working-directory: captions
+      disable-test: true
