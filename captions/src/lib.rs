@@ -14,7 +14,7 @@ use pyo3::pyfunction;
 use pyo3::types::PyAnyMethods;
 use pyo3::types::PyIterator;
 
-fn convert_seconds_to_hhmmssmmm(
+const fn convert_seconds_to_hhmmssmmm(
     time_buffer: &mut [u8; 12],
     seconds: f64,
     millisecond_separator: u8,
