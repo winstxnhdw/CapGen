@@ -3,7 +3,7 @@ name = "server"
 version = "2.0.0"
 requires-python = ">=3.13.7, <3.14"
 dependencies = [
-    "granian>=2.6.1",
+    "granian>=2.7.0",
     "litestar>=2.19.0",
     "pydantic-settings>=2.12.0",
     "uvloop>=0.22.1; sys_platform != 'win32'",
