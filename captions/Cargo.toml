@@ -14,7 +14,7 @@ name = "captions"
 crate-type = ["cdylib"]
 
 [dependencies]
-pyo3 = "0.28.0"
+pyo3 = "0.28.1"
 
 [build-dependencies]
-pyo3-build-config = { version = "0.28.0", features = ["resolve-config"] }
+pyo3-build-config = { version = "0.28.1", features = ["resolve-config"] }
