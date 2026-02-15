@@ -1,5 +1,3 @@
-#![feature(cold_path)]
-
 use pyo3::PyAny;
 use pyo3::exceptions::PyStopIteration;
 use pyo3::intern;
