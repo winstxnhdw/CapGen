@@ -165,9 +165,9 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "nodejs-wheel-binaries", specifier = ">=24.13.0" },
+    { name = "nodejs-wheel-binaries", specifier = ">=24.13.1" },
     { name = "pyright", specifier = ">=1.1.408" },
-    { name = "ruff", specifier = ">=0.15.0" },
+    { name = "ruff", specifier = ">=0.15.1" },
 ]
 
 [[package]]
@@ -187,11 +187,11 @@ dev = [
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "maturin", specifier = ">=1.11.5" },
-    { name = "nodejs-wheel-binaries", specifier = ">=24.13.0" },
+    { name = "maturin", specifier = ">=1.12.0" },
+    { name = "nodejs-wheel-binaries", specifier = ">=24.13.1" },
     { name = "pyright", specifier = ">=1.1.408" },
     { name = "pytest", specifier = ">=9.0.2" },
-    { name = "ruff", specifier = ">=0.15.0" },
+    { name = "ruff", specifier = ">=0.15.1" },
 ]
 
 [[package]]
@@ -1246,14 +1246,14 @@ requires-dist = [
     { name = "aiohttp", specifier = ">=3.13.3" },
     { name = "captions", editable = "captions" },
     { name = "fast-query-parsers", specifier = ">=1.0.3" },
-    { name = "granian", specifier = ">=2.7.0" },
-    { name = "litestar", specifier = ">=2.19.0" },
+    { name = "granian", specifier = ">=2.7.1" },
+    { name = "litestar", specifier = ">=2.21.0" },
     { name = "opentelemetry-exporter-otlp-proto-http", specifier = ">=1.39.1" },
     { name = "opentelemetry-instrumentation-asgi", specifier = ">=0.58b0" },
     { name = "opentelemetry-instrumentation-system-metrics", specifier = ">=0.59b0" },
     { name = "picologging", marker = "python_full_version < '3.13'", specifier = ">=0.9.3" },
     { name = "prometheus-client", specifier = ">=0.24.1" },
-    { name = "pydantic-settings", specifier = ">=2.12.0" },
+    { name = "pydantic-settings", specifier = ">=2.13.0" },
     { name = "transcriber", editable = "transcriber" },
     { name = "uvloop", marker = "sys_platform != 'win32'", specifier = ">=0.22.1" },
 ]
@@ -1261,10 +1261,10 @@ requires-dist = [
 [package.metadata.requires-dev]
 dev = [
     { name = "httpx", specifier = ">=0.28.1" },
-    { name = "nodejs-wheel-binaries", specifier = ">=24.13.0" },
+    { name = "nodejs-wheel-binaries", specifier = ">=24.13.1" },
     { name = "pyright", specifier = ">=1.1.408" },
     { name = "pytest", specifier = ">=9.0.2" },
-    { name = "ruff", specifier = ">=0.15.0" },
+    { name = "ruff", specifier = ">=0.15.1" },
 ]
 
 [[package]]
@@ -1376,10 +1376,10 @@ provides-extras = ["cuda"]
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "nodejs-wheel-binaries", specifier = ">=24.13.0" },
+    { name = "nodejs-wheel-binaries", specifier = ">=24.13.1" },
     { name = "pyright", specifier = ">=1.1.408" },
     { name = "pytest", specifier = ">=9.0.2" },
-    { name = "ruff", specifier = ">=0.15.0" },
+    { name = "ruff", specifier = ">=0.15.1" },
 ]
 
 [[package]]
