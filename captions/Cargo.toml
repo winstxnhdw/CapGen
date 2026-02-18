@@ -17,4 +17,4 @@ crate-type = ["cdylib"]
 pyo3 = "0.28.1"
 
 [build-dependencies]
-pyo3-build-config = { version = "0.28.1", features = ["resolve-config"] }
+pyo3-build-config = { version = "0.28.2", features = ["resolve-config"] }
