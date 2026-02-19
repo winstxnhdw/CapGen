@@ -5,7 +5,7 @@ requires-python = ">=3.13.7, <3.14"
 dependencies = [
     "granian>=2.7.1",
     "litestar>=2.21.0",
-    "pydantic-settings>=2.13.0",
+    "pydantic-settings>=2.13.1",
     "uvloop>=0.22.1; sys_platform != 'win32'",
     "picologging>=0.9.3; python_version < '3.13'",
     "prometheus-client>=0.24.1",
