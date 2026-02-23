@@ -16,6 +16,7 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/
 COPY . .
 
 RUN uv sync --package server
+RUN find .venv /usr/local/lib -name '*.so*' -type f -exec strip --strip-unneeded {} + 2>/dev/null
 
 
 FROM python:slim AS model-builder
