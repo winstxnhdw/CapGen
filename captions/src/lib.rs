@@ -40,8 +40,8 @@ const fn convert_seconds_to_hhmmssmmm(
     unsafe { std::str::from_utf8_unchecked(time_buffer) }
 }
 
-#[cfg_attr(not(any(Py_3_8, Py_3_9)), pyclass(frozen, immutable_type))]
-#[cfg_attr(any(Py_3_8, Py_3_9), pyclass(frozen))]
+#[cfg_attr(Py_3_10, pyclass(frozen, immutable_type))]
+#[cfg_attr(not(Py_3_10), pyclass(frozen))]
 struct SubRipText {
     segments: Py<PyIterator>,
 }
@@ -88,8 +88,8 @@ impl SubRipText {
     }
 }
 
-#[cfg_attr(not(any(Py_3_8, Py_3_9)), pyclass(immutable_type))]
-#[cfg_attr(any(Py_3_8, Py_3_9), pyclass())]
+#[cfg_attr(Py_3_10, pyclass(immutable_type))]
+#[cfg_attr(not(Py_3_10), pyclass())]
 struct WebVideoTextTracks {
     segments: Py<PyIterator>,
     has_started: bool,
