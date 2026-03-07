@@ -4,7 +4,7 @@ version = "2.0.0"
 requires-python = ">=3.14.3, <3.15"
 dependencies = [
     "granian>=2.7.2",
-    "litestar>=2.21.0",
+    "litestar>=2.21.1",
     "pydantic-settings>=2.13.1",
     "uvloop>=0.22.1; sys_platform != 'win32'",
     "picologging>=0.9.3; python_version < '3.13'",
@@ -19,7 +19,7 @@ dependencies = [
 ]
 
 [dependency-groups]
-dev = ["httpx>=0.28.1", "nodejs-wheel-binaries>=24.14.0", "pyright>=1.1.408", "pytest>=9.0.2", "ruff>=0.15.4"]
+dev = ["httpx>=0.28.1", "nodejs-wheel-binaries>=24.14.0", "pyright>=1.1.408", "pytest>=9.0.2", "ruff>=0.15.5"]
 
 [build-system]
 requires = ["uv_build"]
