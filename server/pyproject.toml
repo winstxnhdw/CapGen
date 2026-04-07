@@ -3,7 +3,7 @@ name = "server"
 version = "2.0.0"
 requires-python = ">=3.14.3, <3.15"
 dependencies = [
-    "granian>=2.7.2",
+    "granian>=2.7.3",
     "litestar>=2.21.1",
     "pydantic-settings>=2.13.1",
     "uvloop>=0.22.1; sys_platform != 'win32'",
@@ -19,7 +19,7 @@ dependencies = [
 ]
 
 [dependency-groups]
-dev = ["httpx>=0.28.1", "nodejs-wheel-binaries>=24.14.1", "pyright>=1.1.408", "pytest>=9.0.2", "ruff>=0.15.9"]
+dev = ["httpx>=0.28.1", "nodejs-wheel-binaries>=24.14.1", "pyright>=1.1.408", "pytest>=9.0.3", "ruff>=0.15.9"]
 
 [build-system]
 requires = ["uv_build"]
