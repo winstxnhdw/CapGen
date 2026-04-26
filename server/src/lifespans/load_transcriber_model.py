@@ -1,4 +1,4 @@
-from collections.abc import AsyncIterator, Callable
+from collections.abc import AsyncGenerator, Callable
 from contextlib import AbstractAsyncContextManager, asynccontextmanager
 from logging import Logger
 
@@ -14,7 +14,7 @@ async def transcriber_lifespan(
     logger: Logger,
     use_cuda: bool,
     worker_count: int,
-) -> AsyncIterator[None]:
+) -> AsyncGenerator[None]:
     with Transcriber("cuda" if use_cuda else "cpu", number_of_workers=worker_count, logger=logger) as transcriber:
         app.state.transcriber = transcriber
         yield

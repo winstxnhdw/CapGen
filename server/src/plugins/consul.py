@@ -1,4 +1,4 @@
-from collections.abc import AsyncIterator
+from collections.abc import AsyncGenerator
 from contextlib import asynccontextmanager
 
 from aiohttp import ClientSession
@@ -18,7 +18,7 @@ async def consul_register(
     consul_service_address: str,
     server_root_path: str,
     consul_auth_token: str | None = None,
-) -> AsyncIterator[None]:
+) -> AsyncGenerator[None]:
     """
     Summary
     -------
