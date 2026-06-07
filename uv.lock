@@ -197,7 +197,7 @@ requires-dist = [
 dev = [
     { name = "nodejs-wheel-binaries", specifier = ">=24.16.0" },
     { name = "pyright", specifier = ">=1.1.410" },
-    { name = "ruff", specifier = ">=0.15.15" },
+    { name = "ruff", specifier = ">=0.15.16" },
 ]
 
 [[package]]
@@ -221,7 +221,7 @@ dev = [
     { name = "nodejs-wheel-binaries", specifier = ">=24.16.0" },
     { name = "pyright", specifier = ">=1.1.410" },
     { name = "pytest", specifier = ">=9.0.3" },
-    { name = "ruff", specifier = ">=0.15.15" },
+    { name = "ruff", specifier = ">=0.15.16" },
 ]
 
 [[package]]
@@ -1345,7 +1345,7 @@ dev = [
     { name = "nodejs-wheel-binaries", specifier = ">=24.16.0" },
     { name = "pyright", specifier = ">=1.1.410" },
     { name = "pytest", specifier = ">=9.0.3" },
-    { name = "ruff", specifier = ">=0.15.15" },
+    { name = "ruff", specifier = ">=0.15.16" },
 ]
 
 [[package]]
@@ -1449,7 +1449,7 @@ dev = [
     { name = "nodejs-wheel-binaries", specifier = ">=24.16.0" },
     { name = "pyright", specifier = ">=1.1.410" },
     { name = "pytest", specifier = ">=9.0.3" },
-    { name = "ruff", specifier = ">=0.15.15" },
+    { name = "ruff", specifier = ">=0.15.16" },
 ]
 
 [[package]]
