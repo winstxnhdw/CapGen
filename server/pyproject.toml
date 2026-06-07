@@ -19,7 +19,7 @@ dependencies = [
 ]
 
 [dependency-groups]
-dev = ["httpx>=0.28.1", "nodejs-wheel-binaries>=24.16.0", "pyright>=1.1.410", "pytest>=9.0.3", "ruff>=0.15.15"]
+dev = ["httpx>=0.28.1", "nodejs-wheel-binaries>=24.16.0", "pyright>=1.1.410", "pytest>=9.0.3", "ruff>=0.15.16"]
 
 [build-system]
 requires = ["uv_build"]
