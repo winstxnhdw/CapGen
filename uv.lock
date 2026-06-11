@@ -580,7 +580,7 @@ wheels = [
 
 [[package]]
 name = "litestar"
-version = "2.23.0"
+version = "2.24.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "anyio" },
@@ -597,9 +597,9 @@ dependencies = [
     { name = "sniffio" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/30/40/911bf1276349bb5147e14198200de3c1951f3b0f89077fce591eb7e868cb/litestar-2.23.0.tar.gz", hash = "sha256:7a6b7fff7351ab52dcf40e0c2170caadd8d1a55ad58c4749b2054dc17e621e18", size = 382414, upload-time = "2026-05-29T20:13:18.784Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/42/f6/33619a1562c6732dab211a967b1e7af3285de29d655c0b37b3f379aa2700/litestar-2.24.0.tar.gz", hash = "sha256:8f4b137cb115554b9fbc12bd01d398d5bb40ba85f2d333dd73f4b747308bbb46", size = 383070, upload-time = "2026-06-11T11:27:00.519Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/c0/d2/e4525c6192f97a7e53f2682c83bf1e34177741bf7d74978ba03926545cdc/litestar-2.23.0-py3-none-any.whl", hash = "sha256:c969a2624ac4d690764f6f8656cea231fc979ec778064ee7ec68428a04cee86a", size = 581116, upload-time = "2026-05-29T20:13:16.827Z" },
+    { url = "https://files.pythonhosted.org/packages/c8/ce/4697b547790f23d2fcc37a928d48c38140cf86360e4041ca8177e3367c14/litestar-2.24.0-py3-none-any.whl", hash = "sha256:0ef13630173ea147847363f03f0459877ab14a572e68b2af7a25796055513a31", size = 581807, upload-time = "2026-06-11T11:26:58.509Z" },
 ]
 
 [[package]]
@@ -1328,7 +1328,7 @@ requires-dist = [
     { name = "captions", editable = "captions" },
     { name = "fast-query-parsers", specifier = ">=1.0.3" },
     { name = "granian", specifier = ">=2.7.6" },
-    { name = "litestar", specifier = ">=2.23.0" },
+    { name = "litestar", specifier = ">=2.24.0" },
     { name = "opentelemetry-exporter-otlp-proto-http", specifier = ">=1.42.1" },
     { name = "opentelemetry-instrumentation-asgi", specifier = ">=0.58b0" },
     { name = "opentelemetry-instrumentation-system-metrics", specifier = ">=0.59b0" },
