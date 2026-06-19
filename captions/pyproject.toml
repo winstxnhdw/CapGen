@@ -10,7 +10,7 @@ classifiers = [
 
 [dependency-groups]
 dev = [
-    "maturin>=1.14.0",
+    "maturin>=1.14.1",
     "nodejs-wheel-binaries>=24.16.0",
     "pyright>=1.1.410",
     "pytest>=9.1.0",
@@ -18,7 +18,7 @@ dev = [
 ]
 
 [build-system]
-requires = ["maturin>=1.14.0,<2.0"]
+requires = ["maturin>=1.14.1,<2.0"]
 build-backend = "maturin"
 
 [tool.maturin]
