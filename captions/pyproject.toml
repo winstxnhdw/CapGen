@@ -14,7 +14,7 @@ dev = [
     "nodejs-wheel-binaries>=24.16.0",
     "pyright>=1.1.411",
     "pytest>=9.1.1",
-    "ruff>=0.15.21",
+    "ruff>=0.15.22",
 ]
 
 [build-system]
