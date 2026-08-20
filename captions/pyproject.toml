@@ -11,7 +11,7 @@ classifiers = [
 [dependency-groups]
 dev = [
     "maturin>=1.14.1",
-    "nodejs-wheel-binaries>=24.16.0",
+    "nodejs-wheel-binaries>=24.19.0",
     "pyright>=1.1.411",
     "pytest>=9.1.1",
     "ruff>=0.16.3",
