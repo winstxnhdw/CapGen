@@ -18,19 +18,19 @@ jobs:
     strategy:
       matrix:
         working-directory: [server, transcriber, captions]
-    uses: winstxnhdw/actions/.github/workflows/uv.yml@0832d473774c1447617374fce8cf68e75c50dd7f # main
+    uses: winstxnhdw/actions/.github/workflows/uv.yml@4d514e9cc5ee4206069ba3216a5751f08938e355 # main
     with:
       working-directory: ${{ matrix.working-directory }}
 
   build:
-    uses: winstxnhdw/actions/.github/workflows/docker-build.yml@0832d473774c1447617374fce8cf68e75c50dd7f # main
+    uses: winstxnhdw/actions/.github/workflows/docker-build.yml@4d514e9cc5ee4206069ba3216a5751f08938e355 # main
     with:
       file: Dockerfile.build
 
   push:
     if: github.ref == 'refs/heads/main'
     needs: [test, build]
-    uses: winstxnhdw/actions/.github/workflows/docker-push.yml@0832d473774c1447617374fce8cf68e75c50dd7f # main
+    uses: winstxnhdw/actions/.github/workflows/docker-push.yml@4d514e9cc5ee4206069ba3216a5751f08938e355 # main
     with:
       file: Dockerfile.build
     secrets:
@@ -41,6 +41,6 @@ jobs:
   restart:
     if: github.ref == 'refs/heads/main'
     needs: push
-    uses: winstxnhdw/actions/.github/workflows/spaces-restart.yml@0832d473774c1447617374fce8cf68e75c50dd7f # main
+    uses: winstxnhdw/actions/.github/workflows/spaces-restart.yml@4d514e9cc5ee4206069ba3216a5751f08938e355 # main
     secrets:
       token: ${{ secrets.HF_TOKEN }}
