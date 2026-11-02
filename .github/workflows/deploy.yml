@@ -7,6 +7,6 @@ on:
 
 jobs:
   deploy:
-    uses: winstxnhdw/actions/.github/workflows/spaces-deploy.yml@bfab88ec8f2299aca2069cf92f09d011b65f0889 # main
+    uses: winstxnhdw/actions/.github/workflows/spaces-deploy.yml@194a3954c9a7525253ad966bf030068bdbc0250e # main
     secrets:
       token: ${{ secrets.HF_TOKEN }}
